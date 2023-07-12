@@ -89,11 +89,8 @@ h1 {
   color: burlywood;
 }
 
-.icon-profile-button {
-  /*background-color: transparent;*/
-}
-
 .icon-profile-link {
+  background-color: transparent;
   cursor: pointer;
 }
 
