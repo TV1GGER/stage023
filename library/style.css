@@ -629,3 +629,182 @@ h1 {
 .contacts-e-mail-link:hover {
   color: #BB945F;
 }
+
+.library-card-container {
+  padding-top: 20px;
+  padding-bottom: 41px;
+}
+
+.library-card-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  text-align: center;
+  font-family: 'Forum';
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.library-card-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.library-card-get-a-card {
+  text-align: right;
+}
+
+.library-card-find-card-header {
+  color: #000;
+  font-family: 'Inter';
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.6px;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.library-card-find-card {
+  width: 600px;
+  height: 386px;
+  border: 3px solid #BB945F;
+  background-color: #FFF;
+}
+
+.library-card-input-form-gold-bg {
+  width: 560px;
+  height: 272px;
+  background-color: #BB945F;
+  margin: 20px auto;
+  padding: 20px 20px 25px 20px;
+}
+
+.library-card-input-form-title {
+  color: #000;
+  font-family: 'Forum';
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.6px;
+  padding-bottom: 20px;
+}
+
+.library-card-input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.library-card-input-container input {
+  width: 520px;
+  height: 66px;
+  border-radius: 10px;
+  background-color: #FFF;
+  padding-top: 8px;
+  padding-left: 20px;
+  padding-bottom: 8px;
+  color: #8E8E8E;
+  font-family: 'Forum';
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.6px;
+}
+
+.library-card-check-card-button {
+  display: block;
+  padding: 10px 40px;
+  border-radius: 2px;
+  border: 1px solid #0C0C0E;
+  color: #0C0C0E;
+  text-align: center;
+  font-family: 'Inter';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.library-card-check-card-button:hover {
+  border: 1px solid #BB945F;
+  background-color: #BB945F;
+}
+
+.library-card-get-card-header {
+  color: #000;
+  font-family: 'Forum';
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.6px;
+  padding-bottom: 35px;
+}
+
+.library-card-get-card-text {
+  width: 456px;
+  color: #000;
+  text-align: right;
+  font-family: 'Inter';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0.4px;
+  padding-bottom: 44px;
+}
+
+.library-card-buttons-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+.library-card-button-sign-up, .library-card-button-log-in {
+  width: 75px;
+  height: 30px;
+  border-radius: 2px;
+  border: 1px solid #0C0C0E;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.library-card-button-sign-up:hover, .library-card-button-log-in:hover {
+  border: 1px solid #BB945F;
+  background-color: #BB945F;
+}
+
+.readers-name:valid {
+  border-color: rgb(0, 228, 76);
+}
+
+.readers-name:invalid {
+  border-color: red;
+}
+
+.card-number:valid {
+  border-color: rgb(0, 228, 76);
+}
+
+.card-number:invalid {
+  border-color: red;
+}
