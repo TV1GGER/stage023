@@ -850,6 +850,10 @@ h1 {
   align-items: center;
 }
 
+.footer-contact-social-link li {
+  list-style: none;
+}
+
 .footer-contact-social-link svg{
   cursor: pointer;
 }
@@ -888,10 +892,6 @@ h1 {
   line-height: 40px;
   letter-spacing: 2px;
   padding: 44px 20px 44px 20px;
-}
-
-.footer-rss li {
-  list-style: none;
 }
 
 .footer-rss-git-hub-link, .footer-rss-link, .footer-contact-adress-link {
