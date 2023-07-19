@@ -808,3 +808,99 @@ h1 {
 .card-number:invalid {
   border-color: red;
 }
+
+.footer {
+  width: 100%;
+  background-color: #0C0C0E;
+}
+
+.footer-container {
+  max-width: 1440px;
+}
+
+.footer-media {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #FFF;
+  text-align: right;
+  font-family: 'Inter';
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  padding: 20px 20px 30px 20px;
+}
+
+.footer-contact-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  gap: 10px;
+}
+
+.footer-contact-social-link {
+  max-width: 102px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-contact-social-link svg{
+  cursor: pointer;
+}
+
+.footer-svg:hover .svg-path{
+  fill: #BB945F;
+}
+
+.footer-work-hours {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: right;
+  gap: 10px;
+}
+
+.footer-line {
+  width: 1400px;
+  height: 1px;
+  background-color: #FFF;
+  margin: 0 auto;
+}
+
+.footer-rss {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  color: #FFF;
+  text-align: center;
+  font-family: 'Inter';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  padding: 44px 20px 44px 20px;
+}
+
+.footer-rss li {
+  list-style: none;
+}
+
+.footer-rss-git-hub-link, .footer-rss-link, .footer-contact-adress-link {
+  text-decoration: none;
+  color: #FFF;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.footer-rss-git-hub-link:hover, .footer-rss-link:hover, .footer-contact-adress-link:hover {
+  color: #BB945F;
+}
