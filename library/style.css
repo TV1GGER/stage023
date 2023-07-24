@@ -447,7 +447,7 @@ h1 {
 .coffee-shop-container {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 41px;
   padding-top: 20px;
   padding-bottom: 40px;
 }
@@ -458,7 +458,6 @@ h1 {
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-  margin-top: 20px;
 }
 
 .coffee-shop-container {
@@ -485,6 +484,8 @@ h1 {
 }
 
 .coffee-and-tea-menu {
+  max-width: 438px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
