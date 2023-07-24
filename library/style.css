@@ -214,8 +214,7 @@ h1 {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  margin-top: 40px;
+  margin-top: 35px;
 }
 
 .about-dots-btn {
@@ -243,7 +242,8 @@ h1 {
   justify-content: space-between;
   align-items: center;
   gap: 20px;
-  margin-top: 20px;
+  margin-top: 15px;
+  padding-bottom: 40px;
 }
 
 .favorites-legend-radio {
@@ -263,7 +263,7 @@ h1 {
   align-items: center;
   width: 700px;
   gap: 90px;
-  margin-top: 45px;
+  margin-top: 40px;
 }
 
 .favorites-radio-inputs-container {
@@ -320,11 +320,12 @@ h1 {
   align-items: center;
   gap: 40px 0px;
   padding-top: 40px;
+  padding-right: 40px;
 }
 
 .staff-picks-container-img {
   min-width: 590px;
-  min-height: 550px;
+  min-height: 552px;
   position: relative;
   
 }
@@ -391,7 +392,7 @@ h1 {
 }
 
 .staff-picks-content {
-  width: 355px;
+  width: 357px;
   color: #000;
   font-family: 'Inter';
   font-size: 15px;
@@ -405,7 +406,7 @@ h1 {
 
 .staff-picks-button {
   position: absolute;
-  bottom: 15px;
+  bottom: 14px;
   width: 75px;
   height: 30px;
   border-radius: 2px;
