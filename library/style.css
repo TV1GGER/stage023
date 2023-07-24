@@ -185,6 +185,9 @@ h1 {
   line-height: 40px;
   letter-spacing: 2px;
   text-transform: capitalize;
+}
+
+.contacts h2, .library-card h2{
   margin-left: -18px;
 }
 
@@ -900,7 +903,6 @@ h1 {
 }
 
 .footer-rss {
-  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -913,7 +915,11 @@ h1 {
   font-weight: 400;
   line-height: 40px;
   letter-spacing: 2px;
-  padding: 44px 20px 44px 20px;
+  padding: 34px 20px 35px 20px;
+}
+
+.footer-rss-text-link {
+  margin-left: 153px;
 }
 
 .footer-rss-git-hub-link, .footer-rss-link, .footer-contact-adress-link {
