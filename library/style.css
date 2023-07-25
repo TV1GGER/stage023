@@ -346,6 +346,11 @@ h1 {
   padding-right: 40px;
 }
 
+#body-stephen-king, #carry-toni-jenson, #days-alexandra-chang, #dominicana-angie-cruz, #crude-pablo-fajardo-sophie-tardy-joubert, 
+#people-yvon-chouinard, #octopus-brenda-shaughnessy, #shark-kiana-davenport, #casual-renia-white, #fire-lou-ureneck, #rickey-howard-bryant, #slug-megan-milks {
+  display: none;
+}
+
 .staff-picks-container-img {
   min-width: 590px;
   min-height: 552px;
@@ -356,7 +361,7 @@ h1 {
 .staff-picks-img {
   display: block;
   position: absolute;
-  bottom:-1px;
+  bottom:-2px;
   right:0;
 }
 
