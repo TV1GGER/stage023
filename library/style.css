@@ -929,6 +929,10 @@ h1 {
   cursor: pointer;
 }
 
+.svg-path {
+  transition: 0.4s;
+}
+
 .footer-svg:hover .svg-path{
   fill: #BB945F;
 }
