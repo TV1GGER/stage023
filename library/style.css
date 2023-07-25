@@ -69,7 +69,7 @@ h1 {
   width: 315px;
   display: inline-block;
   margin-left: 20px;
-  color: #FFF;
+  color: #FFFFFF;
   text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   font-family: 'Forum';
   font-size: 30px;
@@ -85,7 +85,7 @@ h1 {
   justify-content: space-between;
   list-style: none;
   gap: 30px;
-  color: #FFF;
+  color: #FFFFFF;
   font-family: 'Inter';
   font-size: 20px;
   font-style: normal;
@@ -102,8 +102,8 @@ h1 {
 }
 
 .nav-link a:hover {
+  color: #BB945F;
   text-decoration: none;
-  color: burlywood;
 }
 
 .icon-profile-link {
@@ -116,6 +116,15 @@ h1 {
   height: 28px;
   flex-shrink: 0;
   margin-right: 20px;
+}
+
+.icon-profile-link path {
+  transition: 0.4s;
+}
+
+
+.icon-profile-link:hover path {
+  fill: #BB945F;
 }
 
 .welcome {
