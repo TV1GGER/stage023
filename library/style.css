@@ -449,6 +449,13 @@ h1 {
   line-height: normal;
   letter-spacing: 1px;
   cursor: pointer;
+  transition: 0.4s;
+}
+
+.staff-picks-button:hover {
+  border-radius: 2px;
+  border: 1px solid #BB945F;
+  background-color: #BB945F;
 }
 
 .staff-picks-button-own {
@@ -468,7 +475,6 @@ h1 {
   line-height: normal;
   letter-spacing: 1px;
   margin-bottom: 0;
-  cursor: pointer;
   background-color: transparent;
 }
 
