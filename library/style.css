@@ -153,9 +153,9 @@ h1 {
 }
 
 .welcome-text {
-  display: inline-block;
+  width: fit-content;
+  display: block;
   color: #FFF;
-  text-align: center;
   font-family: 'Forum';
   font-size: 40px;
   font-style: normal;
@@ -163,6 +163,7 @@ h1 {
   line-height: 50px;
   letter-spacing: 3px;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .about {
@@ -206,9 +207,10 @@ h1 {
   line-height: 40px;
   letter-spacing: 2px;
   text-transform: capitalize;
+  text-align: center;
 }
 
-.contacts h2, .library-card h2{
+.contacts h2 {
   margin-left: -18px;
 }
 
@@ -217,7 +219,6 @@ h1 {
   height: 1px;
   flex-shrink: 0;
   background-color: #0C0C0E;
-  margin-left: -18px;
 }
 
 .about-slider-images {
@@ -291,10 +292,11 @@ h1 {
 .favorites-radio-inputs {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content:space-between;
   align-items: center;
-  width: 700px;
-  margin-top: 40px;
+  width: 705px;
+  margin-top: 35px;
+  margin-left: -5px;
 }
 
 .favorites-radio-inputs-container {
@@ -303,6 +305,10 @@ h1 {
   justify-content: space-between;
   align-items: center;
   border: 5px solid transparent;
+}
+
+#summer-container {
+  margin-right: 15px;
 }
 
 .favorites-radio-inputs label {
@@ -351,7 +357,7 @@ h1 {
   justify-content: space-between;
   align-items: center;
   gap: 40px 0px;
-  padding-top: 40px;
+  padding-top: 35px;
   padding-right: 40px;
 }
 
@@ -377,8 +383,8 @@ h1 {
 .staff-picks-container-content {
   height: 550px;
   display: inline-block;
-  padding-left: 20px;
-  padding-top: 15px;
+  padding-left: 19px;
+  padding-top: 13px;
 }
 
 .staff-picks-header {
@@ -521,6 +527,10 @@ h1 {
   letter-spacing: 2px;
 }
 
+.coffee-shop-our {
+  text-transform: lowercase;
+}
+
 .coffee-shop-menu {
   display: flex;
   flex-direction: row;
@@ -612,6 +622,10 @@ h1 {
   padding-bottom: 40px;
 }
 
+.contacts-header h2 {
+  padding-left: 18px;
+}
+
 .contacts-info {
   width: 696;
   display: flex;
@@ -635,7 +649,6 @@ h1 {
   width: 696px;
   height: 414px;
   overflow: hidden;
-  margin-right: 20px;
 }
 
 .location-map {
@@ -710,9 +723,7 @@ h1 {
   align-items: center;
   gap: 20px;
   margin-top: 20px;
-  margin-left: 20px;
   margin-bottom: 40px;
-  text-align: center;
   font-family: 'Forum';
   font-size: 40px;
   font-style: normal;
@@ -852,6 +863,14 @@ h1 {
 .library-card-button-sign-up, .library-card-button-log-in {
   width: 75px;
   height: 30px;
+  color: #0C0C0E;
+  text-align: center;
+  font-family: 'Inter';
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
   border-radius: 2px;
   border: 1px solid #0C0C0E;
   cursor: pointer;
