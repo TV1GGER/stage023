@@ -252,6 +252,14 @@ h1 {
   cursor: pointer;
 }
 
+#about-dots-btn4 {
+  visibility: hidden;
+}
+
+#about-dots-btn5 {
+  visibility: hidden;
+}
+
 .about-dots-btn-svg {
   position: absolute;
   margin: 0;
@@ -1001,3 +1009,117 @@ h1 {
 .footer-rss-git-hub-link:hover, .footer-rss-link:hover, .footer-contact-adress-link:hover {
   color: #BB945F;
 }
+
+@media screen and (max-width: 768px) {
+  @media (prefers-reduced-motion: no-preference) { 
+      :root {
+      scroll-behavior: smooth;
+  }}  
+
+  .header-container {
+    max-width: 768px;
+  }
+
+  .welcome-container {
+    max-width: 768px;
+  }
+
+  .about-container {
+    max-width: 728px;
+  }
+
+  .favorites-container {
+    max-width: 728px;
+  }
+
+  .coffee-shop-container {
+    max-width: 728px;
+  }
+
+  .contacts-container {
+    max-width: 728px;
+  }
+
+  .library-card-container {
+    max-width: 728px;
+  }
+  
+  .footer-container {
+    max-width: 768px;
+  }
+
+  #about-image2 {
+    display: none;
+  }
+
+  #about-image3 {
+    display: none;
+  }
+
+  #about-dots-btn4 {
+    visibility: visible;
+  }
+  
+  #about-dots-btn5 {
+    visibility: visible;
+  }
+
+  .staff-picks-container {
+    justify-content: center;
+    gap: 40px;
+    padding-top: 35px;
+    padding-right: 0px;
+  }
+
+  .coffee-shop-menu {
+    width: 728px;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .coffee-and-tea-menu {
+    width: 482px;
+  }
+
+  .desserts-and-cakes-menu {
+    width: 482px;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+  .contacts-info{
+    width: 727px;
+    flex-direction: column;
+    gap: 100px;
+  }
+
+  .location-info{
+    margin: 0 auto;
+  }
+
+  .library-card-content{
+    flex-direction: column;
+  }
+
+  .library-card-find-card{
+    margin: 0 auto;
+  }
+
+  .library-card-get-card-header{
+    text-align: center;
+  }
+
+  .library-card-get-card-text {
+    width: 600px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .library-card-buttons-container{
+    justify-content: center;
+  }
+
+  .footer-rss-text-link {
+    margin-left: 0px;
+  }
+  }
