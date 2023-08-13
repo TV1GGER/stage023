@@ -1,4 +1,4 @@
-console.log(' Self-assessment of my work:\n\n 1.Valid layout +10\n 2.Semantic layout +16\n 3.The layout matches the macket +54\n 4.General requirements for layout +20\n ------------------\n Total: 100 points\n\n\n P.S.\n  Have a nice day!');
+console.log(' Моя самооценка:\n\n 1.Вёрстка соответствует макету. Ширина экрана 768px +26\n 2.Ни на одном из разрешений до 640px включительно не появляется горизонтальная полоса прокрутки. Весь контент страницы при этом сохраняется: не обрезается и не удаляется +12\n 3.На ширине экрана 768рх реализовано адаптивное меню +12\n  ------------------\n Total: 50 points\n\n\n P.S.\n  Have a nice day!');
 
 (function() {
   const burgerItem = document.querySelector('.burger__btn');
