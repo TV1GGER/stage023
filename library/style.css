@@ -1256,7 +1256,7 @@ h1 {
 
   .welcome {
     width: 100%;
-    background: url("./assets/img/welcome-bg.png"), lightgray 50%, no-repeat;
+    background: url("./assets/img/welcome-bg-768.png"), no-repeat;
     background-size: cover;
   }
 
@@ -1279,6 +1279,28 @@ h1 {
     height: auto;
     justify-content: center;
     align-items: center;
+    gap: 0px;
+    margin: 20px auto;
+  }
+
+  .carret-left {
+    padding-right: 58px;
+    margin-top: 40px;
+    cursor: pointer;
+  }
+
+  .carret-right {
+    padding-left: 58px;
+    margin-top: 40px;
+    cursor: pointer;
+  }
+
+  #about-image2 {
+    display: none;
+  }
+
+  #about-image3 {
+    display: none;
   }
 
   .about-slider-dots-navigation {
@@ -1302,14 +1324,6 @@ h1 {
   
   .footer-container {
     max-width: 768px;
-  }
-
-  #about-image2 {
-    display: none;
-  }
-
-  #about-image3 {
-    display: none;
   }
 
   #about-dots-btn4 {
