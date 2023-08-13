@@ -1292,12 +1292,14 @@ h1 {
   }
 
   .carret-left {
+    display: block;
     padding-right: 58px;
     margin-top: 40px;
     cursor: pointer;
   }
 
   .carret-right {
+    display: block;
     padding-left: 58px;
     margin-top: 40px;
     cursor: pointer;
