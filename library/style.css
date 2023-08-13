@@ -1037,6 +1037,10 @@ h1 {
     padding: 20px;
   }
 
+  h1 {
+    margin: 0;
+  }
+
   .icon-profile {
     width: 28px;
     height: 28px;
@@ -1154,6 +1158,10 @@ h1 {
     max-width: 728px;
   }
 
+  .about-slider-dots-navigation {
+    margin-top: 20px;
+  }
+
   .coffee-shop-container {
     max-width: 728px;
   }
@@ -1187,16 +1195,23 @@ h1 {
   }
 
   .staff-picks-container {
-    justify-content: center;
+    justify-content:space-between;
     gap: 40px;
     padding-top: 35px;
     padding-right: 0px;
+    padding-left: 70px;
+    padding-right: 89px;
   }
 
   .coffee-shop-menu {
     width: 728px;
     flex-direction: column;
     gap: 40px;
+  }
+
+  .coffee-shop-text-intro {
+    max-width: 728px;
+    max-height: 200px;
   }
 
   .coffee-and-tea-menu {
@@ -1227,6 +1242,10 @@ h1 {
     margin: 0 auto;
   }
 
+  .library-card-find-card-container {
+    padding-bottom: 25px;
+  }
+
   .library-card-get-card-header{
     text-align: center;
   }
@@ -1235,6 +1254,7 @@ h1 {
     width: 600px;
     text-align: center;
     margin: 0 auto;
+    padding-bottom: 43px;
   }
 
   .library-card-buttons-container{
@@ -1252,5 +1272,13 @@ h1 {
   .footer-line{
     max-width: 728px;
     max-height: 1px;
+  }
+
+  .footer-media {
+    padding: 20px 0px 30px 0px;
+  }
+
+  .footer-rss {
+    padding: 34px 0px 35px 0px;
   }
   }
