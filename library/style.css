@@ -236,13 +236,36 @@ h1 {
   background-color: #0C0C0E;
 }
 
+.about-slider-wrapper {
+  overflow: hidden;
+}
+
 .about-slider-images {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content:center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.about-img-wrapper {
+  position: relative;
+  width: 2350px;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
   align-items: center;
   gap: 25px;
-  margin-top: 20px;
+  transition: 5s;
+}
+
+.carosel-img {
+  position: relative;
+  max-width: 2250px;
+  height: auto;
+  margin: 0 auto;
+  overflow: hidden;
+  transition: 0.42s;
 }
 
 .about-slider-img {
@@ -250,6 +273,12 @@ h1 {
   max-width: 450px;
   height: auto;
   object-fit: cover;
+}
+
+.about-slider-images-container {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
 }
 
 .carret-left {
@@ -269,12 +298,15 @@ h1 {
   margin-left: 50px;
 }
 
+#about-dots-btn1, #about-dots-btn2, #about-dots-btn3, #about-dots-btn4, #about-dots-btn5 {
+  cursor: pointer;
+}
+
 .about-dots-btn {
   position: relative;
   height: 26px;
   width: 26px;
   vertical-align: middle;
-  cursor: pointer;
 }
 
 #about-dots-btn4 {
@@ -290,6 +322,76 @@ h1 {
   margin: 0;
   top: 50%;
   transform: translate(-50%, -50%)
+}
+
+@keyframes move-right {
+  from {left: 0px;}
+  to {left: 475px;}
+}
+
+.transition-right {
+  animation-name: move-right;
+  animation-duration: 5s;
+}
+
+@keyframes move-left {
+  from {left: 0px;}
+  to {left: -475px;}
+}
+
+.transition-left {
+  animation-name: move-left;
+  animation-duration: 5s;
+}
+
+@keyframes move-dot3-right {
+  from {left: 0px;}
+  to {left: -950px;}
+}
+
+.transition-dot3-right {
+  animation-name: move-dot3-right;
+  animation-duration: 5s;
+}
+
+@keyframes move-dot3-right-middle {
+  from {left: -475px;}
+  to {left: -950px;}
+}
+
+.transition-dot3-right-middle {
+  animation-name: move-dot3-right-middle;
+  animation-duration: 5s;
+}
+
+@keyframes move-dot4-right {
+  from {left: 0px;}
+  to {left: -1425px;}
+}
+
+.transition-dot4-right {
+  animation-name: move-dot4-right;
+  animation-duration: 5s;
+}
+
+@keyframes move-dot4-left {
+  from {right: -1900px;}
+  to {right: -1450px;}
+}
+
+.transition-dot4-left {
+  animation-name: move-dot4-left;
+  animation-duration: 5s;
+}
+
+@keyframes move-dot5-right {
+  from {left: 0px;}
+  to {left: -1900px;}
+}
+
+.transition-dot5-right {
+  animation-name: move-dot5-right;
+  animation-duration: 5s;
 }
 
 .favorites {
@@ -1316,17 +1418,79 @@ h1 {
     cursor: pointer;
   }
 
-  #about-image2 {
-    display: none;
-  }
-
-  #about-image3 {
-    display: none;
-  }
-
   .about-slider-dots-navigation {
     margin-top: 15px;
     margin-left: 0px;
+  }
+
+  @keyframes move-right {
+    from {left: 0px;}
+    to {left: 475px;}
+  }
+  
+  .transition-right {
+    animation-name: move-right;
+    animation-duration: 5s;
+  }
+  
+  @keyframes move-left {
+    from {left: 0px;}
+    to {left: -475px;}
+  }
+  
+  .transition-left {
+    animation-name: move-left;
+    animation-duration: 5s;
+  }
+  
+  @keyframes move-dot3-right {
+    from {left: 0px;}
+    to {left: -950px;}
+  }
+  
+  .transition-dot3-right {
+    animation-name: move-dot3-right;
+    animation-duration: 5s;
+  }
+
+  @keyframes move-dot3-left {
+    from {right: -1450px;}
+    to {right: -950px;}
+  }
+  
+  .transition-dot3-left {
+    animation-name: move-dot3-left;
+    animation-duration: 5s;
+  }
+
+  @keyframes move-dot4-right {
+    from {left: 0px;}
+    to {left: -1425px;}
+  }
+  
+  .transition-dot4-right {
+    animation-name: move-dot4-right;
+    animation-duration: 5s;
+  }
+
+  @keyframes move-dot4-left {
+    from {right: -1900px;}
+    to {right: -1450px;}
+  }
+  
+  .transition-dot4-left {
+    animation-name: move-dot4-left;
+    animation-duration: 5s;
+  }
+
+  @keyframes move-dot5-right {
+    from {left: 0px;}
+    to {left: -1900px;}
+  }
+  
+  .transition-dot5-right {
+    animation-name: move-dot5-right;
+    animation-duration: 5s;
   }
 
   .coffee-shop-container {
@@ -1349,10 +1513,12 @@ h1 {
 
   #about-dots-btn4 {
     visibility: visible;
+    transition: 5s;
   }
   
   #about-dots-btn5 {
     visibility: visible;
+    transition: 5s;
   }
 
   .staff-picks-container {
