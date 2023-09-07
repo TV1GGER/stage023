@@ -496,9 +496,32 @@ h1 {
   padding-right: 40px;
 }
 
-#body-stephen-king, #carry-toni-jenson, #days-alexandra-chang, #dominicana-angie-cruz, #crude-pablo-fajardo-sophie-tardy-joubert, 
+#eaters-sunyi-dean, #Cackle-Rachel-Harrison, #dante-erich-auerbach, #queen-clive-irving, #body-stephen-king, #carry-toni-jenson, #days-alexandra-chang, #dominicana-angie-cruz, #crude-pablo-fajardo-sophie-tardy-joubert, 
 #people-yvon-chouinard, #octopus-brenda-shaughnessy, #shark-kiana-davenport, #casual-renia-white, #fire-lou-ureneck, #rickey-howard-bryant, #slug-megan-milks {
-  display: none;
+  /*position: absolute;
+  top: -100%;
+  visibility: hidden;*/
+  /*height: 0px;*/
+  /*width: 0px;*/
+  transition: 1.4s;
+}
+
+.unvisible-img {
+  /*position: absolute;
+  height: 0px;
+  width: 0px;
+  top: -100%;*/
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s /*linear*/;
+}
+
+.visible-img {
+  position: relative;
+  /*top: 0%;*/
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.3s /*linear*/;
 }
 
 .staff-picks-container-img {

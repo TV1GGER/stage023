@@ -446,3 +446,142 @@ setDotColor();
   aboutDotsBtn5.addEventListener("click", moveDot5);
   arrowRight.addEventListener("click", arrowRightBtn);
   arrowLeft.addEventListener("click", arrowLeftBtn);
+
+// About section slider radio input Carusel
+
+const inputs = document.getElementsByName('favorites-season');
+const eatersSunyiDean = document.querySelector('#eaters-sunyi-dean');
+const cackleRachelHarrison = document.querySelector('#Cackle-Rachel-Harrison');
+const danteErichAuerbach = document.querySelector('#dante-erich-auerbach');
+const queenCliveIrving = document.querySelector('#queen-clive-irving');
+
+const bodyStephenKing = document.querySelector('#body-stephen-king');
+const carryToniJenson = document.querySelector('#carry-toni-jenson');
+const daysAlexandraChang = document.querySelector('#days-alexandra-chang');
+const dominicanaAngieCruz = document.querySelector('#dominicana-angie-cruz');
+
+const crudePabloFajardoSophieTardyJoubert = document.querySelector('#crude-pablo-fajardo-sophie-tardy-joubert');
+const peopleYvonChouinard = document.querySelector('#people-yvon-chouinard');
+const octopusBrendaShaughnessy = document.querySelector('#octopus-brenda-shaughnessy');
+const sharkKianaDavenport = document.querySelector('#shark-kiana-davenport');
+
+const casualReniaWhite = document.querySelector('#casual-renia-white');
+const fireLouUreneck = document.querySelector('#fire-lou-ureneck');
+const rickeyHowardBryant = document.querySelector('#rickey-howard-bryant');
+const slugMeganMilks = document.querySelector('#slug-megan-milks');
+
+let winterArr = [eatersSunyiDean, cackleRachelHarrison, danteErichAuerbach, queenCliveIrving];
+let springArr = [bodyStephenKing, carryToniJenson, daysAlexandraChang, dominicanaAngieCruz];
+let summerArr = [crudePabloFajardoSophieTardyJoubert, peopleYvonChouinard, octopusBrendaShaughnessy, sharkKianaDavenport];
+let autumnArr = [casualReniaWhite, fireLouUreneck, rickeyHowardBryant, slugMeganMilks];
+
+
+window.addEventListener("DOMContentLoaded", () => {
+    for (let keys in springArr) {
+        springArr[keys].classList.add('unvisible-img');
+        springArr[keys].style.display = 'none';
+    }
+    for (let keyses in summerArr) {
+        summerArr[keyses].classList.add('unvisible-img');
+        summerArr[keyses].style.display = 'none';
+    }
+    for (let xkeyses in autumnArr) {
+        autumnArr[xkeyses].classList.add('unvisible-img');
+        autumnArr[xkeyses].style.display = 'none';
+    }
+    for (let ykeyses in winterArr) {
+        document.getElementById('winter').checked = true;
+        winterArr[ykeyses].classList.add('visible-img'); 
+    }
+  });
+
+function visibleImg(xArr) {
+   /* clearTimeout(myTimeoutUnv);*/
+    for (let keys in xArr) {
+        xArr[keys].classList.remove('unvisible-img');
+        xArr[keys].classList.add('visible-img');
+        let myTimeoutVis = setTimeout(() => {
+            xArr[keys].style.display = "block";
+            xArr[keys].style.opacity = 0;
+            let fadeInInterval = setInterval(function(){ 
+                if (xArr[keys].style.opacity < 1) {
+                    xArr[keys].style.opacity += 0.01;
+                } else if (xArr[keys].style.opacity === 1) {
+                    /*clearInterval(fadeInInterval);   */
+                }
+                xArr[keys].style.opacity = 1;
+                
+                }, 300);
+                /*clearInterval(fadeInInterval);*/
+          }, 300);
+          /*clearTimeout(myTimeoutVis);*/
+    }
+}
+
+function unvisibleImg(yArr) {
+    /*clearInterval(fadeInInterval);
+    clearTimeout(myTimeoutVis);*/
+    for (let ykeys in yArr) {
+        yArr[ykeys].style.opacity = 0;
+        yArr[ykeys].classList.remove('visible-img');
+        yArr[ykeys].classList.add('unvisible-img');
+        
+        /*yArr[ykeys].style.opacity = 1;*/
+        let myTimeoutUnv = setTimeout(() => {
+            yArr[ykeys].style.display = "none";
+           /* if(yArr[ykeys].style.opacity = 0.1) {
+                yArr[ykeys].style.display = "none";
+                
+            }*/
+            /*yArr[ykeys].style.opacity = 0;
+            yArr[ykeys].style.display = "none";*/
+            let fadeOutInterval = setInterval(function(){ 
+                if (yArr[ykeys].style.opacity >0) {
+                    yArr[ykeys].style.opacity -= 0.01;
+                } else if (yArr[ykeys].style.opacity <0) {
+                    yArr[ykeys].style.opacity = 0;
+                    yArr[ykeys].style.display = "none";
+                    clearInterval(fadeOutInterval);
+                }
+                /*yArr[ykeys].style.opacity = 0;*/
+                
+                }, 300);
+          }, 300);
+          /*clearTimeout(myTimeoutUnv);*/
+        
+    }
+}
+
+
+function checkedInput() {
+    if (document.getElementById('winter').checked === true) {
+        unvisibleImg(springArr);
+        unvisibleImg(summerArr);
+        unvisibleImg(autumnArr);
+        visibleImg(winterArr);
+    }else if(document.getElementById('spring').checked === true) {
+        unvisibleImg(winterArr);
+        unvisibleImg(summerArr);
+        unvisibleImg(autumnArr);
+        visibleImg(springArr);
+}else if(document.getElementById('summer').checked === true) {
+        unvisibleImg(winterArr);
+        unvisibleImg(springArr);
+        unvisibleImg(autumnArr);
+        visibleImg(summerArr);
+}else if(document.getElementById('autumn').checked === true) {
+        unvisibleImg(winterArr);
+        unvisibleImg(springArr);
+        unvisibleImg(summerArr);
+        visibleImg(autumnArr);
+}
+}
+
+function inputChecked() {
+for (let n=0; n<inputs.length; n++) {
+        inputs[n].onchange = checkedInput;
+        
+    }
+
+};
+inputChecked();
