@@ -1,7 +1,7 @@
-console.log(' Моя самооценка:\n\n Этап 1: Пользователь не зарегистрирован +48\n Этап 2: Пользователь на этапе регистрации +8\n Этап 3: Пользователь на этапе входа в учётную запись после регистрации. +0\n Этап 4: Пользователь после входа в учётную запись. +0\n ------------------\n Total: 56 points\n\n\n P.S.\n  Have a nice day!');
+console.log('Моя самооценка:\n\n Этап 1: Пользователь не зарегистрирован +48\n Этап 2: Пользователь на этапе регистрации +37\n Этап 3: Пользователь на этапе входа в учётную запись после регистрации. +0\n Этап 4: Пользователь после входа в учётную запись. +0\n ------------------\n Total: 85 points\n\n\n P.S.\n  Have a nice day!');
 
 
-// Burger menu
+
   const burgerItem = document.querySelector('.burger__btn');
   const burgerItem2 = document.querySelector('.burger__btn');
   const menu = document.querySelector('.nav');
@@ -15,7 +15,13 @@ const dropdownContent = document.querySelector('.dropdown-content');
 const outsideClickWrapper = document.querySelector('.outside-click-wrapper');
 const outsideClickWrapperVisible = document.querySelector('.outside-click-wrapper-visible');
 const iconProfileLinkPath = document.querySelector('.icon-profile-link path');
+const dropdownContentRegister = document.querySelector('.dropdown-content-register');
+const modalRegisterWrapper = document.querySelector('.modal-register-wrapper');
+const modalRegisterSvg = document.querySelector('.modal-register-svg');
+const modalRegisterOutsideClickWrapper = document.querySelector('.modal-register-outside-click-wrapper');
+const libraryCardButtonSignUp =  document.querySelector('.library-card-button-sign-up');
 
+// Burger menu
 let countClickDropDown = 0;
 
 (function() {
@@ -626,4 +632,27 @@ outsideClickWrapper.addEventListener('click', () => {
     outsideClickWrapper.classList.remove('outside-click-wrapper-visible');
     iconProfileLinkPath.style.fill = '';
     clearInterval(setTime);
+});
+
+
+// 'REGISTER' modal window
+
+dropdownContentRegister.addEventListener('click', () => {
+    modalRegisterWrapper.classList.add('modal-register-wrapper-open');
+    modalRegisterOutsideClickWrapper.classList.add('modal-register-outside-click-wrapper-active');
+});
+
+modalRegisterSvg.addEventListener('click', () => {
+    modalRegisterWrapper.classList.remove('modal-register-wrapper-open');
+    modalRegisterOutsideClickWrapper.classList.remove('modal-register-outside-click-wrapper-active');
+});
+
+modalRegisterOutsideClickWrapper.addEventListener('click', () => {
+    modalRegisterWrapper.classList.remove('modal-register-wrapper-open');
+    modalRegisterOutsideClickWrapper.classList.remove('modal-register-outside-click-wrapper-active');
+});
+
+libraryCardButtonSignUp.addEventListener('click', () => {
+    modalRegisterWrapper.classList.add('modal-register-wrapper-open');
+    modalRegisterOutsideClickWrapper.classList.add('modal-register-outside-click-wrapper-active');
 });
