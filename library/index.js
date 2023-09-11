@@ -1,4 +1,4 @@
-console.log('Моя самооценка:\n\n Этап 1: Пользователь не зарегистрирован +48\n Этап 2: Пользователь на этапе регистрации +8\n Этап 3: Пользователь на этапе входа в учётную запись после регистрации. +0\n Этап 4: Пользователь после входа в учётную запись. +0\n ------------------\n Total: 56 points\n\n\n P.S.\n  Have a nice day!');
+console.log('Моя самооценка:\n\n Этап 1: Пользователь не зарегистрирован +48\n Этап 2: Пользователь на этапе регистрации +37\n Этап 3: Пользователь на этапе входа в учётную запись после регистрации. +0\n Этап 4: Пользователь после входа в учётную запись. +0\n ------------------\n Total: 85 points\n\n\n P.S.\n  Have a nice day!');
 
 
 
@@ -19,6 +19,7 @@ const dropdownContentRegister = document.querySelector('.dropdown-content-regist
 const modalRegisterWrapper = document.querySelector('.modal-register-wrapper');
 const modalRegisterSvg = document.querySelector('.modal-register-svg');
 const modalRegisterOutsideClickWrapper = document.querySelector('.modal-register-outside-click-wrapper');
+const libraryCardButtonSignUp =  document.querySelector('.library-card-button-sign-up');
 
 // Burger menu
 let countClickDropDown = 0;
@@ -649,4 +650,9 @@ modalRegisterSvg.addEventListener('click', () => {
 modalRegisterOutsideClickWrapper.addEventListener('click', () => {
     modalRegisterWrapper.classList.remove('modal-register-wrapper-open');
     modalRegisterOutsideClickWrapper.classList.remove('modal-register-outside-click-wrapper-active');
+});
+
+libraryCardButtonSignUp.addEventListener('click', () => {
+    modalRegisterWrapper.classList.add('modal-register-wrapper-open');
+    modalRegisterOutsideClickWrapper.classList.add('modal-register-outside-click-wrapper-active');
 });
