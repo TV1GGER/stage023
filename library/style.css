@@ -598,30 +598,22 @@ h1 {
 
 #eaters-sunyi-dean, #Cackle-Rachel-Harrison, #dante-erich-auerbach, #queen-clive-irving, #body-stephen-king, #carry-toni-jenson, #days-alexandra-chang, #dominicana-angie-cruz, #crude-pablo-fajardo-sophie-tardy-joubert, 
 #people-yvon-chouinard, #octopus-brenda-shaughnessy, #shark-kiana-davenport, #casual-renia-white, #fire-lou-ureneck, #rickey-howard-bryant, #slug-megan-milks {
-  /*position: absolute;
-  top: -100%;
-  visibility: hidden;*/
-  /*height: 0px;*/
-  /*width: 0px;*/
+
   transition: 1.4s;
 }
 
 .unvisible-img {
-  /*position: absolute;
-  height: 0px;
-  width: 0px;
-  top: -100%;*/
+
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.3s /*linear*/;
+  transition: opacity 0.3s;
 }
 
 .visible-img {
   position: relative;
-  /*top: 0%;*/
   visibility: visible;
   opacity: 1;
-  transition: opacity 0.3s /*linear*/;
+  transition: opacity 0.3s;
 }
 
 .staff-picks-container-img {
@@ -1385,6 +1377,130 @@ h1 {
   line-height: normal;
   letter-spacing: 1px;
   text-decoration-line: underline;
+  cursor: pointer;
+}
+
+.modal-login-wrapper {
+  position:fixed;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  top:0px;
+  left:0px;
+  width:100vw;
+  height:100vh;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.modal-login-outside-click-wrapper {
+  visibility: hidden;
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -1000;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.modal-login-outside-click-wrapper-active {
+  left: 0;
+  visibility: visible;
+  background-color: rgb(32, 31, 31);
+  opacity: 0.7;
+  z-index: 8;
+}
+
+.modal-login-wrapper-open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-login {
+  width: 250px;
+  height: 262px;
+  position: relative;
+  color: #000000;
+  background-color: #FFF;
+  font-family: 'Inter';
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+  padding-left: 25px;
+  padding-right: 25px;
+  z-index: 11;
+}
+
+.modal-login-header {
+  color: #000;
+  text-align: center;
+  font-family: 'Forum';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin: 20px auto;
+}
+
+.modal-login-fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+  gap: 10px;
+}
+
+.modal-login input {
+  width: 200px;
+  height: 20px;
+  flex-shrink: 0;
+  border: 1px solid #BB945F;
+}
+
+#modal-login-btn {
+  margin-top: 10px;
+}
+
+.modal-login-dhave-account-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  gap: 10px;
+}
+
+.modal-login-dhave-account {
+  color: #000;
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+  font-family: 'Inter';
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.modal-login-dhave-register {
+  color: #0C0C0E;
+  text-align: center;
+  font-family: 'Inter';
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-decoration-line: underline;
+  cursor: pointer;
+}
+
+.modal-login-svg {
+  position: absolute;
+  top: 15px;
+  right: 15px;
   cursor: pointer;
 }
 

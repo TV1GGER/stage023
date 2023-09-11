@@ -1,4 +1,4 @@
-console.log('Моя самооценка:\n\n Этап 1: Пользователь не зарегистрирован +48\n Этап 2: Пользователь на этапе регистрации +37\n Этап 3: Пользователь на этапе входа в учётную запись после регистрации. +0\n Этап 4: Пользователь после входа в учётную запись. +0\n ------------------\n Total: 85 points\n\n\n P.S.\n  Have a nice day!');
+console.log('Моя самооценка:\n\n Этап 1: Пользователь не зарегистрирован +48\n Этап 2: Пользователь на этапе регистрации +37\n Этап 3: Пользователь на этапе входа в учётную запись после регистрации. +29\n Этап 4: Пользователь после входа в учётную запись. +0\n ------------------\n Total: 114 points\n\n\n P.S.\n  Have a nice day!');
 
 
 
@@ -16,10 +16,22 @@ const outsideClickWrapper = document.querySelector('.outside-click-wrapper');
 const outsideClickWrapperVisible = document.querySelector('.outside-click-wrapper-visible');
 const iconProfileLinkPath = document.querySelector('.icon-profile-link path');
 const dropdownContentRegister = document.querySelector('.dropdown-content-register');
+const dropdownContentLogin = document.querySelector('.dropdown-content-log-in');
+
 const modalRegisterWrapper = document.querySelector('.modal-register-wrapper');
 const modalRegisterSvg = document.querySelector('.modal-register-svg');
 const modalRegisterOutsideClickWrapper = document.querySelector('.modal-register-outside-click-wrapper');
+const modalLoginDhaveRegister = document.querySelector('.modal-login-dhave-register');
 const libraryCardButtonSignUp =  document.querySelector('.library-card-button-sign-up');
+
+const modalLoginWrapper = document.querySelector('.modal-login-wrapper');
+const modalLoginSvg = document.querySelector('.modal-login-svg');
+const modalLoginOutsideClickWrapper = document.querySelector('.modal-login-outside-click-wrapper');
+const modalRegisterHaveLogin = document.querySelector('.modal-register-have-login');
+const libraryCardButtonLogin =  document.querySelector('.library-card-button-log-in');
+
+const staffPicksButton = document.querySelectorAll("button.staff-picks-button");
+
 
 // Burger menu
 let countClickDropDown = 0;
@@ -656,3 +668,50 @@ libraryCardButtonSignUp.addEventListener('click', () => {
     modalRegisterWrapper.classList.add('modal-register-wrapper-open');
     modalRegisterOutsideClickWrapper.classList.add('modal-register-outside-click-wrapper-active');
 });
+
+modalRegisterHaveLogin.addEventListener('click', () => {
+    modalRegisterWrapper.classList.remove('modal-register-wrapper-open');
+    modalRegisterOutsideClickWrapper.classList.remove('modal-register-outside-click-wrapper-active');
+    modalLoginWrapper.classList.add('modal-login-wrapper-open');
+    modalLoginOutsideClickWrapper.classList.add('modal-login-outside-click-wrapper-active');
+   
+});
+
+
+// 'Login' modal window
+
+dropdownContentLogin.addEventListener('click', () => {
+    modalLoginWrapper.classList.add('modal-login-wrapper-open');
+    modalLoginOutsideClickWrapper.classList.add('modal-login-outside-click-wrapper-active');
+});
+
+modalLoginSvg.addEventListener('click', () => {
+    modalLoginWrapper.classList.remove('modal-login-wrapper-open');
+    modalLoginOutsideClickWrapper.classList.remove('modal-login-outside-click-wrapper-active');
+});
+
+modalLoginOutsideClickWrapper.addEventListener('click', () => {
+    modalLoginWrapper.classList.remove('modal-login-wrapper-open');
+    modalLoginOutsideClickWrapper.classList.remove('modal-login-outside-click-wrapper-active');
+});
+
+libraryCardButtonLogin.addEventListener('click', () => {
+    modalLoginWrapper.classList.add('modal-login-wrapper-open');
+    modalLoginOutsideClickWrapper.classList.add('modal-login-outside-click-wrapper-active');
+});
+
+staffPicksButton.forEach((userItem) => {
+    userItem.addEventListener('click', () => {
+        modalLoginWrapper.classList.add('modal-login-wrapper-open');
+        modalLoginOutsideClickWrapper.classList.add('modal-login-outside-click-wrapper-active');
+    });
+  });
+
+  modalLoginDhaveRegister.addEventListener('click', () => {
+    modalLoginWrapper.classList.remove('modal-login-wrapper-open');
+    modalLoginOutsideClickWrapper.classList.remove('modal-login-outside-click-wrapper-active');
+    modalRegisterWrapper.classList.add('modal-register-wrapper-open');
+    modalRegisterOutsideClickWrapper.classList.add('modal-register-outside-click-wrapper-active');
+   
+});
+
