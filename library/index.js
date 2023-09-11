@@ -1,4 +1,4 @@
-console.log('Моя самооценка:\n\n Этап 1: Пользователь не зарегистрирован +48\n Этап 2: Пользователь на этапе регистрации +37\n Этап 3: Пользователь на этапе входа в учётную запись после регистрации. +29\n Этап 4: Пользователь после входа в учётную запись. +0\n ------------------\n Total: 114 points\n\n\n P.S.\n  Have a nice day!');
+console.log('Моя самооценка:\n\n Этап 1: Пользователь не зарегистрирован +48\n Этап 2: Пользователь на этапе регистрации +39\n Этап 3: Пользователь на этапе входа в учётную запись после регистрации. +29\n Этап 4: Пользователь после входа в учётную запись. +0\n ------------------\n Total: 116 points\n\n\n P.S.\n  Have a nice day!');
 
 
 
@@ -678,7 +678,7 @@ modalRegisterHaveLogin.addEventListener('click', () => {
 });
 
 
-// 'Login' modal window
+// `Login` modal window
 
 dropdownContentLogin.addEventListener('click', () => {
     modalLoginWrapper.classList.add('modal-login-wrapper-open');
@@ -714,4 +714,29 @@ staffPicksButton.forEach((userItem) => {
     modalRegisterOutsideClickWrapper.classList.add('modal-register-outside-click-wrapper-active');
    
 });
+
+
+// Register user
+
+const modalRegFirstNameField = document.querySelector('.modal-register-first-name-field');
+const modalRegLastNameField = document.querySelector('.modal-register-last-name-field');
+const modalRegEmailField = document.querySelector('.modal-register-email-field');
+const modalRegisterPasswordField = document.querySelector('.modal-register-password-field');
+const libraryCardBtnSignUp = document.querySelector('.library-card-button-sign-up');
+const iconProfileSvg = document.querySelector('.icon-profile-svg');
+const dropdownBt = document.querySelector('.dropdownBtn');
+
+function setLocalStorage() {
+    localStorage.setItem('FirstName', modalRegFirstNameField.value);
+    localStorage.setItem('LastName', modalRegLastNameField.value);
+    localStorage.setItem('Email', modalRegEmailField.value);
+    localStorage.setItem('Password', modalRegisterPasswordField.value);
+  }
+  
+  window.addEventListener('beforeunload', setLocalStorage)
+
+
+  libraryCardBtnSignUp.addEventListener('click', () => {
+    setLocalStorage();
+  })
 
