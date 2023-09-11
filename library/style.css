@@ -52,6 +52,7 @@ body {
   align-items: center;
   gap: 40px;
   margin: 0 auto;
+  padding-right: 20px;
 }
 
 .header-nav-wrapper {
@@ -132,15 +133,10 @@ h1 {
   z-index: 9;
 }
 
-/*.icon-profile-link {
-  background-color: transparent;
-}*/
-
 .icon-profile-svg {
   width: 28px;
   height: 28px;
   flex-shrink: 0;
-  margin-right: 20px;
   cursor: pointer;
 }
 
@@ -154,7 +150,7 @@ h1 {
 }
 
 .dropdown-content {
-  display: none;
+  visibility: hidden;
   position: absolute;
   right: 0;
   background-color: #FFF;
@@ -167,6 +163,8 @@ h1 {
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
+  opacity: 0;
+  transition: 0.4s;
 }
 
 .dropdown-content-profile {
@@ -223,7 +221,8 @@ h1 {
   background-color: #BB945F;}
 
 .content-block {
-  display: block;
+  visibility: visible;
+  opacity: 1;
 }
 
 .outside-click-wrapper {
@@ -1265,6 +1264,128 @@ h1 {
 
 .footer-rss-git-hub-link:hover, .footer-rss-link:hover, .footer-contact-adress-link:hover {
   color: #BB945F;
+}
+
+.modal-register-wrapper {
+  position:fixed;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  top:0px;
+  left:0px;
+  width:100vw;
+  height:100vh;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.modal-register-outside-click-wrapper {
+  visibility: hidden;
+  position:absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -1000;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.modal-register-outside-click-wrapper-active {
+  left: 0;
+  visibility: visible;
+  background-color: rgb(32, 31, 31);
+  opacity: 0.7;
+  z-index: 8;
+}
+
+
+.modal-register-wrapper-open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-register {
+  position: relative;
+  width: 250px;
+  height: 382px;
+  color: #000000;
+  background-color: #FFF;
+  font-family: 'Inter';
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+  padding-left: 25px;
+  padding-right: 25px;
+  z-index: 11;
+}
+
+.modal-register-svg {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.modal-register-header {
+  color: #000;
+  text-align: center;
+  font-family: 'Forum';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin: 20px auto;
+}
+
+.modal-register input {
+  width: 200px;
+  height: 20px;
+  flex-shrink: 0;
+  border: 1px solid #BB945F;
+}
+
+.modal-register-fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+  gap: 10px;
+
+}
+
+.modal-register-have-account-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  gap: 10px;
+}
+
+.modal-register-have-account {
+  color: #000;
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+  font-family: 'Inter';
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.modal-register-have-login {
+  color: #0C0C0E;
+  text-align: center;
+  font-family: 'Inter';
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-decoration-line: underline;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 1235px) {
