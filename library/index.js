@@ -561,7 +561,7 @@ function unvisibleImg(yArr) {
     
         let myTimeoutUnv = setTimeout(() => {
             yArr[ykeys].style.display = "none";
-
+            clearTimeout(myTimeoutUnv);
             let fadeOutInterval = setInterval(function(){ 
                 if (yArr[ykeys].style.opacity >0) {
                     yArr[ykeys].style.opacity -= 0.01;
@@ -786,6 +786,7 @@ function checkProf() {
       }else{
         iconProfileLettersWrapper.style.display = 'none';
         iconProfileSvg.style.display = 'block';
+        iconProfileLetters.innerText = 'Profile';
         dropdownContentLogIn.style.display = 'block';
         dropdownContentRegister.style.display = 'block';
         dropdownContentMyProfile.style.display = 'none';
