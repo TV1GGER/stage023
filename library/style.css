@@ -138,6 +138,29 @@ h1 {
   height: 28px;
   flex-shrink: 0;
   cursor: pointer;
+  
+}
+
+.icon-profile-link{
+  text-decoration: none;
+}
+
+.icon-profile-letters-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #FFFFFF;
+  color: #BB945F;
+  font-family: 'Inter';
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  border-radius: 28px;
 }
 
 .icon-profile-path {
@@ -199,7 +222,32 @@ h1 {
   cursor: pointer;
 }
 
+.dropdown-content-my-profile {
+  height: 20px;
+  color: #000;
+  text-align: center;
+  font-family: 'Inter';
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 15px auto;
+  cursor: pointer;
+}
+
 .dropdown-content-register {
+  height: 20px;
+  color: #000;
+  font-family: 'Inter';
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 10px auto;
+  cursor: pointer;
+}
+
+.dropdown-content-log-out {
   height: 20px;
   color: #000;
   font-family: 'Inter';
@@ -1115,7 +1163,7 @@ h1 {
   gap: 20px;
 }
 
-.library-card-button-sign-up, .library-card-button-log-in {
+.library-card-button-sign-up, .library-card-button-sign-up-register, .library-button-sign-up, .library-card-button-log-in {
   width: 75px;
   height: 30px;
   color: #0C0C0E;
@@ -1133,7 +1181,7 @@ h1 {
   transition: 0.4s;
 }
 
-.library-card-button-sign-up:hover, .library-card-button-log-in:hover {
+.library-card-button-sign-up:hover, .library-card-button-log-in:hover, .library-card-button-sign-up-register:hover {
   border: 1px solid #BB945F;
   background-color: #BB945F;
 }
