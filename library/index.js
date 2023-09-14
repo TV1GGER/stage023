@@ -538,7 +538,7 @@ function visibleImg(xArr) {
     for (let keys in xArr) {
         xArr[keys].classList.remove('unvisible-img');
         xArr[keys].classList.add('visible-img');
-        let myTimeoutVis = setTimeout(() => {
+        myTimeoutVis = setTimeout(() => {
             xArr[keys].style.display = "block";
             xArr[keys].style.opacity = 0;
             let fadeInInterval = setInterval(function(){ 
@@ -561,7 +561,7 @@ function unvisibleImg(yArr) {
     
         let myTimeoutUnv = setTimeout(() => {
             yArr[ykeys].style.display = "none";
-
+            clearTimeout(myTimeoutUnv);
             let fadeOutInterval = setInterval(function(){ 
                 if (yArr[ykeys].style.opacity >0) {
                     yArr[ykeys].style.opacity -= 0.01;
@@ -649,7 +649,7 @@ outsideClickWrapper.addEventListener('click', () => {
 
 // 'REGISTER' modal window
 
-dropdownContentRegister.addEventListener('click', () => {
+    dropdownContentRegister.addEventListener('click', () => {
     modalRegisterWrapper.classList.add('modal-register-wrapper-open');
     modalRegisterOutsideClickWrapper.classList.add('modal-register-outside-click-wrapper-active');
 });
@@ -722,21 +722,88 @@ const modalRegFirstNameField = document.querySelector('.modal-register-first-nam
 const modalRegLastNameField = document.querySelector('.modal-register-last-name-field');
 const modalRegEmailField = document.querySelector('.modal-register-email-field');
 const modalRegisterPasswordField = document.querySelector('.modal-register-password-field');
-const libraryCardBtnSignUp = document.querySelector('.library-card-button-sign-up');
+const libraryCardButtonSignUpRegister = document.querySelector('.library-card-button-sign-up-register');
 const iconProfileSvg = document.querySelector('.icon-profile-svg');
+const iconProfilePath = document.querySelector('.icon-profile-path');
 const dropdownBt = document.querySelector('.dropdownBtn');
+const iconProfileLetters = document.querySelector('.icon-profile-letters');
+const iconProfileLettersWrapper = document.querySelector('.icon-profile-letters-wrapper');
+const dropdownContentLogIn = document.querySelector('.dropdown-content-log-in');
+const dropdownContentProfile = document.querySelector('.dropdown-content-profile');
+const dropdownContentR = document.querySelector('#dropdown-content-reg');
+const dropdownContentMyProfile = document.querySelector('.dropdown-content-my-profile');
+const dropdownContentLogOut = document.querySelector('.dropdown-content-log-out');
+//dropdown-content-reg
+
+
+let visits = 0;
+
+function randomCardNum() {
+    let rendNum = Math.floor((Math.random() * 9999999999) + 1111111111).toString(16);
+    
+    return rendNum;
+  };
+
 
 function setLocalStorage() {
-    localStorage.setItem('FirstName', modalRegFirstNameField.value);
+    let numRend = randomCardNum();
+   localStorage.setItem('FirstName', modalRegFirstNameField.value);
     localStorage.setItem('LastName', modalRegLastNameField.value);
     localStorage.setItem('Email', modalRegEmailField.value);
     localStorage.setItem('Password', modalRegisterPasswordField.value);
+    localStorage.setItem('CardNumber', numRend);
+    localStorage.setItem('IsLoginTrue', true);
+    visits++;
   }
   
-  window.addEventListener('beforeunload', setLocalStorage)
+  /*window.addEventListener('beforeunload', setLocalStorage);*/
+
+  /*function setOpacityO() {
+    iconProfilePath.style.opacity = 0;
+    iconProfileLetters.style.opacity = 1;
+  };*/
+  
+
+  libraryCardButtonSignUpRegister.addEventListener('click', function() {
+    if ((modalRegFirstNameField.value) && (modalRegLastNameField.value) && (modalRegEmailField.value) && (modalRegisterPasswordField.value)) {
+        setLocalStorage();
+    //setOpacityO();
+    }
+  });
+
+let cardNum = 0;
+
+function checkProf() {
+    if(localStorage.getItem('IsLoginTrue') === 'true'){
+        iconProfileSvg.style.display = 'none';
+        iconProfileLettersWrapper.style.display = 'flex';
+        iconProfileLetters.innerText = localStorage.getItem('FirstName')[0] + localStorage.getItem('LastName')[0];
+        iconProfileLetters.title = localStorage.getItem('FirstName') + ' ' + localStorage.getItem('LastName');
+        dropdownContentProfile.innerText = localStorage.getItem('CardNumber');
+        dropdownContentProfile.style.fontSize = '0.5rem';
+        dropdownContentLogIn.style.display = 'none';
+        dropdownContentRegister.style.display = 'none';
+      }else{
+        iconProfileLettersWrapper.style.display = 'none';
+        iconProfileSvg.style.display = 'block';
+        iconProfileLetters.innerText = 'Profile';
+        dropdownContentLogIn.style.display = 'block';
+        dropdownContentRegister.style.display = 'block';
+        dropdownContentMyProfile.style.display = 'none';
+        dropdownContentLogOut.style.display = 'none';
+      }
+  };
+
+  checkProf();
+
+  
+  dropdownContentLogOut.addEventListener('click', () => {
+    localStorage.setItem('IsLoginTrue', false);
+    checkProf();
+  });
 
 
-  libraryCardBtnSignUp.addEventListener('click', () => {
-    setLocalStorage();
-  })
 
+  
+
+ 

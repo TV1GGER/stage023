@@ -34,6 +34,7 @@
       <div class="dropdown">
         <div class="icon-profile">
           <button class="dropdownBtn"><a href="#" class="icon-profile-link">
+            <div class="icon-profile-letters-wrapper"><p class="icon-profile-letters"></p></div>
             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none" class="icon-profile-svg">
             <path class="icon-profile-path" fill-rule="evenodd" clip-rule="evenodd" d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z" fill="white"/>
             </svg>
@@ -44,7 +45,9 @@
           <div class="dropdown-content-profile">Profile</div>
           <div class="dropdown-content-profile-line"></div>
           <a href="#" class="dropdown-content-log-in">Log In</a>
-          <a href="#" class="dropdown-content-register">Register</a>
+          <a href="#" class="dropdown-content-my-profile">My profile</a>
+          <a href="#" class="dropdown-content-register" id="dropdown-content-reg">Register</a>
+          <a href="#" class="dropdown-content-log-out">Log out</a>
         </div>
       </div>
         <div class="burger__btn">
@@ -614,23 +617,15 @@
         <input type="email" id="emails" name="emails" multiple class="modal-register-email-field" placeholder="" required>
         <div class="modal-register-password">Password</div>
         <input type="password" id="pwd" name="pwd" minlength="8" maxlength="16" class="modal-register-password-field" placeholder="" required>
-        <button class="library-card-button-sign-up">Sign Up</button>
+        <button class="library-card-button-sign-up-register">Sign Up</button>
         <div class="modal-register-have-account-wrapper">
           <div class="modal-register-have-account">Already have an account?</div>
           <div class="modal-register-have-login">Login</div>
+          </div>
         </form>
       </div>
     </div>
-
-
-
-
-
-
-    
   </div>
-
-
   <div class="modal-login-wrapper">
     <div class="modal-login-outside-click-wrapper"></div>
   <div class="modal-login">
@@ -650,8 +645,53 @@
       <div class="modal-login-dhave-account-wrapper">
         <div class="modal-login-dhave-account">Don&rsquo;t have an account?</div>
         <div class="modal-login-dhave-register">Register</div>
+      </div>
       </form>
     </div>
   </div>
+
+
+
+
+  <!--<div class="modal-profile-wrapper">
+    <div class="modal-profile-click-wrapper"></div>
+    <div class="modal-profile">
+    <div class="modal-profile-photo"></div>
+    <div class="modal-profile-content">
+      <div class="modal-profile-header">My profile</div>
+      <div class="modal-profile-icons">
+        <div class="modal-profile-visits">
+          <div class="modal-profile-visits-header">Visits</div>
+          <div class="modal-profile-visits-icon">
+            <svg width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 10C13.2614 10 15.5 7.76142 15.5 5C15.5 2.23858 13.2614 0 10.5 0C7.73858 0 5.5 2.23858 5.5 5C5.5 7.76142 7.73858 10 10.5 10ZM17.5711 13.9289C19.4464 15.8043 20.5 18.3478 20.5 21H10.5L0.5 21C0.5 18.3478 1.55357 15.8043 3.42893 13.9289C5.3043 12.0536 7.84784 11 10.5 11C13.1522 11 15.6957 12.0536 17.5711 13.9289Z" fill="#BB945F"/>
+              </svg>              
+          </div>
+        </div>
+        <div class="modal-profile-bonuses">
+          <div class="modal-profile-bonuses-header">Bonuses</div>
+          <div class="modal-profile-bonuses-icon">
+            <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 0L12.2249 3.31001L15.8779 2.00532L15.8249 6.05634L19.5106 7.25532L17.2 10.5L19.5106 13.7447L15.8249 14.9437L15.8779 18.9947L12.2249 17.69L10 21L7.77508 17.69L4.12215 18.9947L4.17508 14.9437L0.489435 13.7447L2.8 10.5L0.489435 7.25532L4.17508 6.05634L4.12215 2.00532L7.77508 3.31001L10 0Z" fill="#BB945F"/>
+              </svg>              
+          </div>
+        </div>
+        <div class="modal-profile-Books">
+          <div class="modal-profile-bonuses-header">Books</div>
+          <div class="modal-profile-bonuses-icon">
+            <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="20" height="21" fill="#BB945F"/>
+              <rect x="2" width="1" height="19" fill="#826844"/>
+              <rect x="1" width="1" height="21" fill="white"/>
+              </svg>              
+          </div>
+        </div>
+      </div>
+      <div class="modal-profile-icons"></div>
+      <div class="modal-profile-books">Rented books</div>
+      <div class="modal-profile-card-number">Card number</div>
+    </div>
+    </div>
+  </div>-->
   </body>
 </html>
