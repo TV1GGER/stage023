@@ -8,6 +8,7 @@ const playNext = document.querySelector('.next');
 const artistTitl = document.querySelector('.song-name');
 const songImg = document.querySelector('.song-img');
 const backgroundWrapper = document.querySelector('.wrapper');
+const playBtn = document.querySelector('.play-btn path');
 
 let playNum = 0;
 let isPlay = false;
@@ -29,21 +30,13 @@ function playPauseAudio() {
   if(isPlay===false){
     audio.play();
     isPlay = true;
-    play.classList.add('pause');
+    playBtn.setAttribute('d', 'M520-200v-560h240v560H520Zm-320 0v-560h240v560H200Zm400-80h80v-400h-80v400Zm-320 0h80v-400h-80v400Zm0-400v400-400Zm320 0v400-400Z');
     
   }else if(isPlay===true){
     audio.pause();
     isPlay = false;
-    play.classList.remove('pause');
+    playBtn.setAttribute('d', 'M320-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z');
   };
-for(let z=0; z<ulLi.length; z++){
-  if(z===playNum){
-  ulLi[playNum].classList.add('item-active');
-  artistTitl.textContent = playList[playNum].title;
-}else if(z!=playNum){
-  ulLi[z].classList.remove('item-active');
-}
-}
 };
 // следующий трек
 function playNextAudio() {
