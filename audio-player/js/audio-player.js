@@ -6,6 +6,7 @@ const playNext = document.querySelector('.next');
 /*const playItem = document.querySelector('.play-list');*/
 /*const ulLi = document.getElementsByTagName('li');*/
 const artistTitl = document.querySelector('.song-name');
+const songImg = document.querySelector('.song-img');
 
 let playNum = 0;
 let isPlay = false;
@@ -14,7 +15,10 @@ const audio = new Audio();
 // плей/пауза трека
 function playPauseAudio() {
   audio.src = playList[playNum].src;
+
   artistTitl.textContent = playList[playNum].title;
+  songImg.style.backgroundImage = `url(${playList[playNum].img})`;
+  songImg.style.backgroundSize = `cover`;
   
 
   if(isPlay===false){
