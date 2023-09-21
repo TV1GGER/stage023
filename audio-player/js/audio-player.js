@@ -10,12 +10,11 @@ const playBtn = document.querySelector('.play-btn path');
 
 let playNum = 0;
 let isPlay = false;
-const audio = new Audio();
+const track = new Audio();
+track.src = playList[playNum].src;
 
 // плей/пауза трека
 function playPauseAudio() {
-  audio.src = playList[playNum].src;
-
   backgroundWrapper.style.background = `url(${playList[playNum].img}), no-repeat`;
   backgroundWrapper.style.backgroundPosition = `center`;
   backgroundWrapper.style.backgroundSize = `cover`;
@@ -24,8 +23,14 @@ function playPauseAudio() {
   songImg.style.background = `url(${playList[playNum].img}), no-repeat`;
   songImg.style.backgroundSize = `cover`;
   
-
-  if(isPlay===false){
+    if (track.paused == false) {
+      track.pause();
+      playBtn.setAttribute('d', 'M320-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z');
+     } else {
+      track.play();
+      playBtn.setAttribute('d', 'M520-200v-560h240v560H520Zm-320 0v-560h240v560H200Zm400-80h80v-400h-80v400Zm-320 0h80v-400h-80v400Zm0-400v400-400Zm320 0v400-400Z');
+     }
+  /*if(isPlay===false){
     audio.play();
     isPlay = true;
     playBtn.setAttribute('d', 'M520-200v-560h240v560H520Zm-320 0v-560h240v560H200Zm400-80h80v-400h-80v400Zm-320 0h80v-400h-80v400Zm0-400v400-400Zm320 0v400-400Z');
@@ -34,7 +39,7 @@ function playPauseAudio() {
     audio.pause();
     isPlay = false;
     playBtn.setAttribute('d', 'M320-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z');
-  };
+  };*/
 };
 // следующий трек
 function playNextAudio() {
@@ -59,7 +64,7 @@ function playPrevAudio() {
   playPauseAudio();
 };
 
-audio.addEventListener('ended', playNextAudio);
+track.addEventListener('ended', playNextAudio);
 play.addEventListener('click', playPauseAudio);
 
 playPrev.addEventListener('click', playPrevAudio);
@@ -71,33 +76,33 @@ playNext.addEventListener('click', playNextAudio);
 
 //слайдер громкости
 const slider = document.getElementById('volumeSlider');
-audio.volume = 0.1;
+track.volume = 0.1;
 slider.value = 0.1;
 function setVolume(){
-audio.volume = slider.value;
+track.volume = slider.value;
 }
 slider.addEventListener('change', setVolume);
 
 //слайдер прогрессбар
 const setProgressSlider = document.getElementById('progressSlider');
-function progressSlider() {
+function progressSliderBar() {
     const x = document.getElementById('progressSlider');
     x.min = 0;
-    x.max = audio.duration;
-    x.step = audio.duration / 100;
-    audio.currentTime = x.value;
+    x.max = track.duration;
+    x.step = track.duration / 100;
+    track.currentTime = x.value;
     
   }
-  setProgressSlider.addEventListener('change', progressSlider);
-  audio.addEventListener('loadeddata', setInterval);
+  setProgressSlider.addEventListener('change', progressSliderBar);
+  track.addEventListener('loadeddata', setInterval);
   function setInterval() {
     const progressBar = document.getElementById('progressSlider');
     const ProgressBarTime = document.querySelector('.song-time');
-    progressBar.value = audio.currentTime / audio.duration * 100;
-    ProgressBarTime.textContent = getTimeCodeFromNum(audio.currentTime)+"/"+getTimeCodeFromNum(audio.duration);
+    progressBar.value = track.currentTime / track.duration * 100;
+    ProgressBarTime.textContent = getTimeCodeFromNum(track.currentTime)+"/"+getTimeCodeFromNum(track.duration);
     setTimeout(setInterval, 1000);
-    getTimeCodeFromNum(audio.currentTime);
-    getTimeCodeFromNum(audio.duration);
+    getTimeCodeFromNum(track.currentTime);
+    getTimeCodeFromNum(track.duration);
 };
 
  
@@ -122,11 +127,11 @@ function progressSlider() {
     
     if(countSound%2===1){
       muteSound.setAttribute('d', 'M560-131v-82q90-26 145-100t55-168q0-94-55-168T560-749v-82q124 28 202 125.5T840-481q0 127-78 224.5T560-131ZM120-360v-240h160l200-200v640L280-360H120Zm440 40v-322q47 22 73.5 66t26.5 96q0 51-26.5 94.5T560-320ZM400-606l-86 86H200v80h114l86 86v-252ZM300-480Z');
-        audio.muted = false;
+        track.muted = false;
         countSound++;
     }else if((countSound%2===0) || (countSound===0) ){
         muteSound.setAttribute('d', 'm616-320-56-56 104-104-104-104 56-56 104 104 104-104 56 56-104 104 104 104-56 56-104-104-104 104Zm-496-40v-240h160l200-200v640L280-360H120Zm280-246-86 86H200v80h114l86 86v-252ZM300-480Z');
-        audio.muted = true;
+        track.muted = true;
         countSound++;
     }
   }
