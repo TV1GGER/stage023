@@ -167,6 +167,10 @@ body {
   gap: 2vw;
 }
 
+.song-text-wrapper {
+  color: #04AA6D;
+}
+
 #volumeSliderBar {
   color: #04AA6D;
   font-size: smaller;
