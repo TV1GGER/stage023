@@ -74,7 +74,7 @@ body {
   border: 0.001vw solid transparent;
   border-radius: 1vw 1vw 0vw 0vw;
   /*box-shadow: 14px 14px 2px 0px rgba(0, 0, 0, 0.2);*/
-  /*filter: drop-shadow(0vw 1vw 1vw #04AA6D);*/
+  filter: drop-shadow(0vw 1vw 1vw #04AA6D);
 }
 
 .player-controls-wrapper {
@@ -88,7 +88,7 @@ body {
   border-radius: 0vw 0vw 1vw 1vw;
   background-image: linear-gradient(to right, rgb(0, 0, 0) , rgb(51, 51, 51));
   /*box-shadow: 14px 14px 2px 0px rgba(0, 0, 0, 0.2);*/
-  /*filter: drop-shadow(0vw 1vw 1vw #04AA6D);*/
+  filter: drop-shadow(0vw 1vw 1vw #04AA6D);
 }
 
 .song-text-wrapper {
