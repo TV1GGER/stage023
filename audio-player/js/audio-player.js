@@ -45,23 +45,42 @@ function playPauseAudio() {
 function playNextAudio() {
   if(playNum<playList.length-1){
     playNum++;
-    isPlay=false;
+    /*isPlay=false;*/
   }else if(playNum===playList.length-1){
     playNum=0;
-    isPlay=false;
+    /*isPlay=false;*/
   }
-  playPauseAudio();
+  track.src = playList[playNum].src;
+  track.play();
+  playBtn.setAttribute('d', 'M520-200v-560h240v560H520Zm-320 0v-560h240v560H200Zm400-80h80v-400h-80v400Zm-320 0h80v-400h-80v400Zm0-400v400-400Zm320 0v400-400Z');
+  backgroundWrapper.style.background = `url(${playList[playNum].img}), no-repeat`;
+  backgroundWrapper.style.backgroundPosition = `center`;
+  backgroundWrapper.style.backgroundSize = `cover`;
+
+  artistTitl.textContent = playList[playNum].title;
+  songImg.style.background = `url(${playList[playNum].img}), no-repeat`;
+  songImg.style.backgroundSize = `cover`;
+  /*playPauseAudio();*/
 };
 //предидущий трек
 function playPrevAudio() {
   if((playNum<=playList.length-1) && (playNum!=0)){
     playNum--;
-    isPlay=false;
+    /*isPlay=false;*/
   } else if(playNum===0){
     playNum=playList.length-1;
-    isPlay=false;
+    /*isPlay=false;*/
   }
-  playPauseAudio();
+  track.src = playList[playNum].src;
+  track.play();
+  playBtn.setAttribute('d', 'M520-200v-560h240v560H520Zm-320 0v-560h240v560H200Zm400-80h80v-400h-80v400Zm-320 0h80v-400h-80v400Zm0-400v400-400Zm320 0v400-400Z');
+  backgroundWrapper.style.background = `url(${playList[playNum].img}), no-repeat`;
+  backgroundWrapper.style.backgroundPosition = `center`;
+  backgroundWrapper.style.backgroundSize = `cover`;
+
+  artistTitl.textContent = playList[playNum].title;
+  songImg.style.background = `url(${playList[playNum].img}), no-repeat`;
+  songImg.style.backgroundSize = `cover`;
 };
 
 track.addEventListener('ended', playNextAudio);
@@ -69,9 +88,6 @@ play.addEventListener('click', playPauseAudio);
 
 playPrev.addEventListener('click', playPrevAudio);
 playNext.addEventListener('click', playNextAudio);
-
-
-
 
 
 //слайдер громкости
