@@ -3,8 +3,6 @@ import playList from './play-list.js'
 const play = document.querySelector('.play');
 const playPrev = document.querySelector('.previous');
 const playNext = document.querySelector('.next');
-/*const playItem = document.querySelector('.play-list');*/
-/*const ulLi = document.getElementsByTagName('li');*/
 const artistTitl = document.querySelector('.song-name');
 const songImg = document.querySelector('.song-img');
 const backgroundWrapper = document.querySelector('.wrapper');
@@ -115,20 +113,20 @@ function progressSlider() {
     }
   };
   // выключение звука(mute)
-  /*let countSound = 0;
-  const muteSound = document.querySelector('.volume-icon');
+  let countSound = 0;
+  const muteSound = document.querySelector('.volume-icon path');
+  const volumeIcon = document.querySelector('.volume-icon');
   function soundBtn(){
     
     if(countSound%2===1){
-        muteSound.classList.remove('volume-active');
+      muteSound.setAttribute('d', 'M560-131v-82q90-26 145-100t55-168q0-94-55-168T560-749v-82q124 28 202 125.5T840-481q0 127-78 224.5T560-131ZM120-360v-240h160l200-200v640L280-360H120Zm440 40v-322q47 22 73.5 66t26.5 96q0 51-26.5 94.5T560-320ZM400-606l-86 86H200v80h114l86 86v-252ZM300-480Z');
         audio.muted = false;
         countSound++;
     }else if((countSound%2===0) || (countSound===0) ){
-        muteSound.classList.add('volume-active');
+        muteSound.setAttribute('d', 'm616-320-56-56 104-104-104-104 56-56 104 104 104-104 56 56-104 104 104 104-56 56-104-104-104 104Zm-496-40v-240h160l200-200v640L280-360H120Zm280-246-86 86H200v80h114l86 86v-252ZM300-480Z');
         audio.muted = true;
         countSound++;
     }
   }
  
-  muteSound.addEventListener('click', soundBtn);
-*/
+  volumeIcon.addEventListener('click', soundBtn);
