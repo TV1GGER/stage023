@@ -7,6 +7,7 @@ const playNext = document.querySelector('.next');
 /*const ulLi = document.getElementsByTagName('li');*/
 const artistTitl = document.querySelector('.song-name');
 const songImg = document.querySelector('.song-img');
+const backgroundWrapper = document.querySelector('.wrapper');
 
 let playNum = 0;
 let isPlay = false;
@@ -16,8 +17,12 @@ const audio = new Audio();
 function playPauseAudio() {
   audio.src = playList[playNum].src;
 
+  backgroundWrapper.style.background = `url(${playList[playNum].img}), no-repeat`;
+  backgroundWrapper.style.backgroundPosition = `center`;
+  backgroundWrapper.style.backgroundSize = `cover`;
+
   artistTitl.textContent = playList[playNum].title;
-  songImg.style.backgroundImage = `url(${playList[playNum].img})`;
+  songImg.style.background = `url(${playList[playNum].img}), no-repeat`;
   songImg.style.backgroundSize = `cover`;
   
 
