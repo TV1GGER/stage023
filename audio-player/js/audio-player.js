@@ -71,6 +71,8 @@ playNext.addEventListener('click', playNextAudio);
 
 //слайдер громкости
 const slider = document.getElementById('volumeSlider');
+audio.volume = 0.1;
+slider.value = 0.1;
 function setVolume(){
 audio.volume = slider.value;
 }
