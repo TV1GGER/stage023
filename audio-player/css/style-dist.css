@@ -1,0 +1,312 @@
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("./assets/fonts/Inter/Inter-VariableFont_slnt,wght.ttf");
+}
+html {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  height: auto;
+}
+
+.header {
+  width: 100%;
+}
+
+.player-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.player {
+  width: 32vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: transparent;
+  margin: 0 auto;
+  opacity: 0.7;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.player:hover {
+  opacity: 1;
+}
+
+.player svg {
+  fill: #04AA6D;
+  background-color: transparent;
+}
+
+.song-img {
+  width: 35vw;
+  height: 30vw;
+  background-color: #04AA6D;
+  overflow: hidden;
+  border: 0.001vw solid transparent;
+  border-radius: 1vw 1vw 0vw 0vw;
+  -webkit-box-shadow: 14px 14px 2px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 14px 14px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.player-controls-wrapper {
+  width: 35vw;
+  height: 15vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  border: 0.001vw solid transparent;
+  border-radius: 0vw 0vw 1vw 1vw;
+  background-image: -webkit-gradient(linear, left top, right top, from(rgb(0, 0, 0)), to(rgb(51, 51, 51)));
+  background-image: linear-gradient(to right, rgb(0, 0, 0), rgb(51, 51, 51));
+  -webkit-box-shadow: 14px 14px 2px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 14px 14px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.song-text-wrapper {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.player-controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 1vw;
+}
+
+.volume-ctrl-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 2vw;
+}
+
+#volumeSliderBar {
+  color: #04AA6D;
+  font-size: smaller;
+}
+
+.volume-icon, .previous, .play, .next {
+  background-image: -webkit-gradient(linear, left top, right top, from(rgb(0, 0, 0)), to(#035738));
+  background-image: linear-gradient(to right, rgb(0, 0, 0), #035738);
+  border: 0.1vw solid transparent;
+  border-radius: 1vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-shadow: 4px 4px 2px 1px rgba(0, 0, 0, 0.6);
+          box-shadow: 4px 4px 2px 1px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.volume-icon:hover, .previous:hover, .play:hover, .next:hover {
+  background-image: -webkit-gradient(linear, left top, right top, from(rgb(0, 0, 0)), to(#04AA6D));
+  background-image: linear-gradient(to right, rgb(0, 0, 0), #04AA6D);
+  border: 0.1vw solid transparent;
+  border-radius: 1vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-shadow: 2px 1px 4px 4px rgba(0, 0, 0, 0.6);
+          box-shadow: 2px 1px 4px 4px rgba(0, 0, 0, 0.6);
+}
+
+.previous svg, .play svg, .next svg {
+  width: 4vw;
+  height: 4vw;
+}
+
+#progressSlider {
+  width: 27vw;
+  -webkit-appearance: none;
+  /*width: 100%;*/
+  height: 2vw;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  border: 0.1vw solid transparent;
+  border-radius: 1vw;
+  -webkit-transition: 0.2s;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+#progressSlider:hover {
+  opacity: 1;
+}
+
+#progressSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 2vw;
+  height: 2vw;
+  border: 0.1vw solid transparent;
+  border-radius: 1vw;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+#progressSlider::-moz-range-thumb {
+  width: 2vw;
+  height: 2vw;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.volume-control {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 0.3vw;
+}
+
+.volume-icon svg {
+  width: 2vw;
+  height: 2vw;
+}
+
+#volumeSlider {
+  width: 10vw;
+  -webkit-appearance: none;
+  /*width: 100%;*/
+  height: 2vw;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  border: 0.1vw solid transparent;
+  border-radius: 1vw;
+  -webkit-transition: 0.2s;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+#volumeSlider:hover {
+  opacity: 1;
+}
+
+#volumeSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 2vw;
+  height: 2vw;
+  border: 0.1vw solid transparent;
+  border-radius: 1vw;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+#volumeSlider::-moz-range-thumb {
+  width: 2vw;
+  height: 2vw;
+  background: #04AA6D;
+  cursor: pointer;
+}
