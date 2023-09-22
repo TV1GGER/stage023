@@ -8,10 +8,17 @@ const songImg = document.querySelector('.song-img');
 const backgroundWrapper = document.querySelector('.wrapper');
 const playBtn = document.querySelector('.play-btn path');
 
+
 let playNum = 0;
 let isPlay = false;
 const track = new Audio();
 track.src = playList[playNum].src;
+backgroundWrapper.style.background = `url(${playList[playNum].img}), no-repeat`;
+backgroundWrapper.style.backgroundPosition = `center`;
+backgroundWrapper.style.backgroundSize = `cover`;
+artistTitl.textContent = playList[playNum].title;
+songImg.style.background = `url(${playList[playNum].img}), no-repeat`;
+songImg.style.backgroundSize = `cover`;
 
 // плей/пауза трека
 function playPauseAudio() {
@@ -41,14 +48,17 @@ function playPauseAudio() {
     playBtn.setAttribute('d', 'M320-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z');
   };*/
 };
+
 // следующий трек
 function playNextAudio() {
   if(playNum<playList.length-1){
     playNum++;
     /*isPlay=false;*/
+   /* track.pause();*/
   }else if(playNum===playList.length-1){
     playNum=0;
     /*isPlay=false;*/
+    /*track.pause();*/
   }
   track.src = playList[playNum].src;
   track.play();
@@ -66,10 +76,12 @@ function playNextAudio() {
 function playPrevAudio() {
   if((playNum<=playList.length-1) && (playNum!=0)){
     playNum--;
+    /*track.pause();*/
     /*isPlay=false;*/
   } else if(playNum===0){
     playNum=playList.length-1;
     /*isPlay=false;*/
+    /*track.pause();*/
   }
   track.src = playList[playNum].src;
   track.play();
@@ -101,41 +113,40 @@ slider.addEventListener('change', setVolume);
 
 //слайдер прогрессбар
 const setProgressSlider = document.getElementById('progressSlider');
-function progressSliderBar() {
-    const x = document.getElementById('progressSlider');
-    x.min = 0;
-    x.max = track.duration;
-    x.step = track.duration / 100;
-    track.currentTime = x.value;
-    
-  }
-  setProgressSlider.addEventListener('change', progressSliderBar);
-  track.addEventListener('loadeddata', setInterval);
-  function setInterval() {
-    const progressBar = document.getElementById('progressSlider');
-    const ProgressBarTime = document.querySelector('.song-time');
-    progressBar.value = track.currentTime / track.duration * 100;
-    ProgressBarTime.textContent = getTimeCodeFromNum(track.currentTime)+"/"+getTimeCodeFromNum(track.duration);
-    setTimeout(setInterval, 1000);
-    getTimeCodeFromNum(track.currentTime);
-    getTimeCodeFromNum(track.duration);
+const ProgressBarTime = document.querySelector('.song-time');
+track.onloadedmetadata = function() {
+  setProgressSlider.max = track.duration;
+  setProgressSlider.value = track.currentTime;
 };
 
- 
+
+
+if(track.play()) {
+setInterval(() => {
+  setProgressSlider.value = track.currentTime;
+  ProgressBarTime.textContent = getTimeCodeFromNum(track.currentTime)+"/"+getTimeCodeFromNum(track.duration)/*playList[playNum].duration*/;
+}, 500);
+}
+setProgressSlider.onchange = function() {
+  track.play();
+  track.currentTime = setProgressSlider.value;
+  playBtn.setAttribute('d', 'M520-200v-560h240v560H520Zm-320 0v-560h240v560H200Zm400-80h80v-400h-80v400Zm-320 0h80v-400h-80v400Zm0-400v400-400Zm320 0v400-400Z');
+}
 
   function getTimeCodeFromNum(num) {
-    let seconds = parseInt(num);
-    let minutes = parseInt(seconds / 60);
-    seconds -= minutes * 60;
-    const hours = parseInt(minutes / 60);
-    minutes -= hours * 60;
-  
-    if (hours === 0){
-        return `${minutes}:${String(seconds % 60).padStart(2, 0)}`;
+  let seconds = parseInt(num);
+  let minutes = parseInt(seconds / 60);
+  seconds -= minutes * 60;
+  const hours = parseInt(minutes / 60);
+  minutes -= hours * 60;
+   if (hours === 0){
+    return `${minutes}:${String(seconds % 60).padStart(2, 0)}`;
     }else {return `${String(hours).padStart(2, 0)}:${String(minutes).padStart(2, 0)}:${String(seconds % 60).padStart(2, 0)}`;
-    }
-  };
-  // выключение звука(mute)
+   }
+ };
+
+  
+// выключение звука(mute)
   let countSound = 0;
   const muteSound = document.querySelector('.volume-icon path');
   const volumeIcon = document.querySelector('.volume-icon');
