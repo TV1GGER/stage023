@@ -114,7 +114,7 @@ body {
 
 .player-controls-wrapper {
   width: 35vw;
-  height: 15vw;
+  height: 12vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -188,6 +188,37 @@ body {
 
 .song-text-wrapper {
   color: #04AA6D;
+}
+
+.song-text {
+  width: 16vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.singer {
+  width: 16vw;
+  max-height: 0.9vw;
+  font-size: 0.7rem;
+  font-weight: 600;
+  overflow: hidden;
+}
+
+.song-title {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 400;
 }
 
 #volumeSliderBar {

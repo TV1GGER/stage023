@@ -3,7 +3,8 @@ import playList from './play-list.js'
 const play = document.querySelector('.play');
 const playPrev = document.querySelector('.previous');
 const playNext = document.querySelector('.next');
-const artistTitl = document.querySelector('.song-name');
+const artist = document.querySelector('.singer');
+const songTitle = document.querySelector('.song-title');
 const songImg = document.querySelector('.song-img');
 const backgroundWrapper = document.querySelector('.wrapper');
 const playBtn = document.querySelector('.play-btn path');
@@ -16,7 +17,8 @@ track.src = playList[playNum].src;
 backgroundWrapper.style.background = `url(${playList[playNum].img}), no-repeat`;
 backgroundWrapper.style.backgroundPosition = `center`;
 backgroundWrapper.style.backgroundSize = `cover`;
-artistTitl.textContent = playList[playNum].title;
+artist.textContent = playList[playNum].singer;
+songTitle.textContent = playList[playNum].title;
 songImg.style.background = `url(${playList[playNum].img}), no-repeat`;
 songImg.style.backgroundSize = `cover`;
 
@@ -26,7 +28,8 @@ function playPauseAudio() {
   backgroundWrapper.style.backgroundPosition = `center`;
   backgroundWrapper.style.backgroundSize = `cover`;
 
-  artistTitl.textContent = playList[playNum].title;
+  artist.textContent = playList[playNum].singer;
+  songTitle.textContent = playList[playNum].title;
   songImg.style.background = `url(${playList[playNum].img}), no-repeat`;
   songImg.style.backgroundSize = `cover`;
   
@@ -63,11 +66,11 @@ function playNextAudio() {
   track.src = playList[playNum].src;
   track.play();
   playBtn.setAttribute('d', 'M520-200v-560h240v560H520Zm-320 0v-560h240v560H200Zm400-80h80v-400h-80v400Zm-320 0h80v-400h-80v400Zm0-400v400-400Zm320 0v400-400Z');
+  artist.textContent = playList[playNum].singer;
+  songTitle.textContent = playList[playNum].title;
   backgroundWrapper.style.background = `url(${playList[playNum].img}), no-repeat`;
   backgroundWrapper.style.backgroundPosition = `center`;
   backgroundWrapper.style.backgroundSize = `cover`;
-
-  artistTitl.textContent = playList[playNum].title;
   songImg.style.background = `url(${playList[playNum].img}), no-repeat`;
   songImg.style.backgroundSize = `cover`;
   /*playPauseAudio();*/
@@ -86,11 +89,11 @@ function playPrevAudio() {
   track.src = playList[playNum].src;
   track.play();
   playBtn.setAttribute('d', 'M520-200v-560h240v560H520Zm-320 0v-560h240v560H200Zm400-80h80v-400h-80v400Zm-320 0h80v-400h-80v400Zm0-400v400-400Zm320 0v400-400Z');
+  artist.textContent = playList[playNum].singer;
+  songTitle.textContent = playList[playNum].title;
   backgroundWrapper.style.background = `url(${playList[playNum].img}), no-repeat`;
   backgroundWrapper.style.backgroundPosition = `center`;
   backgroundWrapper.style.backgroundSize = `cover`;
-
-  artistTitl.textContent = playList[playNum].title;
   songImg.style.background = `url(${playList[playNum].img}), no-repeat`;
   songImg.style.backgroundSize = `cover`;
 };

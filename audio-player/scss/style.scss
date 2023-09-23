@@ -93,7 +93,7 @@ body {
 
 .player-controls-wrapper {
   width: 35vw;
-  height: 15vw;
+  height: 12vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -131,6 +131,28 @@ body {
 
 .song-text-wrapper {
   color: #04AA6D;
+}
+
+.song-text {
+  width: 16vw;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: space-between;
+}
+
+.singer {
+  width: 16vw;
+  max-height: 0.9vw;
+  font-size: 0.7rem;
+  font-weight: 600;
+  overflow: hidden;
+}
+
+.song-title {
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 400;
 }
 
 #volumeSliderBar {
