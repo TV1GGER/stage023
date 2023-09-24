@@ -600,7 +600,7 @@ body {
 @media screen and (max-width: 1000px) {
   .singer {
     width: 16vw;
-    max-height: 0.9vw;
+    height: 0.9vw;
     font-size: 0.5rem;
     font-weight: 600;
   }
@@ -627,7 +627,7 @@ body {
   }
   .player-controls-wrapper {
     width: 45vw;
-    height: 16vw;
+    height: 18vw;
   }
   .previous, .play, .next {
     width: 5vw;
