@@ -9,7 +9,7 @@ const songImg = document.querySelector('.song-img');
 const backgroundWrapper = document.querySelector('.wrapper');
 const playBtn = document.querySelector('.play-btn path');
 const dropdownPlayListItem = document.querySelector('.dropdown-play-list-item');
-let playNum = 0;
+let playNum = 5;
 
 
 
@@ -21,8 +21,6 @@ const playListBtn = document.querySelector('.play-list-btn');
 const playListCloseBtn = document.querySelector('.play-list-close-btn');
 const dropdownPlayListWrapper = document.querySelector('.dropdown-play-list-wrapper');
 const dropdownPlayListWrapperOutside = document.querySelector('.dropdown-play-list-wrapper-outside');
-/*const playListCloseBtn = document.querySelector('.play-list-close-btn');*/
-/*dropdown-play-list-wrapper-outside-active*/
 const track = new Audio();
 
 function playSound() {
@@ -208,14 +206,6 @@ dropdownPlayListWrapper.addEventListener('click', () => {
     playListBtnCount++;
 })
 
-
-
-/*function playSound() {
-  track.play();
-}
- let isPlay = false;
-const track = new Audio();
-*/
 track.src = playList[playNum].src;
 backgroundWrapper.style.background = `url(${playList[playNum].img}), no-repeat`;
 backgroundWrapper.style.backgroundPosition = `center`;
@@ -224,6 +214,7 @@ artist.textContent = playList[playNum].singer;
 songTitle.textContent = playList[playNum].title;
 songImg.style.background = `url(${playList[playNum].img}), no-repeat`;
 songImg.style.backgroundSize = `cover`;
+
 
 // плей/пауза трека
 
@@ -244,28 +235,14 @@ function playPauseAudio() {
       playSound();
       playBtn.setAttribute('d', 'M520-200v-560h240v560H520Zm-320 0v-560h240v560H200Zm400-80h80v-400h-80v400Zm-320 0h80v-400h-80v400Zm0-400v400-400Zm320 0v400-400Z');
      }
-  /*if(isPlay===false){
-    audio.play();
-    isPlay = true;
-    playBtn.setAttribute('d', 'M520-200v-560h240v560H520Zm-320 0v-560h240v560H200Zm400-80h80v-400h-80v400Zm-320 0h80v-400h-80v400Zm0-400v400-400Zm320 0v400-400Z');
-    
-  }else if(isPlay===true){
-    audio.pause();
-    isPlay = false;
-    playBtn.setAttribute('d', 'M320-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z');
-  };*/
 };
 
 // следующий трек
 function playNextAudio() {
   if(playNum<playList.length-1){
     playNum++;
-    /*isPlay=false;*/
-   /* track.pause();*/
   }else if(playNum===playList.length-1){
     playNum=0;
-    /*isPlay=false;*/
-    /*track.pause();*/
   }
   track.src = playList[playNum].src;
   playSound();
@@ -277,18 +254,13 @@ function playNextAudio() {
   backgroundWrapper.style.backgroundSize = `cover`;
   songImg.style.background = `url(${playList[playNum].img}), no-repeat`;
   songImg.style.backgroundSize = `cover`;
-  /*playPauseAudio();*/
 };
 //предидущий трек
 function playPrevAudio() {
   if((playNum<=playList.length-1) && (playNum!=0)){
     playNum--;
-    /*track.pause();*/
-    /*isPlay=false;*/
   } else if(playNum===0){
     playNum=playList.length-1;
-    /*isPlay=false;*/
-    /*track.pause();*/
   }
   track.src = playList[playNum].src;
   playSound();
@@ -325,8 +297,6 @@ track.onloadedmetadata = function() {
   setProgressSlider.max = track.duration;
   setProgressSlider.value = track.currentTime;
 };
-
-
 
 if(track.play()) {
 setInterval(() => {
