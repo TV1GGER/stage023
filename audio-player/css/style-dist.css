@@ -4,9 +4,10 @@
   }
 }
 * {
-  padding: 0px;
-  margin: 0px;
-  border: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 *,
@@ -28,14 +29,20 @@ html {
 
 body {
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 .header {
   width: 100%;
 }
 
+.main {
+  width: 100%;
+  height: 100%;
+}
+
 .wrapper {
+  visibility: visible;
   position: absolute;
   top: 0;
   left: 0;
@@ -509,4 +516,76 @@ body {
   height: 2vw;
   background: #04AA6D;
   cursor: pointer;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 3vw;
+}
+
+.footer-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #ffffff;
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  opacity: 0.4;
+  z-index: 95;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.footer-wrapper:hover {
+  opacity: 1;
+}
+
+.year {
+  font-family: "Inter";
+  font-weight: 600;
+}
+
+.my-git-hub a {
+  text-decoration: none;
+  color: #000;
+  font-family: "Inter";
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.my-git-hub:hover a {
+  color: #04AA6D;
+}
+
+.logo-rss {
+  width: 5vw;
+  height: 2vw;
+  cursor: pointer;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.logo-rss path {
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.logo-rss:hover path {
+  fill: #04AA6D;
 }
