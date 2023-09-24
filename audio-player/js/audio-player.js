@@ -9,7 +9,7 @@ const songImg = document.querySelector('.song-img');
 const backgroundWrapper = document.querySelector('.wrapper');
 const playBtn = document.querySelector('.play-btn path');
 const dropdownPlayListItem = document.querySelector('.dropdown-play-list-item');
-let playNum = 0;
+let playNum = 5;
 
 
 
