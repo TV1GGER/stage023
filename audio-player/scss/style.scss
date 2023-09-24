@@ -263,19 +263,20 @@ body {
   flex-direction: column;
   align-items: left;
   justify-content: space-between;
+  gap: 0.2vw;
 }
 
 .singer {
   width: 16vw;
   max-height: 0.9vw;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   font-weight: 600;
   overflow: hidden;
 }
 
 .song-title {
   color: #ffffff;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 400;
 }
 
@@ -307,8 +308,8 @@ body {
 }
 
 .previous svg, .play svg, .next svg {
-  width: 4vw;
-  height: 4vw;
+  width: 3vw;
+  height: 3vw;
 }
 
 #progressSlider {
@@ -457,4 +458,61 @@ body {
 
 .logo-rss:hover path{
   fill: #04AA6D;
+}
+
+@media screen and (max-width: 1000px) {
+  @media (prefers-reduced-motion: no-preference) { 
+      :root {
+      scroll-behavior: smooth;
+  }}
+
+  .singer {
+    width: 16vw;
+    max-height: 0.9vw;
+    font-size: 0.5rem;
+    font-weight: 600;
+  }
+  
+  .song-title {
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 400;
+  }
+
+  .song-time {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .song-img {
+    width: 45vw;
+    height: 40vw;
+  }
+  
+  .play-list-svg {
+    width: 5vw;
+    height: 5vw;
+    cursor: pointer;
+    transition: .4s;
+    z-index: 50;
+  }
+
+  .player-controls-wrapper {
+    width: 45vw;
+    height: 16vw;
+  }
+
+  .previous, .play, .next {
+    width: 5vw;
+    height: 5vw;
+  }
+
+  .volume-icon svg{
+    width: 3vw;
+    height: 3vw;
+  }
+
+  .footer {
+      height:2vw;
+    }
 }
