@@ -1,0 +1,120 @@
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Lexend";
+  src: url("../assets/fonts/Lexend/Lexend-VariableFont_wght.ttf");
+}
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  height: auto;
+  padding-left: 7vw;
+  padding-right: 7vw;
+  background: rgb(0, 0, 0);
+}
+
+header {
+  padding-left: 7vw;
+  padding-right: 7vw;
+  background: rgb(0, 0, 0);
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 3.5vw;
+  border-radius: 5vw;
+  border: 0.1vw solid white;
+  margin-top: 1vw;
+}
+
+.header-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+  gap: 30vw;
+}
+
+h1 {
+  font-size: 1.5vw;
+  font-family: "Lexend";
+}
+
+.header-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #0ef613;
+  gap: 1vw;
+}
+
+.logo-ico-svg {
+  fill: white;
+}
+
+/*.header-input-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}*/
+.header-input-container {
+  margin: 0 auto;
+}
+
+.header-input-in {
+  width: 21vw;
+  height: 2.5vw;
+}
+
+.header-search, .header-close {
+  position: absolute;
+  display: inline-block;
+  margin-left: -3.5vw;
+  margin-top: 0.45vw;
+}
