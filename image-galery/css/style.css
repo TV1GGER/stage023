@@ -30,10 +30,21 @@ html {
 
 body {
   width: 100%;
-  height: auto;
+  height: 100%;
   padding-left: 7vw;
   padding-right: 7vw;
   background: rgb(0, 0, 0);
+}
+
+.wrapper {
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 header {
@@ -50,6 +61,12 @@ header {
   border-radius: 5vw;
   border: 0.1vw solid white;
   margin-top: 1vw;
+}
+
+.main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
 }
 
 .header-container {
@@ -117,4 +134,85 @@ h1 {
   display: inline-block;
   margin-left: -3.5vw;
   margin-top: 0.45vw;
+}
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 3.5vw;
+  border-radius: 5vw;
+  border: 0.1vw solid white;
+  margin-bottom: 1vw;
+}
+
+.footer-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+  gap: 30vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+}
+
+.footer-date {
+  font-family: "Lexend";
+  font-size: 1vw;
+  color: white;
+  cursor: default;
+}
+
+.footer-rss-logo {
+  width: 5vw;
+  height: 2vw;
+  cursor: pointer;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.footer-rss-logo svg {
+  fill: white;
+}
+
+.my-git-hub {
+  cursor: pointer;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.my-git-hub a {
+  text-decoration: none;
+  font-family: "Lexend";
+  font-size: 1vw;
+  color: white;
+}
+
+.footer-href {
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.my-git-hub:hover .footer-href {
+  color: #0ef613;
+}
+
+.footer-rss-logo {
+  cursor: pointer;
+}
+.footer-rss-logo svg {
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.footer-rss-logo:hover svg {
+  fill: #0ef613;
 }
