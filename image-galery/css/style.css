@@ -129,11 +129,39 @@ h1 {
   height: 2.5vw;
 }
 
-.header-search, .header-close {
+.header-search {
   position: absolute;
   display: inline-block;
   margin-left: -3.5vw;
   margin-top: 0.45vw;
+  cursor: pointer;
+}
+.header-search:hover svg {
+  fill: #0ef613;
+}
+
+.header-close {
+  display: none;
+  position: absolute;
+  margin-left: -3.5vw;
+  margin-top: 0.45vw;
+}
+
+.header-close-visible {
+  display: inline-block;
+  cursor: pointer;
+}
+.header-close-visible:hover svg {
+  fill: #0ef613;
+}
+
+.header-search-hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.header-close {
+  visibility: visible;
 }
 
 .footer {
