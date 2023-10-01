@@ -158,6 +158,45 @@ h1 {
   }
 }
 
+main {
+  display: flex;
+  align-items: center;
+}
+
+.main-container {
+  visibility: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2vw 2vw;
+  opacity: 0;
+  transition: .4s;
+}
+
+.main-container-active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.main-item1, .main-item2, .main-item3, .main-item4, .main-item5, .main-item6, .main-item7, .main-item8, .main-item9, .main-item10, .main-item11, .main-item12{
+  width: 12vw;
+  height: 14vw;
+  background-color: white;
+  background-position: center;
+  background-size: cover;
+  border-radius: 2vw;
+  border: 0.1vw solid white;
+  cursor: pointer;
+  transition: .4s;
+}
+
+.main-item1:hover, .main-item2:hover, .main-item3:hover, .main-item4:hover, .main-item5:hover, .main-item6:hover, .main-item7:hover, .main-item8:hover, .main-item9:hover, .main-item10:hover, .main-item11:hover, .main-item12:hover{
+  filter: drop-shadow(0vw 0.3vw 0.3vw #0ef613);
+  transform: scale(1.1);
+}
+
 .footer-href {
   transition: .4s;
 }
