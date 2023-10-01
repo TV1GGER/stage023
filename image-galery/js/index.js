@@ -1,4 +1,3 @@
-let searchText = 'машина';
 const mainItem1 = document.querySelector('.main-item1');
 const mainItem2 = document.querySelector('.main-item2');
 const mainItem3 = document.querySelector('.main-item3');
@@ -16,7 +15,7 @@ const mainContainer = document.querySelector('.main-container');
 const headerSearch = document.querySelector('.header-search');
 const headerClose = document.querySelector('.header-close');
 const bodySelector = document.querySelector('body');
-
+const headerCloseSvg = document.querySelector('header-close-svg');
 let imgArr = [mainItem1, mainItem2, mainItem3, mainItem4, mainItem5, mainItem6, mainItem7, mainItem8, mainItem9, mainItem10, mainItem11, mainItem12];
 
 let count =0;
@@ -30,23 +29,26 @@ function getRandomNum(min, max) {
 
 getRandomNum(0, 25);
 
+/*headerInputIn.addEventListener('input', ()=>{
+    headerSearch.classList.add('header-search-hidden');
+    headerClose.classList.add('header-close-visible');
+});*/
+
+headerClose.addEventListener('click', ()=> {
+    headerInputIn.value = '';
+    headerInputIn.placeholder = 'Search...';
+    headerSearch.classList.remove('header-search-hidden');
+    headerClose.classList.remove('header-close-visible');
+});
+
 let inputVal = '';
 headerInputIn.addEventListener('change', ()=>{
     mainContainer.classList.add('main-container-active');
     inputVal = headerInputIn.value;
     setImg();
-});
-if(!headerInputIn.value) {
-    headerSearch.classList.remove('header-search-hidden');
-    headerClose.classList.remove('header-close-visible');
-}
-
-headerInputIn.addEventListener('input', ()=>{
     headerSearch.classList.add('header-search-hidden');
     headerClose.classList.add('header-close-visible');
 });
-
-
 
 
 async function getLinkToImageFlickr(x) {
