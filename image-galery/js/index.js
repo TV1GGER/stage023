@@ -27,12 +27,7 @@ function getRandomNum(min, max) {
 };
 
 
-getRandomNum(0, 25);
-
-/*headerInputIn.addEventListener('input', ()=>{
-    headerSearch.classList.add('header-search-hidden');
-    headerClose.classList.add('header-close-visible');
-});*/
+getRandomNum(0, 20);
 
 headerClose.addEventListener('click', ()=> {
     headerInputIn.value = '';
@@ -59,13 +54,13 @@ const dataFlickr = await resFlickr.json();
 let backgroundImage = ``;
 let imgFlr = document.createElement('img');
 let bodyFlickr = document.querySelector('body');
-imgFlr.src = dataFlickr.photos.photo[getRandomNum(1, 50)].url_l;
+imgFlr.src = dataFlickr.photos.photo[getRandomNum(1, 20)].url_l;
 x.style.backgroundImage = `url(${imgFlr.src})`;
 }
 
-function setImg() {
+async function setImg() {
     for(let key in imgArr) {
-        getLinkToImageFlickr(imgArr[key]);
+        const awaitImg = await getLinkToImageFlickr(imgArr[key]);
     }
 }
 
