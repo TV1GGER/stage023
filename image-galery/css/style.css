@@ -1,0 +1,303 @@
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Lexend";
+  src: url("../assets/fonts/Lexend/Lexend-VariableFont_wght.ttf");
+}
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  padding-left: 7vw;
+  padding-right: 7vw;
+  background: rgb(0, 0, 0);
+}
+
+.wrapper {
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+header {
+  padding-left: 7vw;
+  padding-right: 7vw;
+  background: rgb(0, 0, 0);
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 3.5vw;
+  border-radius: 5vw;
+  border: 0.1vw solid white;
+  margin-top: 1vw;
+}
+
+.main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.header-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+  gap: 30vw;
+}
+
+h1 {
+  font-size: 1.4vw;
+  font-family: "Lexend";
+}
+
+.header-logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #0ef613;
+  gap: 1vw;
+}
+
+.logo-ico-svg {
+  fill: white;
+}
+
+/*.header-input-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}*/
+.header-input-container {
+  margin: 0 auto;
+}
+
+.header-input-in {
+  width: 21vw;
+  height: 2.5vw;
+}
+
+.header-search {
+  position: absolute;
+  display: inline-block;
+  margin-left: -3.5vw;
+  margin-top: 0.45vw;
+  cursor: pointer;
+}
+.header-search:hover svg {
+  fill: #0ef613;
+}
+
+.header-close {
+  display: none;
+  position: absolute;
+  margin-left: -3.5vw;
+  margin-top: 0.45vw;
+}
+
+.header-close-visible {
+  display: inline-block;
+  cursor: pointer;
+}
+.header-close-visible:hover svg {
+  fill: #0ef613;
+}
+
+.header-search-hidden {
+  display: none;
+  visibility: hidden;
+}
+
+.header-close {
+  visibility: visible;
+}
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 3.5vw;
+  border-radius: 5vw;
+  border: 0.1vw solid white;
+  margin-bottom: 1vw;
+}
+
+.footer-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+  gap: 30vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+}
+
+.footer-date {
+  font-family: "Lexend";
+  font-size: 1vw;
+  color: white;
+  cursor: default;
+}
+
+.footer-rss-logo {
+  width: 5vw;
+  height: 2vw;
+  cursor: pointer;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.footer-rss-logo svg {
+  fill: white;
+}
+
+.my-git-hub {
+  cursor: pointer;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.my-git-hub a {
+  text-decoration: none;
+  font-family: "Lexend";
+  font-size: 1vw;
+  color: white;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.main-container {
+  visibility: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 2vw 2vw;
+  opacity: 0;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.main-container-active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.main-item1, .main-item2, .main-item3, .main-item4, .main-item5, .main-item6, .main-item7, .main-item8, .main-item9, .main-item10, .main-item11, .main-item12 {
+  width: 12vw;
+  height: 14vw;
+  background-color: white;
+  background-position: center;
+  background-size: cover;
+  border-radius: 2vw;
+  border: 0.1vw solid white;
+  cursor: pointer;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.main-item1:hover, .main-item2:hover, .main-item3:hover, .main-item4:hover, .main-item5:hover, .main-item6:hover, .main-item7:hover, .main-item8:hover, .main-item9:hover, .main-item10:hover, .main-item11:hover, .main-item12:hover {
+  -webkit-filter: drop-shadow(0vw 0.3vw 0.3vw #0ef613);
+          filter: drop-shadow(0vw 0.3vw 0.3vw #0ef613);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.footer-href {
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.my-git-hub:hover .footer-href {
+  color: #0ef613;
+}
+
+.footer-rss-logo {
+  cursor: pointer;
+}
+.footer-rss-logo svg {
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.footer-rss-logo:hover svg {
+  fill: #0ef613;
+}
