@@ -124,16 +124,24 @@ h1 {
   margin: 0 auto;
 }
 
+.header-input-container svg {
+  width: 2.4vw;
+  height: 2.4vw;
+}
+
 .header-input-in {
   width: 21vw;
   height: 2.5vw;
+  font-size: 1.5vw;
 }
 
 .header-search {
+  width: 2.4vw;
+  height: 2.4vw;
   position: absolute;
   display: inline-block;
   margin-left: -3.5vw;
-  margin-top: 0.45vw;
+  margin-top: 0.1vw;
   cursor: pointer;
 }
 .header-search:hover svg {
@@ -141,10 +149,12 @@ h1 {
 }
 
 .header-close {
+  width: 2.4vw;
+  height: 2.4vw;
   display: none;
   position: absolute;
   margin-left: -3.5vw;
-  margin-top: 0.45vw;
+  margin-top: 0.1vw;
 }
 
 .header-close-visible {
