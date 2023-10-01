@@ -15,9 +15,9 @@ const headerInputIn = document.querySelector('.header-input-in');
 const mainContainer = document.querySelector('.main-container');
 const headerSearch = document.querySelector('.header-search');
 const headerClose = document.querySelector('.header-close');
+const bodySelector = document.querySelector('body');
 
 let imgArr = [mainItem1, mainItem2, mainItem3, mainItem4, mainItem5, mainItem6, mainItem7, mainItem8, mainItem9, mainItem10, mainItem11, mainItem12];
-
 
 let count =0;
 function getRandomNum(min, max) {
@@ -35,11 +35,11 @@ headerInputIn.addEventListener('change', ()=>{
     mainContainer.classList.add('main-container-active');
     inputVal = headerInputIn.value;
     setImg();
-    if(!headerInputIn.value) {
-        headerSearch.classList.remove('header-search-hidden');
-        headerClose.classList.remove('header-close-visible');
-    }
 });
+if(!headerInputIn.value) {
+    headerSearch.classList.remove('header-search-hidden');
+    headerClose.classList.remove('header-close-visible');
+}
 
 headerInputIn.addEventListener('input', ()=>{
     headerSearch.classList.add('header-search-hidden');
