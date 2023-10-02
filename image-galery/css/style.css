@@ -23,6 +23,7 @@
 }
 html {
   width: 100%;
+  max-width: 1440px;
   height: 100%;
   margin: 0 auto;
   padding: 0;
@@ -57,7 +58,10 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 3.5vw;
+  min-height: 3.5vw;
+  max-height: -webkit-fit-content;
+  max-height: -moz-fit-content;
+  max-height: fit-content;
   border-radius: 5vw;
   border: 0.1vw solid white;
   margin-top: 1vw;
@@ -241,9 +245,14 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding-top: 2vw;
+  padding-bottom: 2vw;
 }
 
 .main-container {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   visibility: hidden;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -272,8 +281,8 @@ main {
 }
 
 .main-item1, .main-item2, .main-item3, .main-item4, .main-item5, .main-item6, .main-item7, .main-item8, .main-item9, .main-item10, .main-item11, .main-item12 {
-  width: 12vw;
-  height: 14vw;
+  width: 160px;
+  height: 160px;
   background-color: white;
   background-position: center;
   background-size: cover;
