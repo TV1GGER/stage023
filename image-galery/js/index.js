@@ -17,18 +17,24 @@ const headerClose = document.querySelector('.header-close');
 const bodySelector = document.querySelector('body');
 const headerCloseSvg = document.querySelector('header-close-svg');
 let imgArr = [mainItem1, mainItem2, mainItem3, mainItem4, mainItem5, mainItem6, mainItem7, mainItem8, mainItem9, mainItem10, mainItem11, mainItem12];
+let imgObj = {mainItem1: '',
+                mainItem2:'', 
+                mainItem3:'', 
+                mainItem4:'', 
+                mainItem5:'', 
+                mainItem6:'', 
+                mainItem7:'', 
+                mainItem8:'', 
+                mainItem9:'', 
+                mainItem10:'', 
+                mainItem11:'', 
+                mainItem12:''};
+
+                //let imgObj ={};
 
 
 let count =0;
-function getRandomNum(min, max) {
-    const minM = Math.ceil(min);
-    const maxM = Math.floor(max);
-    return Math.floor(Math.random() * (maxM - minM + 1)) + minM;
-    
-};
 
-
-getRandomNum(0, 25);
 
 headerClose.addEventListener('click', ()=> {
     headerInputIn.value = '';
@@ -48,12 +54,13 @@ window.addEventListener('load', ()=> {
 headerInputIn.addEventListener('change', ()=>{
     mainContainer.classList.add('main-container-active');
     inputVal = headerInputIn.value;
-    setImg();
     headerSearch.classList.add('header-search-hidden');
     headerClose.classList.add('header-close-visible');
+    setImg();
 });
-
-
+//console.log(inputVal);
+let imgUrl = '';
+let photoIndex = 0;
 async function getLinkToImageFlickr(x) {
     
     const urlFlickr = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=9d30ebd21aae4bd52f018e7b4195d26b&tags=${inputVal}&extras=url_l&format=json&nojsoncallback=1`;
@@ -62,14 +69,40 @@ const dataFlickr = await resFlickr.json();
 let backgroundImage = ``;
 let imgFlr = document.createElement('img');
 let bodyFlickr = document.querySelector('body');
-imgFlr.src = dataFlickr.photos.photo[getRandomNum(1, 20)].url_l;
+//imgFlr.src = dataFlickr.photos.photo[getRandomNum(1, 20)].url_l;
+imgFlr.src = dataFlickr.photos.photo[photoIndex].url_l;
 x.style.backgroundImage = `url(${imgFlr.src})`;
+imgUrl = `url(${imgFlr.src})`;
+let numItem=1;
+/*for (let y=0; y<=6; y++) {
+    imgObj.x = imgUrl;
+    photoIndex++;
+
+}*/
+//console.log(imgObj);
 }
 
 async function setImg() {
+    //inputVal = headerInputIn.value;
+    imgObj ={};
     for(let key in imgArr) {
         const awaitImg = await getLinkToImageFlickr(imgArr[key]);
+        imgObj[key] = imgUrl;
+        photoIndex++;
     }
 }
 
+const imgOpen = document.querySelector('.main-container child');
 
+
+
+mainItem1.addEventListener('click', (e)=>{
+
+    let eleentClass = e.target.class;
+    if(imgArr[1].style.backgroundImage.url === ''){
+    }else {
+        window.open(imgArr[1].style.backgroundImage.url);
+        console.log(imgObj[1]);
+    }
+   
+});
