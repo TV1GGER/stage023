@@ -18,6 +18,7 @@ const bodySelector = document.querySelector('body');
 const headerCloseSvg = document.querySelector('header-close-svg');
 let imgArr = [mainItem1, mainItem2, mainItem3, mainItem4, mainItem5, mainItem6, mainItem7, mainItem8, mainItem9, mainItem10, mainItem11, mainItem12];
 
+
 let count =0;
 function getRandomNum(min, max) {
     const minM = Math.ceil(min);
@@ -27,7 +28,7 @@ function getRandomNum(min, max) {
 };
 
 
-getRandomNum(0, 20);
+getRandomNum(0, 25);
 
 headerClose.addEventListener('click', ()=> {
     headerInputIn.value = '';
@@ -37,6 +38,13 @@ headerClose.addEventListener('click', ()=> {
 });
 
 let inputVal = '';
+
+window.addEventListener('load', ()=> {
+    inputVal = 'spring';
+    setImg();
+    mainContainer.classList.add('main-container-active');
+})
+
 headerInputIn.addEventListener('change', ()=>{
     mainContainer.classList.add('main-container-active');
     inputVal = headerInputIn.value;
@@ -63,4 +71,5 @@ async function setImg() {
         const awaitImg = await getLinkToImageFlickr(imgArr[key]);
     }
 }
+
 
