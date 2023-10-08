@@ -1,6 +1,47 @@
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  max-width: 1920px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
 body {
   background-color: #000;
   opacity: 1;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .main {
@@ -131,4 +172,77 @@ h1 {
 
 #game table tr td:last-child div {
   margin-right: 0;
+}
+
+.footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 3.5vw;
+  border-radius: 5vw;
+  border: 0.1vw solid white;
+  margin-bottom: 1vw;
+}
+
+.footer-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+  gap: 30vw;
+  padding-left: 1vw;
+  padding-right: 1vw;
+}
+
+.footer-date {
+  font-family: "Lexend";
+  font-size: 1vw;
+  color: white;
+  cursor: default;
+}
+
+.footer-rss-logo {
+  width: 5vw;
+  height: 2vw;
+  cursor: pointer;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.footer-rss-logo svg {
+  fill: white;
+}
+
+.footer-href {
+  text-decoration: none;
+  color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.my-git-hub:hover .footer-href {
+  color: #0ef613;
+}
+
+.footer-rss-logo {
+  cursor: pointer;
+}
+
+.footer-rss-logo svg {
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.footer-rss-logo:hover svg {
+  fill: #0ef613;
 }
