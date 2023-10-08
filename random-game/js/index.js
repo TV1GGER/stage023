@@ -1,7 +1,8 @@
 let arr, arr_events = [], win_block, winner, again, winning, game;
 
-let comp_sym = "o";
+let comp_sym = "0";
 let user_sym = "x";
+let resultsTable = document.querySelector('.results-table');
 
 onload = function(){
 	game = document.getElementById("game");
@@ -10,6 +11,8 @@ onload = function(){
 	winText = document.querySelector('.win-text');
 	again = win_block.getElementsByClassName("again")[0];
 	winning = game.getElementsByClassName("winning")[0];
+
+
 
 	again.onclick = function(){
 		winning.style.display = "none";
@@ -31,27 +34,43 @@ function ranMove(){
 	let rnd = getRandomInt(2);
 	console.log(rnd);
 	if (rnd == 1) {
-		autoDrawing();
+		autoDraw();
 	}
 	return true;
 }
 
+let countLs = 1;
 function drawSym(item, sym = user_sym){
+  const timeLocal = new Date();
+    const currentTime = timeLocal.toLocaleTimeString();
 	if (item.hasChildNodes()) return false;
 	item.innerHTML = sym;
 	
-	var winner = checkWinner();
+	let winner = checkWinner();
 
 	if (sym == user_sym && !winner)
-		autoDrawing();
+		autoDraw();
 
 
-	if (winner == user_sym) {
+	if ((winner == user_sym) && (countLs<10)) {
 		winText.innerHTML = "You Win!";
 		winText.style.color = "green";
-	}else if (winner == comp_sym) {
+    localStorage.setItem(countLs, `You Win! (${currentTime})`);
+    lSitems();
+    countLs++;
+	}
+  if ((winner == user_sym) && (countLs===10)) {
+		winText.innerHTML = "You Win!";
+		winText.style.color = "green";
+    localStorage.setItem(countLs, `You Win! (${currentTime})`);
+    countLs=1;
+    lSitems();
+  }else if (winner == comp_sym) {
 		winText.innerHTML = "Win CPU!";
 		winText.style.color = "red";
+    localStorage.setItem(countLs, `Win CPU! (${currentTime})`);
+    countLs++;
+    lSitems();
 	}
 	if (winner) {
 		winning.style.display = "block";
@@ -90,9 +109,6 @@ function checkWinner(){
 			winner = comp_sym;
 		}
 	}
-
-
-
 
 	if (!winner){
 		for(let i = 0; i < 3; i++){
@@ -138,7 +154,7 @@ function checkWinner(){
 	return winner;
 }
 
-function autoDrawing(){
+function autoDraw(){
 
 	if (!ckeckFreeSpace()) {
 		
@@ -146,6 +162,9 @@ function autoDrawing(){
 		winText.style.color = "blue";
 		winning.style.display = "block";
 		win_block.style.display = "block";
+    localStorage.setItem(countLs, `Draw! (${currentTime})`);
+    countLs++;
+    lSitems();
 
 		return false;
 	}
@@ -157,7 +176,7 @@ function autoDrawing(){
 	}while(!drawSym(el, comp_sym));
 
 	if (!ckeckFreeSpace()) {
-		autoDrawing();
+		autoDraw();
 	}
 }
 
@@ -186,12 +205,6 @@ function getRandomInt(max){
 	return Math.floor(Math.random() * max);
 }
 
-
-
-
-
-
-
 function addHandler(el, ev, func ){
 	try{
 		el.addEventListener(ev, func, false);
@@ -200,7 +213,6 @@ function addHandler(el, ev, func ){
 		el.attachEvent("on"+ev, func);
 	}
 }
-
 
 function removerEvent(el, ev, func){
 	try{
@@ -211,3 +223,29 @@ function removerEvent(el, ev, func){
 		
 	}
 }
+
+let resultTableCount = 1;
+function lSitems() {
+  for(let x=1; x<=10; x++){
+    if (localStorage.getItem(x)) {
+      const listItem = document.createElement('div');
+      listItem.classList.add('list-item');
+      listItem.innerHTML = x+'.'+ ' ' + localStorage.getItem(x);
+          resultsTable.appendChild(listItem);
+          resultTableCount++;
+      }
+  }
+};
+
+const headerListItem = document.querySelector('.header-list-item');
+const resultsTableWrapper = document.querySelector('.results-table-wrapper');
+const resultsTableOutsideClickWrapper = document.querySelector('.results-table-outside-click-wrapper');
+headerListItem.addEventListener('click', () => {
+  resultsTableWrapper.classList.add('results-table-wrapper-open');
+  resultsTableOutsideClickWrapper.classList.add('results-table-outside-click-wrapper-active');
+});
+
+resultsTableOutsideClickWrapper.addEventListener('click', () => {
+  resultsTableWrapper.classList.remove('results-table-wrapper-open');
+  resultsTableOutsideClickWrapper.classList.remove('results-table-outside-click-wrapper-active');
+});
