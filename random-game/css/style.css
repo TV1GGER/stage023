@@ -333,3 +333,10 @@ h1 {
   visibility: visible;
   opacity: 1;
 }
+
+.results-table-header {
+  font-size: 3vw;
+  font-weight: 800;
+  text-align: center;
+  margin: 0 auto;
+}

@@ -69,8 +69,9 @@ function drawSym(item, sym = user_sym){
 		winText.innerHTML = "Win CPU!";
 		winText.style.color = "red";
     localStorage.setItem(countLs, `Win CPU! (${currentTime})`);
-    countLs++;
     lSitems();
+    countLs++;
+    
 	}
 	if (winner) {
 		winning.style.display = "block";
@@ -158,13 +159,14 @@ function autoDraw(){
 
 	if (!ckeckFreeSpace()) {
 		
-		winText.innerHTML = "Draw! ";
+		winText.innerHTML = "Win CPU! ";
 		winText.style.color = "blue";
 		winning.style.display = "block";
 		win_block.style.display = "block";
-    localStorage.setItem(countLs, `Draw! (${currentTime})`);
-    countLs++;
+    localStorage.setItem(countLs, `Win CPU! (${currentTime})`);
     lSitems();
+    countLs++;
+    
 
 		return false;
 	}
@@ -224,17 +226,13 @@ function removerEvent(el, ev, func){
 	}
 }
 
-let resultTableCount = 1;
 function lSitems() {
-  for(let x=1; x<=10; x++){
-    if (localStorage.getItem(x)) {
+    if (localStorage.getItem(countLs)) {
       const listItem = document.createElement('div');
       listItem.classList.add('list-item');
-      listItem.innerHTML = x+'.'+ ' ' + localStorage.getItem(x);
+      listItem.innerHTML = countLs+'.'+ ' ' + localStorage.getItem(countLs);
           resultsTable.appendChild(listItem);
-          resultTableCount++;
       }
-  }
 };
 
 const headerListItem = document.querySelector('.header-list-item');
