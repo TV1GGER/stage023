@@ -190,3 +190,10 @@ resultsTableOutsideClickWrapper.addEventListener('click', () => {
 });
 
 
+// подсчет общего score
+let scoreInterval = setInterval ( function() {
+  scoreSpan.innerHTML = scoreCount;
+  }, 10);
+
+  /*console.log(scoreCount);*/
+
