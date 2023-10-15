@@ -92,4 +92,19 @@ setBoletusScore = setInterval ( function() {
 
 };
 
+//Анимация мухомора
+
+function flyagaricAtn() {
+  if(flyagaric.classList!='flyagaric-animation'){
+  setInterval ( function() {
+    flyagaric.classList.add('flyagaric-animation');
+}, 1000);
+  }else{
+setTimeout( function() {
+  flyagaric.classList.remove('flyagaric-animation'); 
+}, 30);
+  }
+};
+
+
 
