@@ -163,7 +163,7 @@ document.onkeydown = function jump(event) {
 }
 
 function jumpOnTouch() {
-  document.ontouchmove = function jumpTouch(event) {
+  document.ontouchstart = function jumpTouch(event) {
     if(hedgehog.classList != 'jump') {
       hedgehog.classList.add('jump'); 
       playJumpSoundPlay();
