@@ -226,6 +226,65 @@ live = setInterval (function() {
 
 };
 
+  // `Play again` и `Play` button
+  const playGe =  document.querySelector('.play-game');
+  window.addEventListener('load', () => {
+    gameContainer.classList.add('game-container-active');
+    playGe.classList.add('play-game-active');
+  });
+
+  playGe.addEventListener('click', () => {
+    playGame();
+    jumpOn();
+    hedgehog.style.display = 'block';
+    viewPlayEndScore.innerHTML = '';
+  })
+function playGame() {
+  gameContainer.classList.remove('game-container-active');
+    playAgain.classList.remove('play-again-active');
+    playGe.classList.remove('play-game-active');
+    hedgehog.style.display = 'block';
+    jumpOn();
+    viewPlayEndScore.innerHTML = '';
+  appleInl = setInterval ( function() {
+    appleAtn();
+    stone.style.display = 'block';
+  }, 3000);
+
+  loopAppleScore = setInterval ( function() {
+    clearInterval(setScore);
+    appleSetScore();
+  }, 3000);
+
+  boletusInl = setInterval ( function() {
+    boletusAtn();
+  }, 4000);
+
+  loopBoletusScore = setInterval ( function() {
+    clearInterval(setBoletusScore);
+    boletusSetScore();
+  }, 3000);
+
+  flyagaricInl = setInterval ( function() {
+    flyagaricAtn();
+  }, 6000);
+
+  loopFlyagaricScore = setInterval ( function() {
+    clearInterval(setFlyagaricScore);
+    flyagaricSetScore();
+  }, 3000);
+
+  gameOver();
+};
+
+  playAgain.addEventListener('click', () => {
+    
+    playGame();
+    stone.style.display = 'block';
+
+  });
+
+
 
 
 const resultsTable = document.querySelector('.results-table');
@@ -258,4 +317,63 @@ let scoreInterval = setInterval ( function() {
   }, 10);
 
   /*console.log(scoreCount);*/
+
+  // `Play again` и `Play` button
+  const playGe =  document.querySelector('.play-game');
+  window.addEventListener('load', () => {
+    gameContainer.classList.add('game-container-active');
+    playGe.classList.add('play-game-active');
+  });
+
+  playGe.addEventListener('click', () => {
+    playGame();
+    jumpOn();
+    hedgehog.style.display = 'block';
+    viewPlayEndScore.innerHTML = '';
+  })
+function playGame() {
+  gameContainer.classList.remove('game-container-active');
+    playAgain.classList.remove('play-again-active');
+    playGe.classList.remove('play-game-active');
+    hedgehog.style.display = 'block';
+    jumpOn();
+    viewPlayEndScore.innerHTML = '';
+  appleInl = setInterval ( function() {
+    appleAtn();
+    stone.style.display = 'block';
+  }, 3000);
+
+  loopAppleScore = setInterval ( function() {
+    clearInterval(setScore);
+    appleSetScore();
+  }, 3000);
+
+  boletusInl = setInterval ( function() {
+    boletusAtn();
+  }, 4000);
+
+  loopBoletusScore = setInterval ( function() {
+    clearInterval(setBoletusScore);
+    boletusSetScore();
+  }, 3000);
+
+  flyagaricInl = setInterval ( function() {
+    flyagaricAtn();
+  }, 6000);
+
+  loopFlyagaricScore = setInterval ( function() {
+    clearInterval(setFlyagaricScore);
+    flyagaricSetScore();
+  }, 3000);
+
+  gameOver();
+};
+
+  playAgain.addEventListener('click', () => {
+    
+    playGame();
+    stone.style.display = 'block';
+
+  });
+
 
