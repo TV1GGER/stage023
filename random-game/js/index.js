@@ -205,7 +205,7 @@ live = setInterval (function() {
     gameOverItem.style.padding = '5px';
     gameContainer.appendChild(gameOverItem);*/
     lSitems();
-    countLs++;
+    
     /*apple.classList.remove('fruit-animation');
     boletus.classList.remove('boletus-animation'); */
     clearInterval(appleInl);
@@ -318,6 +318,7 @@ playAgain.addEventListener('click', () => {
   
   playGame();
   stone.style.display = 'block';
+  countLs++;
 
 });
 
