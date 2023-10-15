@@ -166,5 +166,27 @@ document.onkeydown = function jump(event) {
 
 
 
+const resultsTable = document.querySelector('.results-table');
+function lSitems() {
+    if (localStorage.getItem(countLs)) {
+      const listItem = document.createElement('div');
+      listItem.classList.add('list-item');
+      listItem.innerHTML = countLs+'.'+ ' ' + localStorage.getItem(countLs);
+          resultsTable.appendChild(listItem);
+      }
+};
+
+const headerListItem = document.querySelector('.header-list-item');
+const resultsTableWrapper = document.querySelector('.results-table-wrapper');
+const resultsTableOutsideClickWrapper = document.querySelector('.results-table-outside-click-wrapper');
+headerListItem.addEventListener('click', () => {
+  resultsTableWrapper.classList.add('results-table-wrapper-open');
+  resultsTableOutsideClickWrapper.classList.add('results-table-outside-click-wrapper-active');
+});
+
+resultsTableOutsideClickWrapper.addEventListener('click', () => {
+  resultsTableWrapper.classList.remove('results-table-wrapper-open');
+  resultsTableOutsideClickWrapper.classList.remove('results-table-outside-click-wrapper-active');
+});
 
 
