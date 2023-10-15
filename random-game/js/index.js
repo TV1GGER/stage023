@@ -50,7 +50,7 @@ setScore = setInterval ( function() {
     
     clearInterval(setScore);
     scoreCount = scoreCount + 20;
-    
+    playGetItemSoundPlay();
   }
 }, 5);
 
@@ -86,7 +86,7 @@ setBoletusScore = setInterval ( function() {
     
     clearInterval(setBoletusScore);
     scoreCount = scoreCount + 60;
-    
+    playGetItemSoundPlay();
   }
 }, 5);
 
@@ -323,7 +323,7 @@ playAgain.addEventListener('click', () => {
   countLs++;
 });
 
-// audio 
+// background audio 
 const backgroundSound = new Audio();
 function backgroundSoundPlay(){
   backgroundSound.src = './assets/mp3/background-sound.mp3';
@@ -332,4 +332,16 @@ function backgroundSoundPlay(){
 
 function playBackgrounSound() {
   backgroundSound.play();
+};
+
+// get item audio 
+
+const getItemSound = new Audio();
+function playGetItemSoundPlay(){
+  getItemSound.src = './assets/mp3/get-item.mp3';
+  playGetItemSound();
+};
+
+function playGetItemSound() {
+  getItemSound.play();
 };
