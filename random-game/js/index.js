@@ -162,6 +162,19 @@ document.onkeydown = function jump(event) {
   
 }
 
+function jumpOnTouch() {
+  document.ontouchmove = function jumpTouch(event) {
+    if(hedgehog.classList != 'jump') {
+      hedgehog.classList.add('jump'); 
+      playJumpSoundPlay();
+    }
+    jumpSet = setTimeout( function() {
+      hedgehog.classList.remove('jump'); 
+    }, 300)
+  }
+    
+  }
+
 
 //Game Over
 
@@ -253,6 +266,7 @@ window.addEventListener('load', () => {
 playGe.addEventListener('click', () => {
   playGame();
   jumpOn();
+  jumpOnTouch();
   hedgehog.style.display = 'block';
   viewPlayEndScore.innerHTML = '';
 })
@@ -264,6 +278,7 @@ gameContainer.classList.remove('game-container-active');
   playGe.classList.remove('play-game-active');
   hedgehog.style.display = 'block';
   jumpOn();
+  jumpOnTouch();
   viewPlayEndScore.innerHTML = '';
 
 appleInl = setInterval ( function() {
