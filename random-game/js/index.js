@@ -106,5 +106,31 @@ setTimeout( function() {
   }
 };
 
+// очки за мухомор
+let setFlyagaricScore = null;
+function flyagaricSetScore() {
+  console.log(scoreCount);
+setFlyagaricScore = setInterval ( function() {
+
+  let hedgehogTop4 = /*hedgehog.getBoundingClientRect();*/ parseInt(window.getComputedStyle(hedgehog).getPropertyValue("top"));
+  let flyagaricLeft = /*apple.getBoundingClientRect(); */ parseInt(window.getComputedStyle(flyagaric).getPropertyValue("left"));
+  //console.log(hedgehogTop.top);
+  
+  if((flyagaricLeft/*.left*/ <= 100) && (flyagaricLeft/*.left*/ > 0) && (hedgehogTop4/*.top */<= 100) && (hedgehogTop4/*.top*/ >= 10)) {
+    
+    clearInterval(setFlyagaricScore);
+    if(scoreCount > 80) {
+      scoreCount = scoreCount - 80;
+    }else{
+      scoreCount = 0;
+    }
+    
+    
+  }
+}, 5);
+
+};
+
+
 
 
