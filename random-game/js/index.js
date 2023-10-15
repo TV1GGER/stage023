@@ -232,8 +232,9 @@ live = setInterval (function() {
     hedgehog.style.display = 'none';
     viewPlayEndScore.innerHTML = `Game over!!! You score: ${scoreCount}`;
     scoreCount = 0;
-    backgroundSound.pause();
-    playGameOverSoundPlay();
+    backgroundSound.pause(); 
+    jumpSound.pause();
+    playGameOverSoundPlay();  
 
 }
 },5)

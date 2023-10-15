@@ -27,10 +27,19 @@ html {
 
 .header-list {
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
   align-items: center;
   color: white;
   padding-top: 2vw;
+  gap: 2vw;
+  transition: .3s;
+  z-index: 70;
+}
+
+.header-list-item {
+  font-size: 2vw;
+  text-align: right;
   cursor: pointer;
   transition: .3s;
   &:hover {
@@ -38,8 +47,56 @@ html {
   }
 }
 
-.header-list-item {
-  text-align: right;
+.score-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  cursor: default;
+  gap: 7px;
+}
+
+.score-points-info {
+  cursor: default;
+}
+
+.apple-info, .boletus-info, .flyagaric-info {
+  min-height: 15px;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.apple-info-img {
+  width: 15px;
+  height: 15px;
+  background-image: url(../assets/img/apple.png);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  background-color: none;
+}
+
+.boletus-info-img {
+  width: 15px;
+  height: 15px;
+  background-image: url(../assets/img/boletus.png);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  background-color: none;
+}
+
+.flyagaric-info-img {
+  width: 15px;
+  height: 15px;
+  background-image: url(../assets/img/flyagaric.png);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  background-color: none;
 }
 
 body {
