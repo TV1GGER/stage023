@@ -7,18 +7,12 @@ const stoneAnimation = document.getElementById('.stone-animation');
 const scoreSpan = document.querySelector('.score');
 
 let scoreCount = 0;
-
 let appleInl = null;
-
 let loopAppleScore = null;
-
 let boletusInl = null;
-
 let loopBoletusScore = null;
 let flyagaricInl = null;
-
 let loopFlyagaricScore = null;
-
 let stoneInl = null;
 
 
@@ -37,18 +31,17 @@ setTimeout( function() {
   }
 };
 
+
 //Очки за яблоко
+
 let setScore = null;
 function appleSetScore() {
-  console.log(scoreCount);
 setScore = setInterval ( function() {
 
-  let hedgehogTop2 = /*hedgehog.getBoundingClientRect();*/ parseInt(window.getComputedStyle(hedgehog).getPropertyValue("top"));
-  let appleLeft = /*apple.getBoundingClientRect(); */ parseInt(window.getComputedStyle(apple).getPropertyValue("left"));
-  //console.log(hedgehogTop.top);
+  let hedgehogTop2 = parseInt(window.getComputedStyle(hedgehog).getPropertyValue("top"));
+  let appleLeft = parseInt(window.getComputedStyle(apple).getPropertyValue("left"));
   
-  if((appleLeft/*.left*/ <= 100) && (appleLeft/*.left*/ > 0) && (hedgehogTop2/*.top */<= 100) && (hedgehogTop2/*.top*/ >= 10)) {
-    
+  if((appleLeft <= 100) && (appleLeft > 0) && (hedgehogTop2 <= 100) && (hedgehogTop2 >= 10)) {
     clearInterval(setScore);
     scoreCount = scoreCount + 20;
     apple.style.display = 'none';
@@ -76,17 +69,13 @@ setTimeout( function() {
 
 
 // очки за боровик
+
 let setBoletusScore = null;
 function boletusSetScore() {
-  console.log(scoreCount);
 setBoletusScore = setInterval ( function() {
-
-  let hedgehogTop3 = /*hedgehog.getBoundingClientRect();*/ parseInt(window.getComputedStyle(hedgehog).getPropertyValue("top"));
-  let boletusLeft = /*apple.getBoundingClientRect(); */ parseInt(window.getComputedStyle(boletus).getPropertyValue("left"));
-  //console.log(hedgehogTop.top);
-  
-  if((boletusLeft/*.left*/ <= 100) && (boletusLeft/*.left*/ > 0) && (hedgehogTop3/*.top */<= 100) && (hedgehogTop3/*.top*/ >= 10)) {
-    
+  let hedgehogTop3 = parseInt(window.getComputedStyle(hedgehog).getPropertyValue("top"));
+  let boletusLeft = parseInt(window.getComputedStyle(boletus).getPropertyValue("left"));
+  if((boletusLeft <= 100) && (boletusLeft > 0) && (hedgehogTop3 <= 100) && (hedgehogTop3 >= 10)) {
     clearInterval(setBoletusScore);
     scoreCount = scoreCount + 60;
     boletus.style.display = 'none';
@@ -95,6 +84,7 @@ setBoletusScore = setInterval ( function() {
 }, 5);
 
 };
+
 
 //Анимация мухомора
 
@@ -111,18 +101,16 @@ setTimeout( function() {
   }
 };
 
+
 // очки за мухомор
 let setFlyagaricScore = null;
 function flyagaricSetScore() {
-  console.log(scoreCount);
 setFlyagaricScore = setInterval ( function() {
 
-  let hedgehogTop4 = /*hedgehog.getBoundingClientRect();*/ parseInt(window.getComputedStyle(hedgehog).getPropertyValue("top"));
-  let flyagaricLeft = /*apple.getBoundingClientRect(); */ parseInt(window.getComputedStyle(flyagaric).getPropertyValue("left"));
-  //console.log(hedgehogTop.top);
+  let hedgehogTop4 = parseInt(window.getComputedStyle(hedgehog).getPropertyValue("top"));
+  let flyagaricLeft = parseInt(window.getComputedStyle(flyagaric).getPropertyValue("left"));
   
-  if((flyagaricLeft/*.left*/ <= 100) && (flyagaricLeft/*.left*/ > 0) && (hedgehogTop4/*.top */<= 100) && (hedgehogTop4/*.top*/ >= 10)) {
-    
+  if((flyagaricLeft <= 100) && (flyagaricLeft > 0) && (hedgehogTop4 <= 100) && (hedgehogTop4 >= 10)) {
     clearInterval(setFlyagaricScore);
     if(scoreCount > 80) {
       scoreCount = scoreCount - 80;
@@ -131,14 +119,15 @@ setFlyagaricScore = setInterval ( function() {
       scoreCount = 0;
       flyagaric.style.display = 'none';
     }
-    
     playflyagaricSoundPlay()
   }
 }, 5);
 
 };
 
+
 //Анимация движения камня
+
 function stoneAtn() {
   if(stone.classList!='stone-animation'){
   setInterval ( function() {
@@ -156,10 +145,11 @@ stoneInl = setInterval ( function() {
   stoneAtn();
 }, 3000);
 
+
 //Анимация прыжка
+
 let jumpSet = null;
 function jumpOn() {
-
 document.onkeydown = function jump(event) {
   if(hedgehog.classList != 'jump') {
     hedgehog.classList.add('jump'); 
@@ -168,56 +158,39 @@ document.onkeydown = function jump(event) {
   jumpSet = setTimeout( function() {
     hedgehog.classList.remove('jump'); 
   }, 300)
-  //console.log(event);
 }
   
 }
 
-//Game Over
-let countLs = 1;
 
+//Game Over
+
+let countLs = 1;
 function setCountLs () {
   if(countLs === 10){
     countLs = 1;
   }
 };
-
 setCountLs ();
-
 let live = null;
 const gameContainer = document.querySelector('.game-container');
 const playAgain = document.querySelector('.play-again');
 const viewPlayEndScore = document.querySelector('.view-play-end-score');
 function gameOver() {
-
 live = setInterval (function() {
   const timeLocal = new Date();
   const currentTime = timeLocal.toLocaleTimeString();
-  let hedgehogTop = /*hedgehog.getBoundingClientRect();*/ parseInt(window.getComputedStyle(hedgehog).getPropertyValue("top"));
+  let hedgehogTop = parseInt(window.getComputedStyle(hedgehog).getPropertyValue("top"));
   let stoneLeft = parseInt(window.getComputedStyle(stone).getPropertyValue("left"));
-  if((stoneLeft <= 60) && (stoneLeft > 0) && (hedgehogTop/*.top*/ >= 135 ) && (countLs<11)) {
-    //console.log(hedgehogTop.top); 
+  if((stoneLeft <= 60) && (stoneLeft > 0) && (hedgehogTop >= 135 ) && (countLs<11)) {
     playStoneSoundPlay();
     clearInterval(live);
     scoreSpan.innerHTML = scoreCount;
     localStorage.setItem(countLs, `You Score: ${scoreCount} (data time: ${currentTime})`);
     
     gameContainer.classList.add('game-container-active');
-    /*gameContainer.style.backgroundImage = 'none';
-    gameContainer.style.backgroundColor = 'white';
-    gameContainer.style.zIndex = '60';
-    gameContainer.innerHTML = `Game over!!! You score: ${scoreCount}`
-    gameContainer.style.textAlign = 'center';*/
     playAgain.classList.add('play-again-active');
-    /*const gameOverItem = document.createElement('div');
-    gameOverItem.classList.add('play-again');
-    gameOverItem.innerHTML = 'play again';
-    gameOverItem.style.padding = '5px';
-    gameContainer.appendChild(gameOverItem);*/
     lSitems();
-    
-    /*apple.classList.remove('fruit-animation');
-    boletus.classList.remove('boletus-animation'); */
     clearInterval(appleInl);
     clearInterval(loopAppleScore);
     clearInterval(boletusInl);
@@ -228,23 +201,15 @@ live = setInterval (function() {
     boletus.style.display = 'none';
     flyagaric.style.display = 'none';
     stone.style.display = 'none';
-    //clearInterval(stoneInl);
     hedgehog.style.display = 'none';
     viewPlayEndScore.innerHTML = `Game over!!! You score: ${scoreCount}`;
     scoreCount = 0;
     backgroundSound.pause(); 
     jumpSound.pause();
     playGameOverSoundPlay();  
-
 }
 },5)
-
 };
-
-  
-
-
-
 
 const resultsTable = document.querySelector('.results-table');
 function lSitems() {
@@ -271,14 +236,14 @@ resultsTableOutsideClickWrapper.addEventListener('click', () => {
 
 
 // подсчет общего score
+
 let scoreInterval = setInterval ( function() {
   scoreSpan.innerHTML = scoreCount;
   }, 10);
 
-  /*console.log(scoreCount);*/
-
   
 // `Play again` и `Play` button
+
 const playGe =  document.querySelector('.play-game');
 window.addEventListener('load', () => {
   gameContainer.classList.add('game-container-active');
@@ -291,6 +256,7 @@ playGe.addEventListener('click', () => {
   hedgehog.style.display = 'block';
   viewPlayEndScore.innerHTML = '';
 })
+
 function playGame() {
   backgroundSoundPlay();
 gameContainer.classList.remove('game-container-active');
@@ -299,6 +265,7 @@ gameContainer.classList.remove('game-container-active');
   hedgehog.style.display = 'block';
   jumpOn();
   viewPlayEndScore.innerHTML = '';
+
 appleInl = setInterval ( function() {
   appleAtn();
   stone.style.display = 'block';
@@ -338,8 +305,11 @@ playAgain.addEventListener('click', () => {
   countLs++;
 });
 
+
 // background audio 
+
 const backgroundSound = new Audio();
+
 function backgroundSoundPlay(){
   backgroundSound.src = './assets/mp3/background-sound.mp3';
   playBackgrounSound();
@@ -349,9 +319,11 @@ function playBackgrounSound() {
   backgroundSound.play();
 };
 
+
 // get item audio 
 
 const getItemSound = new Audio();
+
 function playGetItemSoundPlay(){
   getItemSound.src = './assets/mp3/get-item.mp3';
   playGetItemSound();
@@ -362,6 +334,7 @@ function playGetItemSound() {
 };
 
 const flyagaricSound = new Audio();
+
 function playflyagaricSoundPlay(){
   flyagaricSound.src = './assets/mp3/flyagaric.mp3';
   playАlyagaricSound();
@@ -372,6 +345,7 @@ function playАlyagaricSound() {
 };
 
 const stoneSound = new Audio();
+
 function playStoneSoundPlay(){
   stoneSound.src = './assets/mp3/stone.mp3';
   playStoneSound();
@@ -382,6 +356,7 @@ function playStoneSound() {
 };
 
 const jumpSound = new Audio();
+
 function playJumpSoundPlay(){
   jumpSound.src = './assets/mp3/jump.mp3';
   playJumpSound();
@@ -392,6 +367,7 @@ function playJumpSound() {
 };
 
 const gameOverSound = new Audio();
+
 function playGameOverSoundPlay(){
   gameOverSound.src = './assets/mp3/game-over.mp3';
   playGameOverSound();
@@ -400,4 +376,3 @@ function playGameOverSoundPlay(){
 function playGameOverSound() {
   gameOverSound.play();
 };
-
