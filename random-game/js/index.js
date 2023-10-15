@@ -219,7 +219,7 @@ live = setInterval (function() {
     hedgehog.style.display = 'none';
     viewPlayEndScore.innerHTML = `Game over!!! You score: ${scoreCount}`;
     scoreCount = 0;
-    
+    backgroundSound.pause();
 
 }
 },5)
@@ -277,6 +277,7 @@ playGe.addEventListener('click', () => {
   viewPlayEndScore.innerHTML = '';
 })
 function playGame() {
+  backgroundSoundPlay();
 gameContainer.classList.remove('game-container-active');
   playAgain.classList.remove('play-again-active');
   playGe.classList.remove('play-game-active');
@@ -318,7 +319,17 @@ playAgain.addEventListener('click', () => {
   
   playGame();
   stone.style.display = 'block';
+  backgroundSoundPlay();
   countLs++;
-
 });
 
+// audio 
+const backgroundSound = new Audio();
+function backgroundSoundPlay(){
+  backgroundSound.src = './assets/mp3/background-sound.mp3';
+  playBackgrounSound();
+};
+
+function playBackgrounSound() {
+  backgroundSound.play();
+};
