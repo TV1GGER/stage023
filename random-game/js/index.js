@@ -131,6 +131,24 @@ setFlyagaricScore = setInterval ( function() {
 
 };
 
+//Анимация движения камня
+function stoneAtn() {
+  if(stone.classList!='stone-animation'){
+  setInterval ( function() {
+  stone.classList.add('stone-animation');
+}, 3000);
+  }else{
+setTimeout( function() {
+  stone.classList.remove('stone-animation'); 
+}, 30);
+  }
+};
+
+stoneInl = setInterval ( function() {
+  stoneAtn();
+}, 3000);
+
+
 
 
 
