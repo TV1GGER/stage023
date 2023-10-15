@@ -125,7 +125,7 @@ setFlyagaricScore = setInterval ( function() {
       scoreCount = 0;
     }
     
-    
+    playflyagaricSoundPlay()
   }
 }, 5);
 
@@ -345,3 +345,14 @@ function playGetItemSoundPlay(){
 function playGetItemSound() {
   getItemSound.play();
 };
+
+const flyagaricSound = new Audio();
+function playflyagaricSoundPlay(){
+  flyagaricSound.src = './assets/mp3/flyagaric.mp3';
+  playАlyagaricSound();
+};
+
+function playАlyagaricSound() {
+  flyagaricSound.play();
+};
+
