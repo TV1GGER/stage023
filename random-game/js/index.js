@@ -57,3 +57,16 @@ setScore = setInterval ( function() {
 };
 
 
+//Анимация боровика
+
+function boletusAtn() {
+  if(boletus.classList!='boletus-animation'){
+  setInterval ( function() {
+    boletus.classList.add('boletus-animation');
+}, 1000);
+  }else{
+setTimeout( function() {
+  boletus.classList.remove('boletus-animation'); 
+}, 30);
+  }
+};
