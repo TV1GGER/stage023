@@ -29,6 +29,10 @@ html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   -webkit-box-align: center;
@@ -36,16 +40,87 @@ html {
           align-items: center;
   color: white;
   padding-top: 2vw;
+  gap: 2vw;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  z-index: 70;
+}
+
+.header-list-item {
+  font-size: 2vw;
+  text-align: right;
   cursor: pointer;
   -webkit-transition: 0.3s;
   transition: 0.3s;
 }
-.header-list:hover {
+.header-list-item:hover {
   color: #0ef613;
 }
 
-.header-list-item {
-  text-align: right;
+.score-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: default;
+  gap: 7px;
+}
+
+.score-points-info {
+  cursor: default;
+}
+
+.apple-info, .boletus-info, .flyagaric-info {
+  min-height: 15px;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.apple-info-img {
+  width: 15px;
+  height: 15px;
+  background-image: url(../assets/img/apple.png);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  background-color: none;
+}
+
+.boletus-info-img {
+  width: 15px;
+  height: 15px;
+  background-image: url(../assets/img/boletus.png);
+  background-size: cover;
+  overflow: hidden;
+  background-color: none;
+}
+
+.flyagaric-info-img {
+  width: 15px;
+  height: 15px;
+  background-image: url(../assets/img/flyagaric.png);
+  background-size: cover;
+  overflow: hidden;
+  background-color: none;
 }
 
 body {
@@ -79,122 +154,230 @@ h1 {
 
 .game-container {
   width: 600px;
-  min-height: 350px;
-  border: 1px solid #000;
-  border-radius: 10px;
+  height: 200px;
+  border-bottom: 1px solid #000;
   margin: auto;
+  background-image: url(../assets/img/forest-background.jpg);
+  background-size: cover;
+  background-position: bottom;
+  border-radius: 5px;
   overflow: hidden;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: white;
-  -webkit-filter: drop-shadow(0vw 0.3vw 0.3vw #0ef613);
-          filter: drop-shadow(0vw 0.3vw 0.3vw #0ef613);
+  -webkit-filter: drop-shadow(0vw 0.5vw 0.5vw #0ef613);
+          filter: drop-shadow(0vw 0.5vw 0.5vw #0ef613);
+  z-index: 90;
 }
 
-.cell {
+.game-container-active {
+  background-image: none;
+  background-color: #FFF;
+  text-align: center;
+  z-index: 90;
+}
+
+#hedgehog {
   width: 50px;
   height: 50px;
-  font-size: 20px;
-  color: #0ef613;
-  line-height: 50px;
-  text-align: center;
-  text-transform: uppercase;
-  border: 1px solid #333;
-  border-radius: 4px;
-  margin: 5px;
-  cursor: pointer;
-  -webkit-box-shadow: 3px 4px 1px 2px rgba(1, 1, 1, 0.1);
-          box-shadow: 3px 4px 1px 2px rgba(1, 1, 1, 0.1);
+  background-image: url(../assets/img/hedgehog.png);
+  background-size: 50px 50px;
+  position: relative;
+  top: 145px;
+  left: 50px;
 }
 
-.cell:hover {
-  -webkit-box-shadow: 3px 4px 1px 2px #0ef613;
-          box-shadow: 3px 4px 1px 2px #0ef613;
-}
-
-#win_block {
-  display: none;
-  text-align: center;
-  padding-top: 20px;
-  font-size: 20px;
-}
-
-#win_block .again {
-  display: block;
-  font-weight: bold;
-  margin: 0 auto;
-  background-color: #000;
-  color: #15ff00;
-  border-radius: 6px;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  cursor: pointer;
-  -webkit-animation: 2s infinite linear again-atn;
-          animation: 2s infinite linear again-atn;
-}
-
-@-webkit-keyframes again-atn {
+@-webkit-keyframes firstLeft {
   0% {
-    scale: 1;
-  }
-  50% {
-    scale: 1.2;
+    left: 0px;
   }
   100% {
-    scale: 1;
+    left: 50px;
   }
 }
 
-@keyframes again-atn {
+@keyframes firstLeft {
   0% {
-    scale: 1;
-  }
-  50% {
-    scale: 1.2;
+    left: 0px;
   }
   100% {
-    scale: 1;
+    left: 50px;
   }
 }
-#win_block .again:hover {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
-  border-color: transparent;
-}
-
-#game {
+#stone {
+  width: 40px;
+  height: 60px;
+  background-image: url(../assets/img/stone.png);
+  background-size: 40px 60px;
   position: relative;
+  top: 92px;
+  left: 600px;
 }
 
-#game .table {
-  display: table;
-  margin: 0 auto;
+.stone-animation {
+  -webkit-animation: stoneMov 2s linear;
+          animation: stoneMov 2s linear;
+}
+
+@-webkit-keyframes stoneMov {
+  0% {
+    left: 600px;
+  }
+  100% {
+    left: -400px;
+  }
+}
+
+@keyframes stoneMov {
+  0% {
+    left: 600px;
+  }
+  100% {
+    left: -400px;
+  }
+}
+.jump {
+  -webkit-animation: jump 0.35s linear;
+          animation: jump 0.35s linear;
+}
+
+@-webkit-keyframes jump {
+  0% {
+    top: 130px;
+  }
+  30% {
+    top: 30%;
+  }
+  50% {
+    top: 10px;
+  }
+  80% {
+    top: 30px;
+  }
+  100% {
+    top: 130px;
+  }
+}
+
+@keyframes jump {
+  0% {
+    top: 130px;
+  }
+  30% {
+    top: 30%;
+  }
+  50% {
+    top: 10px;
+  }
+  80% {
+    top: 30px;
+  }
+  100% {
+    top: 130px;
+  }
+}
+#apple {
+  width: 15px;
+  height: 15px;
+  background-image: url(../assets/img/apple.png);
+  background-size: 15px 15px;
   position: relative;
+  top: -10px;
+  left: 600px;
 }
 
-#game .table .winning {
-  display: none;
-  width: 100%;
-  height: 100%;
+#boletus {
+  width: 15px;
+  height: 15px;
+  background-image: url(../assets/img/boletus.png);
+  background-size: 15px 15px;
+  position: relative;
+  top: 0px;
+  left: 600px;
+}
+
+.boletus-animation {
+  -webkit-animation: boletusMov 4s linear;
+          animation: boletusMov 4s linear;
+}
+
+@-webkit-keyframes boletusMov {
+  0% {
+    left: 600px;
+  }
+  100% {
+    left: -400px;
+  }
+}
+
+@keyframes boletusMov {
+  0% {
+    left: 600px;
+  }
+  100% {
+    left: -400px;
+  }
+}
+#flyagaric {
+  width: 15px;
+  height: 15px;
+  background-image: url(../assets/img/flyagaric.png);
+  background-size: 15px 15px;
+  position: relative;
+  top: -15px;
+  left: 600px;
+}
+
+.flyagaric-animation {
+  -webkit-animation: flyagaricMov 2s linear;
+          animation: flyagaricMov 2s linear;
+}
+
+@-webkit-keyframes flyagaricMov {
+  0% {
+    left: 600px;
+  }
+  100% {
+    left: -400px;
+  }
+}
+
+@keyframes flyagaricMov {
+  0% {
+    left: 600px;
+  }
+  100% {
+    left: -400px;
+  }
+}
+.fruit-animation {
+  -webkit-animation: fruitMov 3.2s linear;
+          animation: fruitMov 3.2s linear;
+}
+
+@-webkit-keyframes fruitMov {
+  0% {
+    left: 600px;
+  }
+  100% {
+    left: -400px;
+  }
+}
+
+@keyframes fruitMov {
+  0% {
+    left: 600px;
+  }
+  100% {
+    left: -400px;
+  }
+}
+.score-container {
   position: absolute;
-  top: 0;
-  left: 0;
-}
-
-#game table tr:first-child div {
-  margin-top: 0;
-}
-
-#game table tr:last-child div {
-  margin-bottom: 0;
-}
-
-#game table tr td:first-child div {
-  margin-left: 0;
-}
-
-#game table tr td:last-child div {
-  margin-right: 0;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  color: white;
 }
 
 .footer {
@@ -285,7 +468,8 @@ h1 {
       -ms-flex-pack: justify;
           justify-content: space-between;
   background-color: #FFF;
-  z-index: 60;
+  color: #000;
+  z-index: 80;
 }
 
 .results-table-wrapper {
@@ -307,6 +491,7 @@ h1 {
   opacity: 0;
   -webkit-transition: 0.4s;
   transition: 0.4s;
+  z-index: 90;
 }
 
 .results-table-outside-click-wrapper {
@@ -339,4 +524,60 @@ h1 {
   font-weight: 800;
   text-align: center;
   margin: 0 auto;
+}
+
+.game-over {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: block;
+  background-color: white;
+}
+
+.play-again {
+  display: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #ffffff;
+  background-color: #000;
+  margin: 2vw auto;
+  z-index: 70;
+  padding: 5px;
+  border-radius: 0.4vw;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.play-again:hover {
+  color: #0ef613;
+  background-color: #7a7a7a;
+}
+
+.play-again-active {
+  display: block;
+}
+
+.play-game {
+  display: none;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: #ffffff;
+  background-color: #000;
+  margin: 2vw auto;
+  z-index: 70;
+  padding: 5px;
+  border-radius: 0.4vw;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.play-game:hover {
+  color: #0ef613;
+  background-color: #7a7a7a;
+}
+
+.play-game-active {
+  display: block;
 }

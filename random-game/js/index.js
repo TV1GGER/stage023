@@ -1,231 +1,217 @@
-let arr, arr_events = [], win_block, winner, again, winning, game;
+const hedgehog = document.getElementById('hedgehog');
+const stone = document.getElementById('stone');
+const apple = document.getElementById('apple');
+const boletus = document.getElementById('boletus');
+const flyagaric = document.getElementById('flyagaric');
+const stoneAnimation = document.getElementById('.stone-animation');
+const scoreSpan = document.querySelector('.score');
 
-let comp_sym = "0";
-let user_sym = "x";
-let resultsTable = document.querySelector('.results-table');
-
-onload = function(){
-	game = document.getElementById("game");
-	arr = game.getElementsByClassName("cell");
-	win_block = document.getElementById("win_block");
-	winText = document.querySelector('.win-text');
-	again = win_block.getElementsByClassName("again")[0];
-	winning = game.getElementsByClassName("winning")[0];
+let scoreCount = 0;
+let appleInl = null;
+let loopAppleScore = null;
+let boletusInl = null;
+let loopBoletusScore = null;
+let flyagaricInl = null;
+let loopFlyagaricScore = null;
+let stoneInl = null;
 
 
+//Анимация яблока
 
-	again.onclick = function(){
-		winning.style.display = "none";
-		win_block.style.display = "none";
-		clearTable();
-		ranMove();
-	};
+function appleAtn() {
+  if(apple.classList!='fruit-animation'){
+  setInterval ( function() {
+    apple.style.display = 'block';
+    apple.classList.add('fruit-animation');
+}, 1000);
+  }else{
+setTimeout( function() {
+  apple.classList.remove('fruit-animation'); 
+}, 30);
+  }
+};
 
-	for(let i = 0; i < arr.length; i++){
-		arr[i].onclick = function(){
-			drawSym(this);
-		};
-	}
-	ranMove();
+
+//Очки за яблоко
+
+let setScore = null;
+function appleSetScore() {
+setScore = setInterval ( function() {
+
+  let hedgehogTop2 = parseInt(window.getComputedStyle(hedgehog).getPropertyValue("top"));
+  let appleLeft = parseInt(window.getComputedStyle(apple).getPropertyValue("left"));
+  
+  if((appleLeft <= 100) && (appleLeft > 0) && (hedgehogTop2 <= 100) && (hedgehogTop2 >= 10)) {
+    clearInterval(setScore);
+    scoreCount = scoreCount + 20;
+    apple.style.display = 'none';
+    playGetItemSoundPlay();
+  }
+}, 5);
 
 };
 
-function ranMove(){
-	let rnd = getRandomInt(2);
-	console.log(rnd);
-	if (rnd == 1) {
-		autoDraw();
-	}
-	return true;
+
+//Анимация боровика
+
+function boletusAtn() {
+  if(boletus.classList!='boletus-animation'){
+  setInterval ( function() {
+    boletus.style.display = 'block';
+    boletus.classList.add('boletus-animation');
+}, 1000);
+  }else{
+setTimeout( function() {
+  boletus.classList.remove('boletus-animation'); 
+}, 30);
+  }
+};
+
+
+// очки за боровик
+
+let setBoletusScore = null;
+function boletusSetScore() {
+setBoletusScore = setInterval ( function() {
+  let hedgehogTop3 = parseInt(window.getComputedStyle(hedgehog).getPropertyValue("top"));
+  let boletusLeft = parseInt(window.getComputedStyle(boletus).getPropertyValue("left"));
+  if((boletusLeft <= 100) && (boletusLeft > 0) && (hedgehogTop3 <= 100) && (hedgehogTop3 >= 10)) {
+    clearInterval(setBoletusScore);
+    scoreCount = scoreCount + 60;
+    boletus.style.display = 'none';
+    playGetItemSoundPlay();
+  }
+}, 5);
+
+};
+
+
+//Анимация мухомора
+
+function flyagaricAtn() {
+  if(flyagaric.classList!='flyagaric-animation'){
+  setInterval ( function() {
+    flyagaric.style.display = 'block';
+    flyagaric.classList.add('flyagaric-animation');
+}, 1000);
+  }else{
+setTimeout( function() {
+  flyagaric.classList.remove('flyagaric-animation'); 
+}, 30);
+  }
+};
+
+
+// очки за мухомор
+let setFlyagaricScore = null;
+function flyagaricSetScore() {
+setFlyagaricScore = setInterval ( function() {
+
+  let hedgehogTop4 = parseInt(window.getComputedStyle(hedgehog).getPropertyValue("top"));
+  let flyagaricLeft = parseInt(window.getComputedStyle(flyagaric).getPropertyValue("left"));
+  
+  if((flyagaricLeft <= 100) && (flyagaricLeft > 0) && (hedgehogTop4 <= 100) && (hedgehogTop4 >= 10)) {
+    clearInterval(setFlyagaricScore);
+    if(scoreCount > 80) {
+      scoreCount = scoreCount - 80;
+      flyagaric.style.display = 'none';
+    }else{
+      scoreCount = 0;
+      flyagaric.style.display = 'none';
+    }
+    playflyagaricSoundPlay()
+  }
+}, 5);
+
+};
+
+
+//Анимация движения камня
+
+function stoneAtn() {
+  if(stone.classList!='stone-animation'){
+  setInterval ( function() {
+    stone.style.display = 'block';
+  stone.classList.add('stone-animation');
+}, 3000);
+  }else{
+setTimeout( function() {
+  stone.classList.remove('stone-animation'); 
+}, 30);
+  }
+};
+
+stoneInl = setInterval ( function() {
+  stoneAtn();
+}, 3000);
+
+
+//Анимация прыжка
+
+let jumpSet = null;
+function jumpOn() {
+document.onkeydown = function jump(event) {
+  if(hedgehog.classList != 'jump') {
+    hedgehog.classList.add('jump'); 
+    playJumpSoundPlay();
+  }
+  jumpSet = setTimeout( function() {
+    hedgehog.classList.remove('jump'); 
+  }, 300)
 }
+  
+}
+
+
+//Game Over
 
 let countLs = 1;
-function drawSym(item, sym = user_sym){
+function setCountLs () {
+  if(countLs === 10){
+    countLs = 1;
+  }
+};
+setCountLs ();
+let live = null;
+const gameContainer = document.querySelector('.game-container');
+const playAgain = document.querySelector('.play-again');
+const viewPlayEndScore = document.querySelector('.view-play-end-score');
+function gameOver() {
+live = setInterval (function() {
   const timeLocal = new Date();
-    const currentTime = timeLocal.toLocaleTimeString();
-	if (item.hasChildNodes()) return false;
-	item.innerHTML = sym;
-	
-	let winner = checkWinner();
-
-	if (sym == user_sym && !winner)
-		autoDraw();
-
-
-	if ((winner == user_sym) && (countLs<10)) {
-		winText.innerHTML = "You Win!";
-		winText.style.color = "green";
-    localStorage.setItem(countLs, `You Win! (${currentTime})`);
-    lSitems();
-    countLs++;
-	}
-  if ((winner == user_sym) && (countLs===10)) {
-		winText.innerHTML = "You Win!";
-		winText.style.color = "green";
-    localStorage.setItem(countLs, `You Win! (${currentTime})`);
-    countLs=1;
-    lSitems();
-  }else if (winner == comp_sym) {
-		winText.innerHTML = "Win CPU!";
-		winText.style.color = "red";
-    localStorage.setItem(countLs, `Win CPU! (${currentTime})`);
-    lSitems();
-    countLs++;
+  const currentTime = timeLocal.toLocaleTimeString();
+  let hedgehogTop = parseInt(window.getComputedStyle(hedgehog).getPropertyValue("top"));
+  let stoneLeft = parseInt(window.getComputedStyle(stone).getPropertyValue("left"));
+  if((stoneLeft <= 60) && (stoneLeft > 0) && (hedgehogTop >= 135 ) && (countLs<11)) {
+    playStoneSoundPlay();
+    clearInterval(live);
+    scoreSpan.innerHTML = scoreCount;
+    localStorage.setItem(countLs, `You Score: ${scoreCount} (data time: ${currentTime})`);
     
-	}
-	if (winner) {
-		winning.style.display = "block";
-		win_block.style.display = "block";
-	}
-	return true;
-}
-
-function checkWinner(){
-	let winner = "";
-	let j = 0;
-
-
-	let xy_1_1 = arr[0].innerHTML;
-	let xy_1_2 = arr[4].innerHTML;
-	let xy_1_3 = arr[8].innerHTML;
-
-	let xy_2_1 = arr[2].innerHTML;
-	let xy_2_2 = arr[4].innerHTML;
-	let xy_2_3 = arr[6].innerHTML;
-
-	if ((xy_1_1 && xy_1_2 && xy_1_3) || (xy_2_1 && xy_2_2 && xy_2_3)) {
-
-		if (xy_1_1 == user_sym && xy_1_2 == user_sym && xy_1_3 == user_sym) {
-			winner = user_sym;
-		}
-		else if(xy_1_1 == comp_sym && xy_1_2 == comp_sym && xy_1_3 == comp_sym){
-			winner = comp_sym;
-		}
-
-
-		if (xy_2_1 == user_sym && xy_2_2 == user_sym && xy_2_3 == user_sym) {
-			winner = user_sym;
-		}
-		else if(xy_2_1 == comp_sym && xy_2_2 == comp_sym && xy_2_3 == comp_sym){
-			winner = comp_sym;
-		}
-	}
-
-	if (!winner){
-		for(let i = 0; i < 3; i++){
-
-
-			let a1 = arr[i].innerHTML;
-			let a2 = arr[i + 3].innerHTML;
-			let a3 = arr[i + 6].innerHTML;
-
-			let b1 = arr[i].innerHTML;
-			let b2 = arr[i + 1].innerHTML;
-			let b3 = arr[i + 2].innerHTML;
-
-			if (a1 == user_sym && a2 == user_sym && a3 == user_sym) {
-				winner = user_sym;
-				break;
-			}
-			else if(a1 == comp_sym && a2 == comp_sym && a3 == comp_sym){
-				winner = comp_sym;
-				break;
-			}
-
-
-			if (i != 0) j = 3*i;
-
-			b1 = arr[j].innerHTML;
-			b2 = arr[j + 1].innerHTML;
-			b3 = arr[j + 2].innerHTML;
-
-			if (b1 == user_sym && b2 == user_sym && b3 == user_sym) {
-				winner = user_sym;
-				break;
-			}
-			else if(b1 == comp_sym && b2 == comp_sym && b3 == comp_sym){
-				winner = comp_sym;
-				break;
-			}
-			if (winner) 
-				break;
-		}
-	}
-
-	return winner;
-}
-
-function autoDraw(){
-
-	if (!ckeckFreeSpace()) {
-		
-		winText.innerHTML = "Win CPU! ";
-		winText.style.color = "blue";
-		winning.style.display = "block";
-		win_block.style.display = "block";
-    localStorage.setItem(countLs, `Win CPU! (${currentTime})`);
+    gameContainer.classList.add('game-container-active');
+    playAgain.classList.add('play-again-active');
     lSitems();
-    countLs++;
-    
-
-		return false;
-	}
-	let el, rnd;
-
-	do{
-		rnd = getRandomInt(arr.length);
-		el = arr[rnd];
-	}while(!drawSym(el, comp_sym));
-
-	if (!ckeckFreeSpace()) {
-		autoDraw();
-	}
+    clearInterval(appleInl);
+    clearInterval(loopAppleScore);
+    clearInterval(boletusInl);
+    clearInterval(loopBoletusScore);
+    clearInterval(flyagaricInl);
+    clearInterval(loopFlyagaricScore);
+    apple.style.display = 'none';
+    boletus.style.display = 'none';
+    flyagaric.style.display = 'none';
+    stone.style.display = 'none';
+    hedgehog.style.display = 'none';
+    viewPlayEndScore.innerHTML = `Game over!!! You score: ${scoreCount}`;
+    scoreCount = 0;
+    backgroundSound.pause(); 
+    jumpSound.pause();
+    playGameOverSoundPlay();  
 }
+},5)
+};
 
-function clearTable(){
-	for(let i = 0; i < arr.length; i++){
-		arr[i].innerHTML =  "";
-	}
-}
-
-function ckeckFreeSpace(){
-	let result = false;
-
-	for(let i = 0; i < arr.length; i++){
-		if (arr[i].hasChildNodes()){
-			result = false;
-		}else{
-			result = true;
-			break;
-		}
-	}
-
-	return result;
-}
-
-function getRandomInt(max){
-	return Math.floor(Math.random() * max);
-}
-
-function addHandler(el, ev, func ){
-	try{
-		el.addEventListener(ev, func, false);
-	}
-	catch(e){
-		el.attachEvent("on"+ev, func);
-	}
-}
-
-function removerEvent(el, ev, func){
-	try{
-		el.removeEventListener(ev, func, false);
-
-	}catch(x){
-		el.detachEvent("on"+ev, func);
-		
-	}
-}
-
+const resultsTable = document.querySelector('.results-table');
 function lSitems() {
     if (localStorage.getItem(countLs)) {
       const listItem = document.createElement('div');
@@ -247,3 +233,146 @@ resultsTableOutsideClickWrapper.addEventListener('click', () => {
   resultsTableWrapper.classList.remove('results-table-wrapper-open');
   resultsTableOutsideClickWrapper.classList.remove('results-table-outside-click-wrapper-active');
 });
+
+
+// подсчет общего score
+
+let scoreInterval = setInterval ( function() {
+  scoreSpan.innerHTML = scoreCount;
+  }, 10);
+
+  
+// `Play again` и `Play` button
+
+const playGe =  document.querySelector('.play-game');
+window.addEventListener('load', () => {
+  gameContainer.classList.add('game-container-active');
+  playGe.classList.add('play-game-active');
+});
+
+playGe.addEventListener('click', () => {
+  playGame();
+  jumpOn();
+  hedgehog.style.display = 'block';
+  viewPlayEndScore.innerHTML = '';
+})
+
+function playGame() {
+  backgroundSoundPlay();
+gameContainer.classList.remove('game-container-active');
+  playAgain.classList.remove('play-again-active');
+  playGe.classList.remove('play-game-active');
+  hedgehog.style.display = 'block';
+  jumpOn();
+  viewPlayEndScore.innerHTML = '';
+
+appleInl = setInterval ( function() {
+  appleAtn();
+  stone.style.display = 'block';
+}, 3000);
+
+loopAppleScore = setInterval ( function() {
+  clearInterval(setScore);
+  appleSetScore();
+}, 3000);
+
+boletusInl = setInterval ( function() {
+  boletusAtn();
+}, 4000);
+
+loopBoletusScore = setInterval ( function() {
+  clearInterval(setBoletusScore);
+  boletusSetScore();
+}, 3000);
+
+flyagaricInl = setInterval ( function() {
+  flyagaricAtn();
+}, 6000);
+
+loopFlyagaricScore = setInterval ( function() {
+  clearInterval(setFlyagaricScore);
+  flyagaricSetScore();
+}, 3000);
+
+gameOver();
+};
+
+playAgain.addEventListener('click', () => {
+  
+  playGame();
+  stone.style.display = 'block';
+  backgroundSoundPlay();
+  countLs++;
+});
+
+
+// background audio 
+
+const backgroundSound = new Audio();
+
+function backgroundSoundPlay(){
+  backgroundSound.src = './assets/mp3/background-sound.mp3';
+  playBackgrounSound();
+};
+
+function playBackgrounSound() {
+  backgroundSound.play();
+};
+
+
+// get item audio 
+
+const getItemSound = new Audio();
+
+function playGetItemSoundPlay(){
+  getItemSound.src = './assets/mp3/get-item.mp3';
+  playGetItemSound();
+};
+
+function playGetItemSound() {
+  getItemSound.play();
+};
+
+const flyagaricSound = new Audio();
+
+function playflyagaricSoundPlay(){
+  flyagaricSound.src = './assets/mp3/flyagaric.mp3';
+  playАlyagaricSound();
+};
+
+function playАlyagaricSound() {
+  flyagaricSound.play();
+};
+
+const stoneSound = new Audio();
+
+function playStoneSoundPlay(){
+  stoneSound.src = './assets/mp3/stone.mp3';
+  playStoneSound();
+};
+
+function playStoneSound() {
+  stoneSound.play();
+};
+
+const jumpSound = new Audio();
+
+function playJumpSoundPlay(){
+  jumpSound.src = './assets/mp3/jump.mp3';
+  playJumpSound();
+};
+
+function playJumpSound() {
+  jumpSound.play();
+};
+
+const gameOverSound = new Audio();
+
+function playGameOverSoundPlay(){
+  gameOverSound.src = './assets/mp3/game-over.mp3';
+  playGameOverSound();
+};
+
+function playGameOverSound() {
+  gameOverSound.play();
+};

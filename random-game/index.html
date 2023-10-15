@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random game</title>
+    <title>Random game: Hedgehog in the fog</title>
     <script src="./js/index.js" defer></script>
     <link rel="icon" type="image/x-icon" href="./assets/ico/favicon.ico">
     <link rel="stylesheet" href="./css/style.css">
@@ -14,56 +14,34 @@
     <header>
       <div class="header-list">
         <div class="header-list-item">Results table</div>
+        <div class="score-points-info">Score points info:</div>
+        <div class="score-info">
+          <div class="apple-info">
+            <div class="apple-info-img"></div>
+            <div class="apple-info-score"> &nbsp;+ 20 poins</div>
+          </div>
+          <div class="boletus-info">
+            <div class="boletus-info-img"></div>
+            <div class="boletus-info-score"> &nbsp;+ 60 poins</div>
+          </div>
+          <div class="flyagaric-info">
+            <div class="flyagaric-info-img"></div>
+            <div class="flyagaric-info-score"> &nbsp;- 80 poins</div>
+          </div>
+        </div>
       </div>
     </header>
     <main class="main">
       <div class="game-container">
-        <h1>Tic Tac Toe</h1>
-        <div id="game">
-          <div class="table">
-            <table cellpadding="0" cellspacing="0">
-              <tr>
-                <td>
-                  <div class="cell"></div>
-                </td>
-                <td>
-                  <div class="cell"></div>
-                </td>
-                <td>
-                  <div class="cell"></div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="cell"></div>
-                </td>
-                <td>
-                  <div class="cell"></div>
-                </td>
-                <td>
-                  <div class="cell"></div>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div class="cell"></div>
-                </td>
-                <td>
-                  <div class="cell"></div>
-                </td>
-                <td>
-                  <div class="cell"></div>
-                </td>
-              </tr>
-            </table>
-            <div class="winning"></div>
-          </div>
-          <div id="win_block">
-            <span class="winner"></span>
-            <span class="win-text"></span>
-            <button type="button" class="again">Play again</button>
-          </div>
-        </div>
+        <div class="play-game">Play</div>
+        <div class="view-play-end-score"></div>
+        <div class="play-again">Play again</div>
+        <div class="score-container">score:<span class="score"></span></div>
+        <div id="hedgehog"></div>
+        <div id="stone"></div>
+        <div id="apple"></div>
+        <div id="boletus"></div>
+        <div id="flyagaric"></div>
       </div>
     </main>
     <footer class="footer">
