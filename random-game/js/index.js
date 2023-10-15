@@ -27,6 +27,7 @@ let stoneInl = null;
 function appleAtn() {
   if(apple.classList!='fruit-animation'){
   setInterval ( function() {
+    
     apple.classList.add('fruit-animation');
 }, 1000);
   }else{
@@ -222,6 +223,7 @@ live = setInterval (function() {
     viewPlayEndScore.innerHTML = `Game over!!! You score: ${scoreCount}`;
     scoreCount = 0;
     backgroundSound.pause();
+    playGameOverSoundPlay();
 
 }
 },5)
@@ -376,5 +378,15 @@ function playJumpSoundPlay(){
 
 function playJumpSound() {
   jumpSound.play();
+};
+
+const gameOverSound = new Audio();
+function playGameOverSoundPlay(){
+  gameOverSound.src = './assets/mp3/game-over.mp3';
+  playGameOverSound();
+};
+
+function playGameOverSound() {
+  gameOverSound.play();
 };
 
