@@ -162,6 +162,7 @@ h1 {
   background-image: url(../assets/img/forest-background.jpg);
   background-size: cover;
   background-position: bottom;
+  border-radius: 5px;
   overflow: hidden;
   z-index: 90;
 }
