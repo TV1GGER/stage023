@@ -70,3 +70,26 @@ setTimeout( function() {
 }, 30);
   }
 };
+
+
+// очки за боровик
+let setBoletusScore = null;
+function boletusSetScore() {
+  console.log(scoreCount);
+setBoletusScore = setInterval ( function() {
+
+  let hedgehogTop3 = /*hedgehog.getBoundingClientRect();*/ parseInt(window.getComputedStyle(hedgehog).getPropertyValue("top"));
+  let boletusLeft = /*apple.getBoundingClientRect(); */ parseInt(window.getComputedStyle(boletus).getPropertyValue("left"));
+  //console.log(hedgehogTop.top);
+  
+  if((boletusLeft/*.left*/ <= 100) && (boletusLeft/*.left*/ > 0) && (hedgehogTop3/*.top */<= 100) && (hedgehogTop3/*.top*/ >= 10)) {
+    
+    clearInterval(setBoletusScore);
+    scoreCount = scoreCount + 60;
+    
+  }
+}, 5);
+
+};
+
+
