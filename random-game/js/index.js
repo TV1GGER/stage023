@@ -35,3 +35,25 @@ setTimeout( function() {
 }, 30);
   }
 };
+
+//Очки за яблоко
+let setScore = null;
+function appleSetScore() {
+  console.log(scoreCount);
+setScore = setInterval ( function() {
+
+  let hedgehogTop2 = /*hedgehog.getBoundingClientRect();*/ parseInt(window.getComputedStyle(hedgehog).getPropertyValue("top"));
+  let appleLeft = /*apple.getBoundingClientRect(); */ parseInt(window.getComputedStyle(apple).getPropertyValue("left"));
+  //console.log(hedgehogTop.top);
+  
+  if((appleLeft/*.left*/ <= 100) && (appleLeft/*.left*/ > 0) && (hedgehogTop2/*.top */<= 100) && (hedgehogTop2/*.top*/ >= 10)) {
+    
+    clearInterval(setScore);
+    scoreCount = scoreCount + 20;
+    
+  }
+}, 5);
+
+};
+
+
