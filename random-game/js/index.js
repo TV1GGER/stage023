@@ -148,6 +148,22 @@ stoneInl = setInterval ( function() {
   stoneAtn();
 }, 3000);
 
+//Анимация прыжка
+let jumpSet = null;
+function jumpOn() {
+
+document.onkeydown = function jump(event) {
+  if(hedgehog.classList != 'jump') {
+    hedgehog.classList.add('jump'); 
+  }
+  jumpSet = setTimeout( function() {
+    hedgehog.classList.remove('jump'); 
+  }, 300)
+  //console.log(event);
+}
+  
+}
+
 
 
 
