@@ -164,6 +164,68 @@ document.onkeydown = function jump(event) {
   
 }
 
+//Game Over
+let countLs = 1;
+
+function setCountLs () {
+  if(countLs === 10){
+    countLs = 1;
+  }
+};
+
+setCountLs ();
+
+let live = null;
+const gameContainer = document.querySelector('.game-container');
+const playAgain = document.querySelector('.play-again');
+const viewPlayEndScore = document.querySelector('.view-play-end-score');
+function gameOver() {
+
+live = setInterval (function() {
+  const timeLocal = new Date();
+  const currentTime = timeLocal.toLocaleTimeString();
+  let hedgehogTop = /*hedgehog.getBoundingClientRect();*/ parseInt(window.getComputedStyle(hedgehog).getPropertyValue("top"));
+  let stoneLeft = parseInt(window.getComputedStyle(stone).getPropertyValue("left"));
+  if((stoneLeft <= 60) && (stoneLeft > 0) && (hedgehogTop/*.top*/ >= 135 ) && (countLs<11)) {
+    //console.log(hedgehogTop.top); 
+    clearInterval(live);
+    scoreSpan.innerHTML = scoreCount;
+    localStorage.setItem(countLs, `You Score: ${scoreCount} (data time: ${currentTime})`);
+    
+    gameContainer.classList.add('game-container-active');
+    /*gameContainer.style.backgroundImage = 'none';
+    gameContainer.style.backgroundColor = 'white';
+    gameContainer.style.zIndex = '60';
+    gameContainer.innerHTML = `Game over!!! You score: ${scoreCount}`
+    gameContainer.style.textAlign = 'center';*/
+    playAgain.classList.add('play-again-active');
+    /*const gameOverItem = document.createElement('div');
+    gameOverItem.classList.add('play-again');
+    gameOverItem.innerHTML = 'play again';
+    gameOverItem.style.padding = '5px';
+    gameContainer.appendChild(gameOverItem);*/
+    lSitems();
+    countLs++;
+    /*apple.classList.remove('fruit-animation');
+    boletus.classList.remove('boletus-animation'); */
+    clearInterval(appleInl);
+    clearInterval(loopAppleScore);
+    clearInterval(boletusInl);
+    clearInterval(loopBoletusScore);
+    clearInterval(flyagaricInl);
+    clearInterval(loopFlyagaricScore);
+    stone.style.display = 'none';
+    //clearInterval(stoneInl);
+    hedgehog.style.display = 'none';
+    viewPlayEndScore.innerHTML = `Game over!!! You score: ${scoreCount}`;
+    scoreCount = 0;
+    
+
+}
+},5)
+
+};
+
 
 
 const resultsTable = document.querySelector('.results-table');
