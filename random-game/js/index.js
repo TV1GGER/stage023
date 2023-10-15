@@ -27,7 +27,7 @@ let stoneInl = null;
 function appleAtn() {
   if(apple.classList!='fruit-animation'){
   setInterval ( function() {
-    
+    apple.style.display = 'block';
     apple.classList.add('fruit-animation');
 }, 1000);
   }else{
@@ -51,6 +51,7 @@ setScore = setInterval ( function() {
     
     clearInterval(setScore);
     scoreCount = scoreCount + 20;
+    apple.style.display = 'none';
     playGetItemSoundPlay();
   }
 }, 5);
@@ -63,6 +64,7 @@ setScore = setInterval ( function() {
 function boletusAtn() {
   if(boletus.classList!='boletus-animation'){
   setInterval ( function() {
+    boletus.style.display = 'block';
     boletus.classList.add('boletus-animation');
 }, 1000);
   }else{
@@ -87,6 +89,7 @@ setBoletusScore = setInterval ( function() {
     
     clearInterval(setBoletusScore);
     scoreCount = scoreCount + 60;
+    boletus.style.display = 'none';
     playGetItemSoundPlay();
   }
 }, 5);
@@ -98,6 +101,7 @@ setBoletusScore = setInterval ( function() {
 function flyagaricAtn() {
   if(flyagaric.classList!='flyagaric-animation'){
   setInterval ( function() {
+    flyagaric.style.display = 'block';
     flyagaric.classList.add('flyagaric-animation');
 }, 1000);
   }else{
@@ -122,8 +126,10 @@ setFlyagaricScore = setInterval ( function() {
     clearInterval(setFlyagaricScore);
     if(scoreCount > 80) {
       scoreCount = scoreCount - 80;
+      flyagaric.style.display = 'none';
     }else{
       scoreCount = 0;
+      flyagaric.style.display = 'none';
     }
     
     playflyagaricSoundPlay()
@@ -136,6 +142,7 @@ setFlyagaricScore = setInterval ( function() {
 function stoneAtn() {
   if(stone.classList!='stone-animation'){
   setInterval ( function() {
+    stone.style.display = 'block';
   stone.classList.add('stone-animation');
 }, 3000);
   }else{
@@ -217,6 +224,9 @@ live = setInterval (function() {
     clearInterval(loopBoletusScore);
     clearInterval(flyagaricInl);
     clearInterval(loopFlyagaricScore);
+    apple.style.display = 'none';
+    boletus.style.display = 'none';
+    flyagaric.style.display = 'none';
     stone.style.display = 'none';
     //clearInterval(stoneInl);
     hedgehog.style.display = 'none';
