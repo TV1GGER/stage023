@@ -110,7 +110,6 @@ html {
   height: 15px;
   background-image: url(../assets/img/boletus.png);
   background-size: cover;
-  background-position: center;
   overflow: hidden;
   background-color: none;
 }
@@ -120,7 +119,6 @@ html {
   height: 15px;
   background-image: url(../assets/img/flyagaric.png);
   background-size: cover;
-  background-position: center;
   overflow: hidden;
   background-color: none;
 }
