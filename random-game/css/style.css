@@ -384,7 +384,9 @@ h1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  height: 3.5vw;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   border-radius: 5vw;
   border: 0.1vw solid white;
   margin-bottom: 1vw;
@@ -398,12 +400,14 @@ h1 {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin: auto;
   gap: 30vw;
   padding-left: 1vw;
@@ -419,7 +423,8 @@ h1 {
 
 .footer-rss-logo {
   width: 5vw;
-  height: 2vw;
+  max-height: 2vw;
+  height: 100%;
   cursor: pointer;
   -webkit-transition: 0.4s;
   transition: 0.4s;
