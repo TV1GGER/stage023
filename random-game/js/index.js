@@ -155,6 +155,7 @@ function jumpOn() {
 document.onkeydown = function jump(event) {
   if(hedgehog.classList != 'jump') {
     hedgehog.classList.add('jump'); 
+    playJumpSoundPlay();
   }
   jumpSet = setTimeout( function() {
     hedgehog.classList.remove('jump'); 
@@ -188,6 +189,7 @@ live = setInterval (function() {
   let stoneLeft = parseInt(window.getComputedStyle(stone).getPropertyValue("left"));
   if((stoneLeft <= 60) && (stoneLeft > 0) && (hedgehogTop/*.top*/ >= 135 ) && (countLs<11)) {
     //console.log(hedgehogTop.top); 
+    playStoneSoundPlay();
     clearInterval(live);
     scoreSpan.innerHTML = scoreCount;
     localStorage.setItem(countLs, `You Score: ${scoreCount} (data time: ${currentTime})`);
@@ -354,5 +356,25 @@ function playflyagaricSoundPlay(){
 
 function playАlyagaricSound() {
   flyagaricSound.play();
+};
+
+const stoneSound = new Audio();
+function playStoneSoundPlay(){
+  stoneSound.src = './assets/mp3/stone.mp3';
+  playStoneSound();
+};
+
+function playStoneSound() {
+  stoneSound.play();
+};
+
+const jumpSound = new Audio();
+function playJumpSoundPlay(){
+  jumpSound.src = './assets/mp3/jump.mp3';
+  playJumpSound();
+};
+
+function playJumpSound() {
+  jumpSound.play();
 };
 
