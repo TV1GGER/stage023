@@ -279,7 +279,7 @@ h1 {
 
 .footer {
   display: flex;
-  height: 3.5vw;
+  height: fit-content;
   border-radius: 5vw;
   border: 0.1vw solid white;
   margin-bottom: 1vw;
@@ -288,8 +288,9 @@ h1 {
 .footer-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   margin: auto;
   gap: 30vw;
   padding-left: 1vw;
@@ -305,7 +306,8 @@ h1 {
 
 .footer-rss-logo {
   width: 5vw;
-  height: 2vw;
+  max-height: 2vw;
+  height: 100%;
   cursor: pointer;
   -webkit-transition: 0.4s;
   transition: 0.4s;
