@@ -64,102 +64,161 @@ h1 {
 
 .game-container {
   width: 600px;
-  min-height: 350px;
-  border: 1px solid #000;
-  border-radius: 10px;
+  height: 200px;
+  border-bottom: 1px solid #000;
   margin: auto;
+  background-image: url(../assets/img/forest-background.jpg);
+  background-size: cover;
+  background-position: bottom;
   overflow: hidden;
-  padding-top: 40px;
-  padding-bottom: 40px;
-  background-color: white;
-  filter: drop-shadow(0vw 0.3vw 0.3vw #0ef613);
+  z-index: 90;
 }
 
-.cell {
-	width: 50px;
-	height: 50px;
-	font-size: 20px;
-  color: #0ef613;
-	line-height: 50px;
-	text-align: center;
-	text-transform: uppercase;
-	border: 1px solid #333;
-  border-radius: 4px;
-	margin: 5px;
-	cursor: pointer;
-	box-shadow: 3px 4px 1px 2px rgba(1,1,1, 0.1);
+.game-container-active {
+  background-image: none;
+  background-color: #FFF;
+  text-align: center;
+  z-index: 90;
 }
 
-.cell:hover {
-  box-shadow: 3px 4px 1px 2px #0ef613;
+#hedgehog {
+  width: 50px;
+  height: 50px;
+  background-image: url(../assets/img/hedgehog.png);
+  background-size: 50px 50px;
+  position: relative;
+  top: 145px;
+  left: 50px;
+  //animation: firstLeft .4s ease-in-out;
 }
 
-#win_block {
-	display: none;
-	text-align: center;
-	padding-top: 20px;
-	font-size: 20px;
-}
-#win_block .again{
-  display: block;
-	font-weight: bold;
-  margin: 0 auto;
-  background-color: #000;
-  color: #15ff00;
-  border-radius: 6px;
-  transition: .3s;
-	cursor: pointer;
-  animation: 2s infinite linear again-atn;
-}
-
-@keyframes again-atn {
+@keyframes firstLeft {
   0% {
-    scale: 1;
-  }
-  50% {
-    scale: 1.2;
+    left: 0px;
   }
   100% {
-    scale: 1;
+    left: 50px;
   }
 }
 
-#win_block .again:hover{
-  transform: scale(1.2);
-	border-color: transparent;
-	
+#stone {
+  width: 40px;
+  height: 60px;
+  background-image: url(../assets/img/stone.png);
+  background-size: 40px 60px;
+  position: relative;
+  top: 92px;
+  left: 600px;
 }
 
-#game {
-	position: relative;
-}
-#game .table{
-	display: table;
-	
-	margin: 0 auto;
-	position: relative;
-}
-#game .table .winning{
-	display: none;
-	width: 100%;
-	height: 100%;
-
-	position: absolute;
-	top: 0;
-	left: 0;
+.stone-animation {
+  animation: stoneMov 2.0s linear;
 }
 
-#game table tr:first-child div {
-	margin-top: 0;
+@keyframes stoneMov {
+  0% {
+    left: 600px;
+  }
+  100% {
+    left: -400px;
+  }
 }
-#game table tr:last-child div {
-	margin-bottom: 0;
+
+.jump {
+  animation: jump .35s linear;
 }
-#game table tr td:first-child div {
-	margin-left: 0;
+
+@keyframes jump {
+  0% {
+    top: 130px;
+  }
+  30% {
+    top: 30%;
+  }
+  50% {
+    top: 10px;
+  }
+  80% {
+    top: 30px;
+  }
+  100% {
+    top: 130px;
+  }
 }
-#game table tr td:last-child div {
-	margin-right: 0;
+
+#apple {
+  width: 15px;
+  height: 15px;
+  background-image: url(../assets/img/apple.png);
+  background-size: 15px 15px;
+  position: relative;
+  top: -10px;
+  left: 600px;
+}
+
+#boletus {
+  width: 15px;
+  height: 15px;
+  background-image: url(../assets/img/boletus.png);
+  background-size: 15px 15px;
+  position: relative;
+  top: 0px;
+  left: 600px;
+}
+.boletus-animation {
+  animation: boletusMov 4.0s linear;
+}
+
+@keyframes boletusMov {
+  0% {
+    left: 600px;
+  }
+  100% {
+    left: -400px;
+  }
+}
+
+#flyagaric {
+  width: 15px;
+  height: 15px;
+  background-image: url(../assets/img/flyagaric.png);
+  background-size: 15px 15px;
+  position: relative;
+  top: -15px;
+  left: 600px;
+}
+
+.flyagaric-animation {
+  animation: flyagaricMov 2.0s linear;
+}
+
+@keyframes flyagaricMov {
+  0% {
+    left: 600px;
+  }
+  100% {
+    left: -400px;
+  }
+}
+
+.fruit-animation {
+  animation: fruitMov 3.2s linear;
+}
+
+@keyframes fruitMov {
+  0% {
+    left: 600px;
+  }
+  100% {
+    left: -400px;
+  }
+}
+
+.score-container {
+  position: absolute;
+  width: fit-content;
+  height: fit-content;
+  color: white;
 }
 
 .footer {
@@ -229,7 +288,8 @@ color: white;
   flex-direction: column;
   justify-content: space-between;
   background-color: #FFF;
-  z-index:60;
+  color: #000;
+  z-index:80;
 }
 
 .results-table-wrapper {
@@ -244,6 +304,7 @@ color: white;
   visibility: hidden;
   opacity: 0;
   transition: 0.4s;
+  z-index:90;
 }
 
 .results-table-outside-click-wrapper {
@@ -275,4 +336,52 @@ color: white;
   font-weight: 800;
   text-align: center;
   margin: 0 auto;
+}
+
+.game-over {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: block;
+  background-color: white;
+}
+
+.play-again {
+  display: none;
+  width: fit-content;
+  color: #ffffff;
+  background-color: #000;
+  margin: 2vw auto;
+  z-index: 70;
+  padding: 5px;
+  border-radius: 0.4vw;
+  cursor: pointer;
+  transition: .3s;
+  &:hover{
+    color: #0ef613;
+  }
+}
+
+.play-again-active {
+  display: block;
+}
+
+.play-game {
+  display: none;
+  width: fit-content;
+  color: #ffffff;
+  background-color: #000;
+  margin: 2vw auto;
+  z-index: 70;
+  padding: 5px;
+  border-radius: 0.4vw;
+  cursor: pointer;
+  transition: .3s;
+  &:hover{
+    color: #0ef613;
+  }
+}
+
+.play-game-active {
+  display: block;
 }
