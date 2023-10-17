@@ -15,6 +15,8 @@ let flyagaricInl = null;
 let loopFlyagaricScore = null;
 let stoneInl = null;
 
+let gameIsOver = true;
+
 
 //Анимация яблока
 
@@ -147,14 +149,18 @@ stoneInl = setInterval ( function() {
 let jumpSet = null;
 function jumpOn() {
 document.onkeydown = function jump(event) {
-  if(hedgehog.classList != 'jump') {
+  
+  if((hedgehog.classList != 'jump') && (gameIsOver === false)) {
     hedgehog.classList.add('jump'); 
-    playJumpSoundPlay();
+    playJumpSoundPlay();    
   }
   jumpSet = setTimeout( function() {
     hedgehog.classList.remove('jump'); 
   }, 300)
+
+  
 }
+
   
 }
 
@@ -162,13 +168,17 @@ function jumpOnTouch() {
   document.ontouchstart = function jumpTouch(event) {
     if(hedgehog.classList != 'jump') {
       hedgehog.classList.add('jump'); 
-      playJumpSoundPlay();
     }
     jumpSet = setTimeout( function() {
       hedgehog.classList.remove('jump'); 
     }, 300)
   }
-    
+  if(gameIsOver === true) {
+    playJumpSoundPlay();
+    gameIsOver = false;
+  }else{
+    jumpSound.pause();
+  }
   }
 
 
@@ -182,6 +192,7 @@ function setCountLs () {
 };
 setCountLs ();
 let live = null;
+
 const gameContainer = document.querySelector('.game-container');
 const playAgain = document.querySelector('.play-again');
 const viewPlayEndScore = document.querySelector('.view-play-end-score');
@@ -192,6 +203,7 @@ live = setInterval (function() {
   let hedgehogTop = parseInt(window.getComputedStyle(hedgehog).getPropertyValue("top"));
   let stoneLeft = parseInt(window.getComputedStyle(stone).getPropertyValue("left"));
   if((stoneLeft <= 60) && (stoneLeft > 0) && (hedgehogTop >= 135 ) && (countLs<11)) {
+    gameIsOver = true;
     playStoneSoundPlay();
     clearInterval(live);
     scoreSpan.innerHTML = scoreCount;
@@ -222,7 +234,6 @@ live = setInterval (function() {
     viewPlayEndScore.innerHTML = `Game over!!! You score: ${scoreCount}`;
     scoreCount = 0;
     backgroundSound.pause(); 
-    jumpSound.pause();
     playGameOverSoundPlay();  
 }
 },5)
@@ -280,6 +291,7 @@ playGe.addEventListener('click', () => {
 })
 
 function playGame() {
+  gameIsOver = false; 
   backgroundSoundPlay();
 gameContainer.classList.remove('game-container-active');
   playAgain.classList.remove('play-again-active');
