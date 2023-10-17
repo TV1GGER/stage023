@@ -37,6 +37,7 @@ setTimeout( function() {
 
 let setScore = null;
 function appleSetScore() {
+  apple.style.display = 'block';
 setScore = setInterval ( function() {
 
   let hedgehogTop2 = parseInt(window.getComputedStyle(hedgehog).getPropertyValue("top"));
@@ -72,6 +73,7 @@ setTimeout( function() {
 
 let setBoletusScore = null;
 function boletusSetScore() {
+  boletus.style.display = 'block';
 setBoletusScore = setInterval ( function() {
   let hedgehogTop3 = parseInt(window.getComputedStyle(hedgehog).getPropertyValue("top"));
   let boletusLeft = parseInt(window.getComputedStyle(boletus).getPropertyValue("left"));
@@ -104,6 +106,7 @@ setTimeout( function() {
 // очки за мухомор
 let setFlyagaricScore = null;
 function flyagaricSetScore() {
+  flyagaric.style.display = 'block';
 setFlyagaricScore = setInterval ( function() {
 
   let hedgehogTop4 = parseInt(window.getComputedStyle(hedgehog).getPropertyValue("top"));
@@ -209,20 +212,20 @@ live = setInterval (function() {
     clearInterval(live);
     scoreSpan.innerHTML = scoreCount;
     localStorage.setItem(countLs, `You Score: ${scoreCount} (data time: ${currentTime})`);
-  appleInl = null;
+  /*appleInl = null;
   loopAppleScore = null;
   boletusInl = null;
   loopBoletusScore = null;
   flyagaricInl = null;
   loopFlyagaricScore = null;
-  stoneInl = null;
+  stoneInl = null;*/
     clearInterval(appleInl);
     clearInterval(loopAppleScore);
     clearInterval(boletusInl);
     clearInterval(loopBoletusScore);
     clearInterval(flyagaricInl);
     clearInterval(loopFlyagaricScore);
-    apple.classList.remove('fruit-animation');
+    /*apple.classList.remove('fruit-animation');*/
     gameContainer.classList.add('game-container-active');
     playAgain.classList.add('play-again-active');
     apple.style.display = 'none';
@@ -290,15 +293,15 @@ playGe.addEventListener('click', () => {
   playGame();
   jumpOn();
   jumpOnTouch();
+  viewPlayEndScore.innerHTML = '';
+})
+
+function playGame() {
   hedgehog.style.display = 'block';
   apple.style.display = 'block';
   boletus.style.display = 'block';
   flyagaric.style.display = 'block';
   stone.style.display = 'block';
-  viewPlayEndScore.innerHTML = '';
-})
-
-function playGame() {
   gameIsOver = false; 
   backgroundSoundPlay();
 gameContainer.classList.remove('game-container-active');
@@ -340,12 +343,7 @@ gameOver();
 };
 
 playAgain.addEventListener('click', () => {
-  
   playGame();
-  apple.style.display = 'block';
-  boletus.style.display = 'block';
-  flyagaric.style.display = 'block';
-  stone.style.display = 'block';
   backgroundSoundPlay();
   countLs++;
 });
