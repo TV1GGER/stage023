@@ -245,12 +245,15 @@ live = setInterval (function() {
 // Results table
 
 const resultsTable = document.querySelector('.results-table');
-let storageItemCount = 1;
+
+//console.log(storageItemCount);
 function loadDaraFromStorage() {
+  let storageItemCount = 1;
   for(let b = 1; b < 11; b++) {
-if ((localStorage.getItem(storageItemCount)) && (storageItemCount < 11)) {
+if ((localStorage.getItem(b)) && (storageItemCount < 11)) {
   const listItem = document.createElement('div');
   listItem.classList.add('list-item');
+  listItem.id = storageItemCount;
   listItem.innerHTML = storageItemCount+'.'+ ' ' + localStorage.getItem(storageItemCount);
       resultsTable.appendChild(listItem);
       storageItemCount++;
@@ -270,7 +273,13 @@ headerListItem.addEventListener('click', () => {
 resultsTableOutsideClickWrapper.addEventListener('click', () => {
   resultsTableWrapper.classList.remove('results-table-wrapper-open');
   resultsTableOutsideClickWrapper.classList.remove('results-table-outside-click-wrapper-active');
-});
+
+  for (let m = 0; m < 11; m++){
+    if(document.getElementById(m)){
+      resultsTable.removeChild(document.getElementById(m));
+    }
+  }
+  });
 
 
 // подсчет общего score
