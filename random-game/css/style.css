@@ -25,6 +25,10 @@ html {
   padding: 0;
 }
 
+h1 {
+  color: #FFF;
+}
+
 .header-list {
   display: -webkit-box;
   display: -ms-flexbox;
