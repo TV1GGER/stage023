@@ -209,7 +209,6 @@ live = setInterval (function() {
     clearInterval(live);
     scoreSpan.innerHTML = scoreCount;
     localStorage.setItem(countLs, `You Score: ${scoreCount} (data time: ${currentTime})`);
-  scoreCount = 0;
   appleInl = null;
   loopAppleScore = null;
   boletusInl = null;
@@ -226,7 +225,6 @@ live = setInterval (function() {
     apple.classList.remove('fruit-animation');
     gameContainer.classList.add('game-container-active');
     playAgain.classList.add('play-again-active');
-    lSitems();
     apple.style.display = 'none';
     boletus.style.display = 'none';
     flyagaric.style.display = 'none';
@@ -240,14 +238,21 @@ live = setInterval (function() {
 },5)
 };
 
+
+// Results table
+
 const resultsTable = document.querySelector('.results-table');
-function lSitems() {
-    if (localStorage.getItem(countLs)) {
-      const listItem = document.createElement('div');
-      listItem.classList.add('list-item');
-      listItem.innerHTML = countLs+'.'+ ' ' + localStorage.getItem(countLs);
-          resultsTable.appendChild(listItem);
-      }
+let storageItemCount = 1;
+function loadDaraFromStorage() {
+  for(let b = 1; b < 11; b++) {
+if ((localStorage.getItem(storageItemCount)) && (storageItemCount < 11)) {
+  const listItem = document.createElement('div');
+  listItem.classList.add('list-item');
+  listItem.innerHTML = storageItemCount+'.'+ ' ' + localStorage.getItem(storageItemCount);
+      resultsTable.appendChild(listItem);
+      storageItemCount++;
+  }
+}
 };
 
 const headerListItem = document.querySelector('.header-list-item');
@@ -256,6 +261,7 @@ const resultsTableOutsideClickWrapper = document.querySelector('.results-table-o
 headerListItem.addEventListener('click', () => {
   resultsTableWrapper.classList.add('results-table-wrapper-open');
   resultsTableOutsideClickWrapper.classList.add('results-table-outside-click-wrapper-active');
+  loadDaraFromStorage();
 });
 
 resultsTableOutsideClickWrapper.addEventListener('click', () => {
@@ -272,6 +278,7 @@ let scoreInterval = setInterval ( function() {
 
   
 // `Play again` и `Play` button
+
 
 const playGe =  document.querySelector('.play-game');
 window.addEventListener('load', () => {
