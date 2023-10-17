@@ -166,8 +166,9 @@ document.onkeydown = function jump(event) {
 
 function jumpOnTouch() {
   document.ontouchstart = function jumpTouch(event) {
-    if(hedgehog.classList != 'jump') {
-      hedgehog.classList.add('jump'); 
+    if((hedgehog.classList != 'jump') && (gameIsOver === false)) {
+      hedgehog.classList.add('jump');
+      playJumpSoundPlay();  
     }
     jumpSet = setTimeout( function() {
       hedgehog.classList.remove('jump'); 
