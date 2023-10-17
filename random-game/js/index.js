@@ -15,13 +15,14 @@ let flyagaricInl = null;
 let loopFlyagaricScore = null;
 let stoneInl = null;
 
+let gameIsOver = true;
+
 
 //Анимация яблока
 
 function appleAtn() {
   if(apple.classList!='fruit-animation'){
-  setInterval ( function() {
-    apple.style.display = 'block';
+setInterval ( function() {
     apple.classList.add('fruit-animation');
 }, 1000);
   }else{
@@ -57,7 +58,6 @@ setScore = setInterval ( function() {
 function boletusAtn() {
   if(boletus.classList!='boletus-animation'){
   setInterval ( function() {
-    boletus.style.display = 'block';
     boletus.classList.add('boletus-animation');
 }, 1000);
   }else{
@@ -91,7 +91,6 @@ setBoletusScore = setInterval ( function() {
 function flyagaricAtn() {
   if(flyagaric.classList!='flyagaric-animation'){
   setInterval ( function() {
-    flyagaric.style.display = 'block';
     flyagaric.classList.add('flyagaric-animation');
 }, 1000);
   }else{
@@ -131,7 +130,6 @@ setFlyagaricScore = setInterval ( function() {
 function stoneAtn() {
   if(stone.classList!='stone-animation'){
   setInterval ( function() {
-    stone.style.display = 'block';
   stone.classList.add('stone-animation');
 }, 3000);
   }else{
@@ -151,14 +149,18 @@ stoneInl = setInterval ( function() {
 let jumpSet = null;
 function jumpOn() {
 document.onkeydown = function jump(event) {
-  if(hedgehog.classList != 'jump') {
+  
+  if((hedgehog.classList != 'jump') && (gameIsOver === false)) {
     hedgehog.classList.add('jump'); 
-    playJumpSoundPlay();
+    playJumpSoundPlay();    
   }
   jumpSet = setTimeout( function() {
     hedgehog.classList.remove('jump'); 
   }, 300)
+
+  
 }
+
   
 }
 
@@ -166,13 +168,17 @@ function jumpOnTouch() {
   document.ontouchstart = function jumpTouch(event) {
     if(hedgehog.classList != 'jump') {
       hedgehog.classList.add('jump'); 
-      playJumpSoundPlay();
     }
     jumpSet = setTimeout( function() {
       hedgehog.classList.remove('jump'); 
     }, 300)
   }
-    
+  if(gameIsOver === true) {
+    playJumpSoundPlay();
+    gameIsOver = false;
+  }else{
+    jumpSound.pause();
+  }
   }
 
 
@@ -186,6 +192,7 @@ function setCountLs () {
 };
 setCountLs ();
 let live = null;
+
 const gameContainer = document.querySelector('.game-container');
 const playAgain = document.querySelector('.play-again');
 const viewPlayEndScore = document.querySelector('.view-play-end-score');
@@ -196,20 +203,29 @@ live = setInterval (function() {
   let hedgehogTop = parseInt(window.getComputedStyle(hedgehog).getPropertyValue("top"));
   let stoneLeft = parseInt(window.getComputedStyle(stone).getPropertyValue("left"));
   if((stoneLeft <= 60) && (stoneLeft > 0) && (hedgehogTop >= 135 ) && (countLs<11)) {
+    gameIsOver = true;
     playStoneSoundPlay();
     clearInterval(live);
     scoreSpan.innerHTML = scoreCount;
     localStorage.setItem(countLs, `You Score: ${scoreCount} (data time: ${currentTime})`);
-    
-    gameContainer.classList.add('game-container-active');
-    playAgain.classList.add('play-again-active');
-    lSitems();
+  scoreCount = 0;
+  appleInl = null;
+  loopAppleScore = null;
+  boletusInl = null;
+  loopBoletusScore = null;
+  flyagaricInl = null;
+  loopFlyagaricScore = null;
+  stoneInl = null;
     clearInterval(appleInl);
     clearInterval(loopAppleScore);
     clearInterval(boletusInl);
     clearInterval(loopBoletusScore);
     clearInterval(flyagaricInl);
     clearInterval(loopFlyagaricScore);
+    apple.classList.remove('fruit-animation');
+    gameContainer.classList.add('game-container-active');
+    playAgain.classList.add('play-again-active');
+    lSitems();
     apple.style.display = 'none';
     boletus.style.display = 'none';
     flyagaric.style.display = 'none';
@@ -218,7 +234,6 @@ live = setInterval (function() {
     viewPlayEndScore.innerHTML = `Game over!!! You score: ${scoreCount}`;
     scoreCount = 0;
     backgroundSound.pause(); 
-    jumpSound.pause();
     playGameOverSoundPlay();  
 }
 },5)
@@ -268,10 +283,15 @@ playGe.addEventListener('click', () => {
   jumpOn();
   jumpOnTouch();
   hedgehog.style.display = 'block';
+  apple.style.display = 'block';
+  boletus.style.display = 'block';
+  flyagaric.style.display = 'block';
+  stone.style.display = 'block';
   viewPlayEndScore.innerHTML = '';
 })
 
 function playGame() {
+  gameIsOver = false; 
   backgroundSoundPlay();
 gameContainer.classList.remove('game-container-active');
   playAgain.classList.remove('play-again-active');
@@ -283,7 +303,6 @@ gameContainer.classList.remove('game-container-active');
 
 appleInl = setInterval ( function() {
   appleAtn();
-  stone.style.display = 'block';
 }, 3000);
 
 loopAppleScore = setInterval ( function() {
@@ -315,6 +334,9 @@ gameOver();
 playAgain.addEventListener('click', () => {
   
   playGame();
+  apple.style.display = 'block';
+  boletus.style.display = 'block';
+  flyagaric.style.display = 'block';
   stone.style.display = 'block';
   backgroundSoundPlay();
   countLs++;
